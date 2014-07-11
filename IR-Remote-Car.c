@@ -1,4 +1,3 @@
-#include <STC12C5A60S2.H>
 /*
 TA7267
 IN1 IN2 OUT1 OUT2
