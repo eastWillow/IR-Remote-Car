@@ -24,18 +24,18 @@ sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
 unsigned int servoMotorHighTime = 15000;
-void Delay1ms();
+void Delay100us();
 void setup();
 void main(){
 	/*setup();
 	TR0 = 1;// start Timer 0*/
 	while(1){
 	  unsigned int x,i;
-    for( x = 0; x < 1; x++){
+    for( x = 0; x < 100; x++){
     SERVOMOTOR1 = 0;
-    for ( i = 0;i < 15;i++) Delay1ms();
+    for ( i = 0;i < 100;i++) Delay100us();
     SERVOMOTOR1 = 1;
-    for ( i = 0;i < 5;i++) Delay1ms();
+    for ( i = 0;i < 15;i++) Delay100us();
     }
 	}
 }
@@ -64,13 +64,14 @@ void servoMotor () interrupt 1 {
 	}
 	TR0 = 1;
 }
-void Delay1ms()		//@12.000MHz
+void Delay100us()		//@12.000MHz
 {
 	unsigned char i, j;
+
 	_nop_();
 	_nop_();
-	i = 12;
-	j = 168;
+	i = 2;
+	j = 38;
 	do
 	{
 		while (--j);
