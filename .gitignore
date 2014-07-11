@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Object files
 *.o
 *.ko
@@ -26,3 +27,5 @@ IR-Remote-Car.plg
 IR-Remote-Car.plg
 IR-Remote-Car.plg
 *.plg
+=======
+>>>>>>> Using-Delay
