@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  16:20:46  PAGE 1
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  12:07:36  PAGE 1
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  16:42:58  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -15,12 +11,9 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   IR-Remote-Car.obj (IR_REMOTE_CAR)
   C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
-<<<<<<< HEAD
   C:\KEIL\C51\LIB\C51S.LIB (?C?SLDIV)
   C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
   C:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
-=======
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
 
 
 LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
@@ -31,59 +24,33 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-<<<<<<< HEAD
-            DATA    0008H     0004H     UNIT         _DATA_GROUP_
-            DATA    000CH     0002H     UNIT         ?DT?IR_REMOTE_CAR
-            IDATA   000EH     0001H     UNIT         ?STACK
+            DATA    0008H     0002H     UNIT         ?DT?IR_REMOTE_CAR
+            IDATA   000AH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     0008H                  *** GAP ***
             CODE    000BH     0003H     ABSOLUTE     
                     000EH     07F2H                  *** GAP ***
-            CODE    0800H     00D4H     UNIT         ?PR?SERVOMOTOR?IR_REMOTE_CAR
-            CODE    08D4H     00CEH     UNIT         ?C?LIB_CODE
-            CODE    09A2H     008CH     UNIT         ?C_C51STARTUP
-            CODE    0A2EH     0056H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
-            CODE    0A84H     004EH     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    0AD2H     0044H     UNIT         ?C?LDIV
-            CODE    0B16H     000BH     UNIT         ?PR?DELAY100US?IR_REMOTE_CAR
-            CODE    0B21H     0005H     UNIT         ?C_INITSEG
-=======
-            IDATA   0008H     0001H     UNIT         ?STACK
-
-            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     0003H     ABSOLUTE     
-                    0003H     07FDH                  *** GAP ***
-            CODE    0800H     000FH     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    080FH     000CH     UNIT         ?C_C51STARTUP
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
+            CODE    0800H     00D1H     UNIT         ?PR?SERVOMOTOR?IR_REMOTE_CAR
+            CODE    08D1H     00CEH     UNIT         ?C?LIB_CODE
+            CODE    099FH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0A2BH     0056H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
+            CODE    0A81H     0044H     UNIT         ?C?LDIV
+            CODE    0AC5H     0005H     UNIT         ?C_INITSEG
+            CODE    0ACAH     0002H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
 
 
 
 OVERLAY MAP OF MODULE:   IR-Remote-Car (IR_REMOTE_CAR)
 
 
-SEGMENT                                DATA_GROUP 
-  +--> CALLED SEGMENT                START    LENGTH
-----------------------------------------------------
-?C_C51STARTUP                        -----    -----
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
   +--> ?PR?MAIN?IR_REMOTE_CAR
-<<<<<<< HEAD
   +--> ?C_INITSEG
-
-?PR?MAIN?IR_REMOTE_CAR               0008H    0004H
-  +--> ?PR?DELAY100US?IR_REMOTE_CAR
-
-
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:20:46  PAGE 2
-
-
-UNRESOLVED EXTERNAL SYMBOLS:
-   DELAY1MS
-=======
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
 
 
 
@@ -92,18 +59,20 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   VALUE           TYPE          NAME
   ----------------------------------
 
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:42:58  PAGE 2
+
+
   -------         MODULE        IR_REMOTE_CAR
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
-<<<<<<< HEAD
   B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:00D8H         PUBLIC        CCON
-  C:0A84H         PUBLIC        main
-  C:0A2EH         PUBLIC        setup
+  C:0ACAH         PUBLIC        main
+  C:0A2BH         PUBLIC        setup
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
@@ -113,135 +82,59 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   D:008AH         PUBLIC        TL0
   B:0090H.3       PUBLIC        SERVOMOTOR1
   B:0088H.4       PUBLIC        TR0
-  D:000CH         PUBLIC        servoMotorHighTime
-  C:0B16H         PUBLIC        Delay100us
+  D:0008H         PUBLIC        servoMotorHighTime
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-  -------         DO            
-  D:0008H         SYMBOL        x
-  D:000AH         SYMBOL        i
-  -------         ENDDO         
-  C:0A84H         LINE#         29
-  C:0A84H         LINE#         32
-  C:0A84H         LINE#         34
-  C:0A89H         LINE#         35
-  C:0A8BH         LINE#         36
-  C:0AA4H         LINE#         37
-  C:0AA6H         LINE#         38
-  C:0ABFH         LINE#         39
+  C:0ACAH         LINE#         29
+  C:0ACAH         LINE#         32
+  C:0ACAH         LINE#         33
   -------         ENDPROC       MAIN
   -------         PROC          SETUP
-  C:0A2EH         LINE#         42
-  C:0A2EH         LINE#         43
-  C:0A30H         LINE#         44
-  C:0A32H         LINE#         45
-  C:0A34H         LINE#         46
-  C:0A37H         LINE#         47
-  C:0A5DH         LINE#         48
-  C:0A81H         LINE#         49
-  C:0A83H         LINE#         50
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:20:46  PAGE 3
-
-
+  C:0A2BH         LINE#         35
+  C:0A2BH         LINE#         36
+  C:0A2DH         LINE#         37
+  C:0A2FH         LINE#         38
+  C:0A31H         LINE#         39
+  C:0A34H         LINE#         40
+  C:0A5AH         LINE#         41
+  C:0A7EH         LINE#         42
+  C:0A80H         LINE#         43
   -------         ENDPROC       SETUP
   -------         PROC          SERVOMOTOR
-  C:0800H         LINE#         51
-  C:081DH         LINE#         52
-  C:081FH         LINE#         53
-  C:082AH         LINE#         54
-  C:0848H         LINE#         55
-  C:086CH         LINE#         56
-  C:086EH         LINE#         57
-  C:086EH         LINE#         58
-  C:0870H         LINE#         59
-  C:0870H         LINE#         60
-  C:088EH         LINE#         61
-  C:08B2H         LINE#         62
-  C:08B4H         LINE#         63
-  C:08B7H         LINE#         64
-  C:08B7H         LINE#         65
-  C:08B9H         LINE#         66
+  C:0800H         LINE#         44
+  C:081DH         LINE#         45
+  C:081FH         LINE#         46
+  C:082AH         LINE#         47
+  C:0848H         LINE#         48
+  C:086CH         LINE#         49
+  C:086EH         LINE#         50
+  C:0870H         LINE#         51
+  C:0870H         LINE#         52
+  C:088EH         LINE#         53
+  C:08B2H         LINE#         54
+  C:08B4H         LINE#         55
+  C:08B4H         LINE#         56
+  C:08B6H         LINE#         57
   -------         ENDPROC       SERVOMOTOR
-  -------         PROC          DELAY100US
-  -------         DO            
-  D:0007H         SYMBOL        i
-  D:0006H         SYMBOL        j
-  -------         ENDDO         
-  C:0B16H         LINE#         67
-  C:0B16H         LINE#         68
-  C:0B16H         LINE#         71
-  C:0B17H         LINE#         72
-  C:0B18H         LINE#         73
-  C:0B1AH         LINE#         74
-  C:0B1CH         LINE#         76
-  C:0B1CH         LINE#         77
-  C:0B1EH         LINE#         78
-  C:0B20H         LINE#         79
-  -------         ENDPROC       DELAY100US
   -------         ENDMOD        IR_REMOTE_CAR
 
   -------         MODULE        ?C?SLDIV
-  C:0AD2H         PUBLIC        ?C?SLDIV
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:42:58  PAGE 3
+
+
+  C:0A81H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
   -------         MODULE        ?C?ULDIV
-  C:0910H         PUBLIC        ?C?ULDIV
+  C:090DH         PUBLIC        ?C?ULDIV
   -------         ENDMOD        ?C?ULDIV
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?SETUP?IR_REMOTE_CAR
 
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DELAY1MS
-    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
-
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DELAY1MS
-    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
-    ADDRESS: 08B5H
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:20:46  PAGE 4
-
-
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 018AH BYTE (19%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0130H BYTE (14%) *
 ******************************************************************************
 
-Program Size: data=15.0 xdata=0 code=812
-LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
-=======
-  D:00A8H         PUBLIC        IE
-  D:00B8H         PUBLIC        IP
-  D:00D8H         PUBLIC        CCON
-  C:0800H         PUBLIC        main
-  D:0098H         PUBLIC        SCON
-  D:0088H         PUBLIC        TCON
-  B:0080H.1       PUBLIC        IN1
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  12:07:36  PAGE 2
-
-
-  B:0080H.2       PUBLIC        IN2
-  B:00B0H.2       PUBLIC        LIMITSWITCH
-  D:00D0H         PUBLIC        PSW
-  -------         PROC          MAIN
-  C:0800H         LINE#         15
-  C:0800H         LINE#         16
-  C:0800H         LINE#         17
-  C:0803H         LINE#         18
-  C:0805H         LINE#         19
-  C:0807H         LINE#         20
-  C:0809H         LINE#         21
-  C:0809H         LINE#         22
-  C:080BH         LINE#         23
-  C:080DH         LINE#         24
-  C:080DH         LINE#         25
-  -------         ENDPROC       MAIN
-  -------         ENDMOD        IR_REMOTE_CAR
-
-******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 000FH BYTE ( 0%) *
-******************************************************************************
-
-Program Size: data=9.0 xdata=0 code=30
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
+Program Size: data=11.0 xdata=0 code=722
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

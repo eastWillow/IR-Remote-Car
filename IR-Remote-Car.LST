@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 16:20:46 PAGE 1   
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 12:07:36 PAGE 1   
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 16:42:48 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -11,98 +7,6 @@ COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE IR-Remote-Car.c BROWSE DEBUG OBJECT
 
 line level    source
 
-<<<<<<< HEAD
-   1          /*
-   2          TA7267
-   3          IN1 IN2 OUT1 OUT2
-   4           1   1    L    L
-   5           0   1    L    H backward
-   6           1   0    H    L forward
-   7           0   0    Z    Z
-   8          */
-   9          /*
-  10          YELLOW
-  11          BLACK
-  12          RED
-  13          YELLOW
-  14          ORANGE
-  15          BLUE
-  16          */
-  17          #include <STC12C5A60S2.H>
-  18          #include <intrins.h>
-  19          #define ALL_WIDTH 20000 //20ms
-  20          #define FULL 65535
-  21          sbit SERVOMOTOR1=P1^3; //PWM I/O
-  22          sbit LIMITSWITCH=P3^2; // INT0
-  23          sbit IR_RECEIVER=P3^3; // INT1
-  24          sbit IN1=P0^1;
-  25          sbit IN2=P0^2;
-  26          unsigned int servoMotorHighTime = 15000;
-  27          void Delay100us();
-  28          void setup();
-  29          void main(){
-  30   1        /*setup();
-  31   1        TR0 = 1;// start Timer 0*/
-  32   1        while(1){
-  33   2          unsigned int x,i;
-  34   2          for( x = 0; x < 100; x++){
-  35   3          SERVOMOTOR1 = 0;
-  36   3          for ( i = 0;i < 100;i++) Delay100us();
-  37   3          SERVOMOTOR1 = 1;
-  38   3          for ( i = 0;i < 15;i++) Delay100us();
-  39   3          }
-  40   2        }
-  41   1      }
-  42          void setup(){
-  43   1        EA = 1;
-  44   1        ET0 = 1;
-  45   1        TR0 = 0; //reset Timer0 Switch
-  46   1        TMOD = 0x01; //0000 0010
-  47   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  48   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  49   1        SERVOMOTOR1 = 0;
-  50   1      }
-  51          void servoMotor () interrupt 1 {
-  52   1        TR0 = 0;
-  53   1        if(SERVOMOTOR1){
-  54   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  55   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 16:20:46 PAGE 2   
-
-  56   2          SERVOMOTOR1 = 0;
-  57   2          Delay1ms();
-*** WARNING C206 IN LINE 57 OF IR-Remote-Car.c: 'Delay1ms': missing function-prototype
-  58   2        }
-  59   1        else{
-  60   2          TL0 = (FULL - servoMotorHighTime) %256;
-  61   2          TH0 = (FULL - servoMotorHighTime) / 256;
-  62   2          SERVOMOTOR1 = 1;
-  63   2          Delay1ms();
-  64   2        }
-  65   1        TR0 = 1;
-  66   1      }
-  67          void Delay100us()   //@12.000MHz
-  68          {
-  69   1        unsigned char i, j;
-  70   1      
-  71   1        _nop_();
-  72   1        _nop_();
-  73   1        i = 2;
-  74   1        j = 38;
-  75   1        do
-  76   1        {
-  77   2          while (--j);
-  78   2        } while (--i);
-  79   1      }
-
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    387    ----
-   CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =   ----    ----
-   PDATA SIZE       =   ----    ----
-   DATA SIZE        =      2       4
-=======
    1          #include <STC12C5A60S2.H>
    2          /*
    3          TA7267
@@ -112,35 +16,67 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    7           1   0    H    L
    8           0   0    Z    Z
    9          */
-  10          sbit SERVOMOTOR1=P1^0;
-  11          sbit LIMITSWITCH=P3^2; // INT0
-  12          sbit IR_RECEIVER=P3^3; // INT1
-  13          sbit IN1=P0^1;
-  14          sbit IN2=P0^2;
-  15          void main(){
-  16   1        while(1){
-  17   2          if(!LIMITSWITCH){
-  18   3            IN1 = 0;
-  19   3            IN2 = 1;
-  20   3          }
-  21   2          else{
-  22   3            IN1 = 1;
-  23   3            IN2 = 0;
-  24   3          }
-  25   2        }
-  26   1      }
+  10          /*
+  11          YELLOW
+  12          BLACK
+  13          RED
+  14          YELLOW
+  15          ORANGE
+  16          BLUE
+  17          */
+  18          #include <STC12C5A60S2.H>
+  19          #include <intrins.h>
+  20          #define ALL_WIDTH 20000 //20ms
+  21          #define FULL 65535
+  22          sbit SERVOMOTOR1=P1^3; //PWM I/O
+  23          sbit LIMITSWITCH=P3^2; // INT0
+  24          sbit IR_RECEIVER=P3^3; // INT1
+  25          sbit IN1=P0^1;
+  26          sbit IN2=P0^2;
+  27          unsigned int servoMotorHighTime = 5000;
+  28          void setup();
+  29          void main(){
+  30   1        /*setup();
+  31   1        TR0 = 1;// start Timer 0*/
+  32   1        while(1){
+  33   2        }
+  34   1      }
+  35          void setup(){
+  36   1        EA = 1;
+  37   1        ET0 = 1;
+  38   1        TR0 = 0; //reset Timer0 Switch
+  39   1        TMOD = 0x01; //0000 0010
+  40   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+  41   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+  42   1        SERVOMOTOR1 = 0;
+  43   1      }
+  44          void servoMotor () interrupt 1 {
+  45   1        TR0 = 0;
+  46   1        if(SERVOMOTOR1){
+  47   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+  48   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+  49   2          SERVOMOTOR1 = 0;
+  50   2        }
+  51   1        else{
+  52   2          TL0 = (FULL - servoMotorHighTime) %256;
+  53   2          TH0 = (FULL - servoMotorHighTime) / 256;
+  54   2          SERVOMOTOR1 = 1;
+  55   2        }
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 16:42:48 PAGE 2   
+
+  56   1        TR0 = 1;
+  57   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     15    ----
+   CODE SIZE        =    297    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----    ----
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
+   DATA SIZE        =      2    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -7,7 +7,6 @@ IN1 IN2 OUT1 OUT2
  1   0    H    L
  0   0    Z    Z
 */
-<<<<<<< HEAD
 /*
 YELLOW
 BLACK
@@ -21,28 +20,16 @@ BLUE
 #define ALL_WIDTH 20000 //20ms
 #define FULL 65535
 sbit SERVOMOTOR1=P1^3; //PWM I/O
-=======
-sbit SERVOMOTOR1=P1^0;
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
-<<<<<<< HEAD
-unsigned int servoMotorHighTime = 15000;
-void Delay100us();
+unsigned int servoMotorHighTime = 5000;
 void setup();
 void main(){
 	/*setup();
 	TR0 = 1;// start Timer 0*/
 	while(1){
-	  unsigned int x,i;
-    for( x = 0; x < 100; x++){
-    SERVOMOTOR1 = 0;
-    for ( i = 0;i < 100;i++) Delay100us();
-    SERVOMOTOR1 = 1;
-    for ( i = 0;i < 15;i++) Delay100us();
-    }
 	}
 }
 void setup(){
@@ -60,40 +47,11 @@ void servoMotor () interrupt 1 {
 		TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
 		TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
 		SERVOMOTOR1 = 0;
-		Delay1ms();
 	}
 	else{
 		TL0 = (FULL - servoMotorHighTime) %256;
 		TH0 = (FULL - servoMotorHighTime) / 256;
 		SERVOMOTOR1 = 1;
-		Delay1ms();
 	}
 	TR0 = 1;
 }
-void Delay100us()		//@12.000MHz
-{
-	unsigned char i, j;
-
-	_nop_();
-	_nop_();
-	i = 2;
-	j = 38;
-	do
-	{
-		while (--j);
-	} while (--i);
-}
-=======
-void main(){
-	while(1){
-		if(!LIMITSWITCH){
-			IN1 = 0;
-		  IN2 = 1;
-		}
-		else{
-			IN1 = 1;
-			IN2 = 0;
-		}
-	}
-}
->>>>>>> parent of 8d2f271... ServoMotor Control Sucess
