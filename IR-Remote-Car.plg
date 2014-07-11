@@ -7,3 +7,110 @@ C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.uvproj
 Project File Date:  07/11/2014
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(1): error C141: syntax error near '.'
+IR-Remote-Car.c(1): error C129: missing ';' before '\'
+IR-Remote-Car.c(1): error C309: bad or missing filename
+IR-Remote-Car.c(1): warning C318: can't open file ''
+IR-Remote-Car.c(1): error C305: unterminated string/char const
+IR-Remote-Car.c(2): error C321: missing '>'
+IR-Remote-Car.c(2): error C309: bad or missing filename
+IR-Remote-Car.c(2): warning C318: can't open file ''
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(1): error C141: syntax error near '.'
+IR-Remote-Car.c(1): error C129: missing ';' before '\'
+IR-Remote-Car.c(1): error C309: bad or missing filename
+IR-Remote-Car.c(1): warning C318: can't open file ''
+IR-Remote-Car.c(1): error C305: unterminated string/char const
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(11): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(12): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(13): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(14): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(15): error C141: syntax error near 'void', expected ';'
+IR-Remote-Car.c(18): error C202: 'IN0': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(11): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(12): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(13): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(14): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(15): error C141: syntax error near 'void', expected ';'
+IR-Remote-Car.c(18): error C202: 'IN0': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(11): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(12): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(13): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(14): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(15): error C141: syntax error near 'void', expected ';'
+IR-Remote-Car.c(18): error C202: 'IN0': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(11): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(12): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(13): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(14): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(15): error C141: syntax error near 'void', expected ';'
+IR-Remote-Car.c(18): error C202: 'IN0': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(14): error C141: syntax error near 'sbit', expected ';'
+IR-Remote-Car.c(15): error C141: syntax error near 'void', expected ';'
+IR-Remote-Car.c(18): error C202: 'IN0': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(18): error C202: 'IN0': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=9.0 xdata=0 code=21
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=21
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=21
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=21
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=21
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=21
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=21
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=9.0 xdata=0 code=24
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=9.0 xdata=0 code=30
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
