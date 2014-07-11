@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  12:07:36  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  15:40:54  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -11,6 +11,9 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   IR-Remote-Car.obj (IR_REMOTE_CAR)
   C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SLSHR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
 
 
 LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
@@ -21,13 +24,24 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            IDATA   0008H     0001H     UNIT         ?STACK
+            DATA    0008H     000EH     UNIT         ?DT?IR_REMOTE_CAR
+            DATA    0016H     0005H     UNIT         ?DT?_UARTSEND?IR_REMOTE_CAR
+            IDATA   001BH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-                    0003H     07FDH                  *** GAP ***
-            CODE    0800H     000FH     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    080FH     000CH     UNIT         ?C_C51STARTUP
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     008FH     UNIT         ?PR?SERVOMOTOR?IR_REMOTE_CAR
+            CODE    088FH     008CH     UNIT         ?C_C51STARTUP
+            CODE    091BH     0050H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
+            CODE    096BH     0041H     UNIT         ?C?LIB_CODE
+            CODE    09ACH     002FH     UNIT         ?PR?_UARTRECEIVE?IR_REMOTE_CAR
+            CODE    09DBH     0014H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
+            CODE    09EFH     0013H     UNIT         ?PR?UARTINIT?IR_REMOTE_CAR
+            CODE    0A02H     0009H     UNIT         ?C_INITSEG
+            CODE    0A0BH     0007H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
 
 
 
@@ -39,6 +53,13 @@ SEGMENT
 ---------------------
 ?C_C51STARTUP
   +--> ?PR?MAIN?IR_REMOTE_CAR
+  +--> ?C_INITSEG
+
+?PR?MAIN?IR_REMOTE_CAR
+  +--> ?PR?SETUP?IR_REMOTE_CAR
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  15:40:54  PAGE 2
 
 
 
@@ -52,37 +73,144 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:09ACH         PUBLIC        _uartReceive
+  D:0012H         PUBLIC        servoMotorLowTime
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
   D:00D8H         PUBLIC        CCON
-  C:0800H         PUBLIC        main
+  C:0A0BH         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  C:09DBH         PUBLIC        setup
   D:0098H         PUBLIC        SCON
+  C:09EFH         PUBLIC        UartInit
+  D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  B:0080H.1       PUBLIC        IN1
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  12:07:36  PAGE 2
-
-
-  B:0080H.2       PUBLIC        IN2
-  B:00B0H.2       PUBLIC        LIMITSWITCH
+  D:008EH         PUBLIC        AUXR
+  C:0800H         PUBLIC        servoMotor
+  B:00A8H.1       PUBLIC        ET0
+  C:091BH         PUBLIC        _uartSend
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0090H.3       PUBLIC        SERVOMOTOR1
+  B:0088H.4       PUBLIC        TR0
+  D:0014H         PUBLIC        servoMotorHighTime
+  D:009CH         PUBLIC        BRT
   D:00D0H         PUBLIC        PSW
+  -------         PROC          UARTINIT
+  C:09EFH         LINE#         3
+  C:09EFH         LINE#         4
+  C:09EFH         LINE#         5
+  C:09F2H         LINE#         6
+  C:09F5H         LINE#         7
+  C:09F8H         LINE#         8
+  C:09FBH         LINE#         9
+  C:09FEH         LINE#         10
+  C:0A01H         LINE#         11
+  -------         ENDPROC       UARTINIT
+  -------         PROC          _UARTSEND
+  D:0016H         SYMBOL        string
+  D:0019H         SYMBOL        len
+  D:001AH         SYMBOL        EOL
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:091BH         LINE#         12
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  15:40:54  PAGE 3
+
+
+  C:0923H         LINE#         14
+  C:093AH         LINE#         15
+  C:0949H         LINE#         16
+  C:094CH         LINE#         17
+  C:094EH         LINE#         18
+  C:0955H         LINE#         19
+  C:095AH         LINE#         20
+  C:095DH         LINE#         21
+  C:0960H         LINE#         22
+  C:0962H         LINE#         23
+  C:0965H         LINE#         24
+  C:0968H         LINE#         25
+  C:096AH         LINE#         26
+  C:096AH         LINE#         27
+  -------         ENDPROC       _UARTSEND
+  -------         PROC          _UARTRECEIVE
+  D:0007H         SYMBOL        len
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0008H         SYMBOL        string
+  -------         ENDDO         
+  C:09ACH         LINE#         28
+  C:09ACH         LINE#         31
+  C:09C2H         LINE#         32
+  C:09C5H         LINE#         33
+  C:09CBH         LINE#         34
+  C:09CDH         LINE#         35
+  C:09D4H         LINE#         36
+  C:09DAH         LINE#         37
+  -------         ENDPROC       _UARTRECEIVE
   -------         PROC          MAIN
-  C:0800H         LINE#         15
-  C:0800H         LINE#         16
-  C:0800H         LINE#         17
-  C:0803H         LINE#         18
-  C:0805H         LINE#         19
-  C:0807H         LINE#         20
-  C:0809H         LINE#         21
-  C:0809H         LINE#         22
-  C:080BH         LINE#         23
-  C:080DH         LINE#         24
-  C:080DH         LINE#         25
+  C:0A0BH         LINE#         33
+  C:0A0BH         LINE#         34
+  C:0A0EH         LINE#         35
+  C:0A10H         LINE#         36
+  C:0A10H         LINE#         37
   -------         ENDPROC       MAIN
+  -------         PROC          SETUP
+  C:09DBH         LINE#         39
+  C:09DBH         LINE#         40
+  C:09DDH         LINE#         41
+  C:09DFH         LINE#         42
+  C:09E1H         LINE#         43
+  C:09E4H         LINE#         44
+  C:09E8H         LINE#         45
+  C:09ECH         LINE#         46
+  C:09EEH         LINE#         47
+  -------         ENDPROC       SETUP
+  -------         PROC          SERVOMOTOR
+  C:0800H         LINE#         48
+  C:0815H         LINE#         49
+  C:0817H         LINE#         50
+  C:081AH         LINE#         51
+  C:0825H         LINE#         52
+  C:0845H         LINE#         53
+  C:0847H         LINE#         54
+  C:0849H         LINE#         55
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  15:40:54  PAGE 4
+
+
+  C:0849H         LINE#         56
+  C:0858H         LINE#         57
+  C:0878H         LINE#         58
+  C:087AH         LINE#         59
+  C:087AH         LINE#         60
+  C:087CH         LINE#         61
+  -------         ENDPROC       SERVOMOTOR
   -------         ENDMOD        IR_REMOTE_CAR
 
+  -------         MODULE        ?C?CLDOPTR
+  C:096BH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?SLSHR
+  C:0998H         PUBLIC        ?C?SLSHR
+  -------         ENDMOD        ?C?SLSHR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?IR_REMOTE_CAR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTRECEIVE?IR_REMOTE_CAR
+
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 000FH BYTE ( 0%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0147H BYTE (15%) *
 ******************************************************************************
 
-Program Size: data=9.0 xdata=0 code=30
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+Program Size: data=28.0 xdata=0 code=536
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
