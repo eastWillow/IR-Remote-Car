@@ -26,7 +26,7 @@ sbit IN1=P0^1;
 sbit IN2=P0^2;
 unsigned int servoMotorHighTime = 1250;
 void setup();
-void Delay500ms();
+void Delay100ms();
 void main(){
 	int i;
 	setup();
@@ -35,10 +35,13 @@ void main(){
 		IN1 =1;
 		IN2 =0;
 		if(servoMotorHighTime == 1000){
-			for(i=0;i<2;i++){
+				IN1 =0;
+				IN2 =0;
+				Delay100ms();
+			for(i=0;i<5;i++){
 				IN1 =0;
 				IN2 =1;
-				Delay500ms();
+				Delay100ms();
 			}
 			servoMotorHighTime = 1250;
 		}
@@ -72,13 +75,15 @@ void servoMotor () interrupt 1 {
 void limitSwitch () interrupt 0{
 		servoMotorHighTime = 1000;
 }
-void Delay500ms()		//@12.000MHz
+void Delay100ms()		//@12.000MHz
 {
 	unsigned char i, j, k;
 
-	i = 23;
-	j = 205;
-	k = 120;
+	_nop_();
+	_nop_();
+	i = 5;
+	j = 144;
+	k = 71;
 	do
 	{
 		do
