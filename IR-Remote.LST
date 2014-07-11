@@ -1,0 +1,40 @@
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/11/2014 17:36:54 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE
+OBJECT MODULE PLACED IN IR-Remote.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE IR-Remote.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <STC12C5A60S2.H>
+   2          #include <intrins.h>
+   3          sbit IR = P1^3;
+   4          void steup(){
+   5   1        CMOD = 0x0a;
+   6   1        CR = 0;
+   7   1        CCAPM0 = 0x42;
+   8   1        CCAP0L = 79;
+   9   1        CCAP0H = 79;
+  10   1      }
+  11          void main(){
+  12   1        steup();
+  13   1        while(1){
+  14   2          CR = 1;
+  15   2        }
+  16   1          
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
