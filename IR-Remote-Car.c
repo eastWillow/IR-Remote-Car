@@ -1,11 +1,13 @@
+#include <STC12C5A60S2.H>
 /*
 TA7267
 IN1 IN2 OUT1 OUT2
  1   1    L    L
- 0   1    L    H backward
- 1   0    H    L forward
+ 0   1    L    H
+ 1   0    H    L
  0   0    Z    Z
 */
+<<<<<<< HEAD
 /*
 YELLOW
 BLACK
@@ -19,10 +21,14 @@ BLUE
 #define ALL_WIDTH 20000 //20ms
 #define FULL 65535
 sbit SERVOMOTOR1=P1^3; //PWM I/O
+=======
+sbit SERVOMOTOR1=P1^0;
+>>>>>>> parent of 8d2f271... ServoMotor Control Sucess
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
+<<<<<<< HEAD
 unsigned int servoMotorHighTime = 15000;
 void Delay100us();
 void setup();
@@ -77,3 +83,17 @@ void Delay100us()		//@12.000MHz
 		while (--j);
 	} while (--i);
 }
+=======
+void main(){
+	while(1){
+		if(!LIMITSWITCH){
+			IN1 = 0;
+		  IN2 = 1;
+		}
+		else{
+			IN1 = 1;
+			IN2 = 0;
+		}
+	}
+}
+>>>>>>> parent of 8d2f271... ServoMotor Control Sucess
