@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  16:42:58  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/11/2014  16:46:16  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -37,8 +37,8 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
             CODE    099FH     008CH     UNIT         ?C_C51STARTUP
             CODE    0A2BH     0056H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
             CODE    0A81H     0044H     UNIT         ?C?LDIV
-            CODE    0AC5H     0005H     UNIT         ?C_INITSEG
-            CODE    0ACAH     0002H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
+            CODE    0AC5H     0007H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
+            CODE    0ACCH     0005H     UNIT         ?C_INITSEG
 
 
 
@@ -52,15 +52,18 @@ SEGMENT
   +--> ?PR?MAIN?IR_REMOTE_CAR
   +--> ?C_INITSEG
 
+?PR?MAIN?IR_REMOTE_CAR
+  +--> ?PR?SETUP?IR_REMOTE_CAR
+
 
 
 SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
 
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:46:16  PAGE 2
+
+
   VALUE           TYPE          NAME
   ----------------------------------
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:42:58  PAGE 2
-
 
   -------         MODULE        IR_REMOTE_CAR
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -71,7 +74,7 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:00D8H         PUBLIC        CCON
-  C:0ACAH         PUBLIC        main
+  C:0AC5H         PUBLIC        main
   C:0A2BH         PUBLIC        setup
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
@@ -85,7 +88,9 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   D:0008H         PUBLIC        servoMotorHighTime
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-  C:0ACAH         LINE#         29
+  C:0AC5H         LINE#         29
+  C:0AC5H         LINE#         30
+  C:0AC8H         LINE#         31
   C:0ACAH         LINE#         32
   C:0ACAH         LINE#         33
   -------         ENDPROC       MAIN
@@ -114,14 +119,14 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   C:08B2H         LINE#         54
   C:08B4H         LINE#         55
   C:08B4H         LINE#         56
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:46:16  PAGE 3
+
+
   C:08B6H         LINE#         57
   -------         ENDPROC       SERVOMOTOR
   -------         ENDMOD        IR_REMOTE_CAR
 
   -------         MODULE        ?C?SLDIV
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/11/2014  16:42:58  PAGE 3
-
-
   C:0A81H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
@@ -129,12 +134,9 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   C:090DH         PUBLIC        ?C?ULDIV
   -------         ENDMOD        ?C?ULDIV
 
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?SETUP?IR_REMOTE_CAR
-
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0130H BYTE (14%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0135H BYTE (15%) *
 ******************************************************************************
 
-Program Size: data=11.0 xdata=0 code=722
-LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
+Program Size: data=11.0 xdata=0 code=727
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

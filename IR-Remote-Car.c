@@ -24,11 +24,11 @@ sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
-unsigned int servoMotorHighTime = 5000;
+unsigned int servoMotorHighTime = 1250;
 void setup();
 void main(){
-	/*setup();
-	TR0 = 1;// start Timer 0*/
+	setup();
+	TR0 = 1;
 	while(1){
 	}
 }
