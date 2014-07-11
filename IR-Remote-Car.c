@@ -15,25 +15,28 @@ ORANGE
 BLUE
 */
 #include <STC12C5A60S2.H>
-#include <..\UD_Lib\8051\UART.h>
+#include <intrins.h>
 #define ALL_WIDTH 20000 //20ms
-#define CENTER 10000 //10ms
-#define CLOCK_LIMITER 5000 //5ms
-#define COUNTER_CLOCKWISE_LIMITER 150000 //15ms
 #define FULL 65535
 sbit SERVOMOTOR1=P1^3; //PWM I/O
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
-unsigned int servoMotorLowTime = 15000;
-unsigned int servoMotorHighTime = 5000;
+unsigned int servoMotorHighTime = 15000;
 void Delay1ms();
 void setup();
 void main(){
-	setup();
-	TR0 = 1;// start Timer 0
+	/*setup();
+	TR0 = 1;// start Timer 0*/
 	while(1){
+	  unsigned int x,i;
+    for( x = 0; x < 1; x++){
+    SERVOMOTOR1 = 0;
+    for ( i = 0;i < 15;i++) Delay1ms();
+    SERVOMOTOR1 = 1;
+    for ( i = 0;i < 5;i++) Delay1ms();
+    }
 	}
 }
 void setup(){
@@ -41,21 +44,35 @@ void setup(){
 	ET0 = 1;
 	TR0 = 0; //reset Timer0 Switch
 	TMOD = 0x01; //0000 0010
-	TL0 = servoMotorLowTime & 0xff;
-	TH0 = servoMotorLowTime >> 8;
+	TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+	TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
 	SERVOMOTOR1 = 0;
 }
 void servoMotor () interrupt 1 {
 	TR0 = 0;
 	if(SERVOMOTOR1){
-		TL0 = (FULL - servoMotorLowTime) & 0xff;
-		TH0 = (FULL - servoMotorLowTime) >> 8;
+		TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+		TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
 		SERVOMOTOR1 = 0;
+		Delay1ms();
 	}
 	else{
-		TL0 = (FULL - servoMotorHighTime) & 0x0f;
-		TH0 = (FULL - servoMotorHighTime) >> 8;
+		TL0 = (FULL - servoMotorHighTime) %256;
+		TH0 = (FULL - servoMotorHighTime) / 256;
 		SERVOMOTOR1 = 1;
+		Delay1ms();
 	}
 	TR0 = 1;
+}
+void Delay1ms()		//@12.000MHz
+{
+	unsigned char i, j;
+	_nop_();
+	_nop_();
+	i = 12;
+	j = 168;
+	do
+	{
+		while (--j);
+	} while (--i);
 }
