@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/14/2014  17:04:41  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/14/2014  17:39:42  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -40,17 +40,17 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
                     000EH     07F2H                  *** GAP ***
             CODE    0800H     00FBH     UNIT         ?C?LIB_CODE
             CODE    08FBH     00D1H     UNIT         ?PR?SERVOMOTOR?IR_REMOTE_CAR
-            CODE    09CCH     00A7H     UNIT         ?PR?IRRECEIVER?IR_REMOTE_CAR
-            CODE    0A73H     008CH     UNIT         ?C_C51STARTUP
-            CODE    0AFFH     005EH     UNIT         ?PR?SETUP?IR_REMOTE_CAR
-            CODE    0B5DH     0050H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
-            CODE    0BADH     004BH     UNIT         ?PR?LIMITSWITCH?IR_REMOTE_CAR
-            CODE    0BF8H     0044H     UNIT         ?C?LDIV
-            CODE    0C3CH     0029H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    0C65H     0013H     UNIT         ?PR?UARTINIT?IR_REMOTE_CAR
-            CODE    0C78H     000FH     UNIT         ?PR?DELAY100MS?IR_REMOTE_CAR
-            CODE    0C87H     0008H     UNIT         ?CO?IR_REMOTE_CAR
-            CODE    0C8FH     0005H     UNIT         ?C_INITSEG
+            CODE    09CCH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0A58H     005EH     UNIT         ?PR?SETUP?IR_REMOTE_CAR
+            CODE    0AB6H     0050H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
+            CODE    0B06H     004BH     UNIT         ?PR?LIMITSWITCH?IR_REMOTE_CAR
+            CODE    0B51H     0044H     UNIT         ?C?LDIV
+            CODE    0B95H     0043H     UNIT         ?PR?IRRECEIVER?IR_REMOTE_CAR
+            CODE    0BD8H     002CH     UNIT         ?PR?MAIN?IR_REMOTE_CAR
+            CODE    0C04H     0013H     UNIT         ?PR?UARTINIT?IR_REMOTE_CAR
+            CODE    0C17H     000FH     UNIT         ?PR?DELAY100MS?IR_REMOTE_CAR
+            CODE    0C26H     0008H     UNIT         ?CO?IR_REMOTE_CAR
+            CODE    0C2EH     0005H     UNIT         ?C_INITSEG
 
 
 
@@ -59,7 +59,7 @@ OVERLAY MAP OF MODULE:   IR-Remote-Car (IR_REMOTE_CAR)
 
 SEGMENT                                 DATA_GROUP 
   +--> CALLED SEGMENT                 START    LENGTH
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:04:41  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:39:42  PAGE 2
 
 
 -----------------------------------------------------
@@ -78,10 +78,11 @@ SEGMENT                                 DATA_GROUP
   +--> ?CO?IR_REMOTE_CAR
   +--> ?PR?_UARTSEND?IR_REMOTE_CAR
   +--> ?PR?IRRECEIVER?IR_REMOTE_CAR
+  +--> ?PR?DELAY100MS?IR_REMOTE_CAR
 
 ?PR?_UARTSEND?IR_REMOTE_CAR           0009H    0005H
 
-?PR?IRRECEIVER?IR_REMOTE_CAR          0009H    0002H
+?PR?IRRECEIVER?IR_REMOTE_CAR          0009H    0003H
 
 
 
@@ -98,17 +99,17 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   B:0020H.0       PUBLIC        repeat
   B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
-  C:09CCH         PUBLIC        irReceiver
-  C:0BADH         PUBLIC        limitSwitch
+  C:0B95H         PUBLIC        irReceiver
+  C:0B06H         PUBLIC        limitSwitch
   D:00B8H         PUBLIC        IP
   B:0098H.1       PUBLIC        TI
   D:00D8H         PUBLIC        CCON
-  C:0C3CH         PUBLIC        main
+  C:0BD8H         PUBLIC        main
   D:0099H         PUBLIC        SBUF
   D:0087H         PUBLIC        PCON
-  C:0AFFH         PUBLIC        setup
+  C:0A58H         PUBLIC        setup
   D:0098H         PUBLIC        SCON
-  C:0C65H         PUBLIC        UartInit
+  C:0C04H         PUBLIC        UartInit
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
   D:008EH         PUBLIC        AUXR
@@ -116,81 +117,79 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   B:0080H.1       PUBLIC        IN1
   B:0080H.2       PUBLIC        IN2
   B:00A8H.1       PUBLIC        ET0
-  C:0B5DH         PUBLIC        _uartSend
+  C:0AB6H         PUBLIC        _uartSend
   D:008CH         PUBLIC        TH0
-  D:008DH         PUBLIC        TH1
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:04:41  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:39:42  PAGE 3
 
 
   B:00A8H.0       PUBLIC        EX0
   D:008AH         PUBLIC        TL0
-  D:008BH         PUBLIC        TL1
   B:00B0H.3       PUBLIC        IR_RECEIVER
   B:0090H.3       PUBLIC        SERVOMOTOR1
   B:0088H.4       PUBLIC        TR0
-  B:0088H.6       PUBLIC        TR1
   B:00B8H.0       PUBLIC        PX0
   D:000EH         PUBLIC        servoMotorHighTime
-  C:0C78H         PUBLIC        Delay100ms
+  C:0C17H         PUBLIC        Delay100ms
   D:009CH         PUBLIC        BRT
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
   -------         DO            
   D:0008H         SYMBOL        debug
   -------         ENDDO         
-  C:0C3CH         LINE#         37
-  C:0C3CH         LINE#         39
-  C:0C3FH         LINE#         40
-  C:0C42H         LINE#         41
-  C:0C42H         LINE#         42
-  C:0C50H         LINE#         43
-  C:0C55H         LINE#         44
-  C:0C63H         LINE#         45
+  C:0BD8H         LINE#         37
+  C:0BD8H         LINE#         39
+  C:0BDBH         LINE#         40
+  C:0BDEH         LINE#         41
+  C:0BDEH         LINE#         42
+  C:0BECH         LINE#         43
+  C:0BF1H         LINE#         44
+  C:0BFFH         LINE#         45
+  C:0C02H         LINE#         46
   -------         ENDPROC       MAIN
   -------         PROC          SETUP
-  C:0AFFH         LINE#         47
-  C:0AFFH         LINE#         48
-  C:0B01H         LINE#         49
-  C:0B03H         LINE#         50
-  C:0B05H         LINE#         51
-  C:0B07H         LINE#         52
-  C:0B09H         LINE#         53
-  C:0B0BH         LINE#         54
-  C:0B0EH         LINE#         55
-  C:0B34H         LINE#         56
-  C:0B58H         LINE#         57
-  C:0B5AH         LINE#         58
-  C:0B5CH         LINE#         59
+  C:0A58H         LINE#         48
+  C:0A58H         LINE#         49
+  C:0A5AH         LINE#         50
+  C:0A5CH         LINE#         51
+  C:0A5EH         LINE#         52
+  C:0A60H         LINE#         53
+  C:0A62H         LINE#         54
+  C:0A64H         LINE#         55
+  C:0A67H         LINE#         56
+  C:0A8DH         LINE#         57
+  C:0AB1H         LINE#         58
+  C:0AB3H         LINE#         59
+  C:0AB5H         LINE#         60
   -------         ENDPROC       SETUP
   -------         PROC          SERVOMOTOR
-  C:08FBH         LINE#         60
-  C:0918H         LINE#         61
-  C:091AH         LINE#         62
-  C:0925H         LINE#         63
-  C:0943H         LINE#         64
-  C:0967H         LINE#         65
-  C:0969H         LINE#         66
-  C:096BH         LINE#         67
+  C:08FBH         LINE#         61
+  C:0918H         LINE#         62
+  C:091AH         LINE#         63
+  C:0925H         LINE#         64
+  C:0943H         LINE#         65
+  C:0967H         LINE#         66
+  C:0969H         LINE#         67
   C:096BH         LINE#         68
-  C:0989H         LINE#         69
-  C:09ADH         LINE#         70
-  C:09AFH         LINE#         71
+  C:096BH         LINE#         69
+  C:0989H         LINE#         70
+  C:09ADH         LINE#         71
   C:09AFH         LINE#         72
-  C:09B1H         LINE#         73
+  C:09AFH         LINE#         73
+  C:09B1H         LINE#         74
   -------         ENDPROC       SERVOMOTOR
   -------         PROC          LIMITSWITCH
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:04:41  PAGE 4
+  C:0B06H         LINE#         75
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:39:42  PAGE 4
 
 
-  C:0BADH         LINE#         74
-  C:0BCAH         LINE#         75
-  C:0BCCH         LINE#         76
-  C:0BCEH         LINE#         77
-  C:0BD1H         LINE#         78
-  C:0BD4H         LINE#         79
-  C:0BD7H         LINE#         80
-  C:0BDAH         LINE#         81
-  C:0BDDH         LINE#         82
+  C:0B23H         LINE#         76
+  C:0B25H         LINE#         77
+  C:0B27H         LINE#         78
+  C:0B2AH         LINE#         79
+  C:0B2DH         LINE#         80
+  C:0B30H         LINE#         81
+  C:0B33H         LINE#         82
+  C:0B36H         LINE#         83
   -------         ENDPROC       LIMITSWITCH
   -------         PROC          DELAY100MS
   -------         DO            
@@ -198,89 +197,62 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   D:0006H         SYMBOL        j
   D:0005H         SYMBOL        k
   -------         ENDDO         
-  C:0C78H         LINE#         83
-  C:0C78H         LINE#         84
-  C:0C78H         LINE#         87
-  C:0C79H         LINE#         88
-  C:0C7AH         LINE#         89
-  C:0C7CH         LINE#         90
-  C:0C7EH         LINE#         91
-  C:0C80H         LINE#         93
-  C:0C80H         LINE#         95
-  C:0C80H         LINE#         96
-  C:0C82H         LINE#         97
-  C:0C84H         LINE#         98
-  C:0C86H         LINE#         99
+  C:0C17H         LINE#         84
+  C:0C17H         LINE#         85
+  C:0C17H         LINE#         88
+  C:0C18H         LINE#         89
+  C:0C19H         LINE#         90
+  C:0C1BH         LINE#         91
+  C:0C1DH         LINE#         92
+  C:0C1FH         LINE#         94
+  C:0C1FH         LINE#         96
+  C:0C1FH         LINE#         97
+  C:0C21H         LINE#         98
+  C:0C23H         LINE#         99
+  C:0C25H         LINE#         100
   -------         ENDPROC       DELAY100MS
   -------         PROC          IRRECEIVER
   -------         DO            
-  D:0002H         SYMBOL        TimePass
   D:0009H         SYMBOL        adress
   D:000AH         SYMBOL        direction
-  D:0005H         SYMBOL        counter
+  D:0007H         SYMBOL        counter
+  D:000BH         SYMBOL        timeCounter
   -------         ENDDO         
-  C:09CCH         LINE#         100
-  C:09CCH         LINE#         105
-  C:09D2H         LINE#         106
-  C:09D5H         LINE#         107
-  C:09D7H         LINE#         108
-  C:09D9H         LINE#         109
-  C:09ECH         LINE#         110
-  C:09F5H         LINE#         111
-  C:09F7H         LINE#         112
-  C:09FAH         LINE#         113
-  C:09FCH         LINE#         114
-  C:09FEH         LINE#         115
-  C:0A0DH         LINE#         116
-  C:0A16H         LINE#         117
-  C:0A18H         LINE#         118
-  C:0A18H         LINE#         119
-  C:0A1AH         LINE#         120
-  C:0A1AH         LINE#         121
-  C:0A1CH         LINE#         122
-  C:0A1FH         LINE#         123
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:04:41  PAGE 5
+  C:0B95H         LINE#         101
+  C:0B95H         LINE#         106
+  C:0B9CH         LINE#         107
+  C:0BA7H         LINE#         108
+  C:0BAAH         LINE#         109
+  C:0BADH         LINE#         110
+  C:0BADH         LINE#         112
+  C:0BAFH         LINE#         113
+  C:0BB6H         LINE#         114
+  C:0BB6H         LINE#         115
+  C:0BB6H         LINE#         116
+  C:0BB9H         LINE#         117
+  C:0BBDH         LINE#         118
+  C:0BBFH         LINE#         119
+  C:0BC6H         LINE#         120
+  C:0BC6H         LINE#         121
+  C:0BC6H         LINE#         122
+  C:0BC9H         LINE#         123
+  C:0BCDH         LINE#         124
+  C:0BD0H         LINE#         125
+  C:0BD7H         LINE#         126
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:39:42  PAGE 5
 
 
-  C:0A21H         LINE#         124
-  C:0A23H         LINE#         125
-  C:0A23H         LINE#         126
-  C:0A26H         LINE#         127
-  C:0A28H         LINE#         128
-  C:0A2BH         LINE#         129
-  C:0A2DH         LINE#         130
-  C:0A3CH         LINE#         131
-  C:0A3EH         LINE#         132
-  C:0A41H         LINE#         133
-  C:0A43H         LINE#         134
-  C:0A43H         LINE#         135
-  C:0A43H         LINE#         136
-  C:0A47H         LINE#         137
-  C:0A47H         LINE#         138
-  C:0A49H         LINE#         139
-  C:0A4CH         LINE#         140
-  C:0A4EH         LINE#         141
-  C:0A5DH         LINE#         142
-  C:0A5FH         LINE#         143
-  C:0A62H         LINE#         144
-  C:0A64H         LINE#         145
-  C:0A64H         LINE#         146
-  C:0A64H         LINE#         147
-  C:0A68H         LINE#         148
-  C:0A68H         LINE#         149
-  C:0A70H         LINE#         150
-  C:0A72H         LINE#         151
   -------         ENDPROC       IRRECEIVER
   -------         PROC          UARTINIT
-  C:0C65H         LINE#         152
-  C:0C65H         LINE#         153
-  C:0C65H         LINE#         154
-  C:0C68H         LINE#         155
-  C:0C6BH         LINE#         156
-  C:0C6EH         LINE#         157
-  C:0C71H         LINE#         158
-  C:0C74H         LINE#         159
-  C:0C77H         LINE#         160
+  C:0C04H         LINE#         127
+  C:0C04H         LINE#         128
+  C:0C04H         LINE#         129
+  C:0C07H         LINE#         130
+  C:0C0AH         LINE#         131
+  C:0C0DH         LINE#         132
+  C:0C10H         LINE#         133
+  C:0C13H         LINE#         134
+  C:0C16H         LINE#         135
   -------         ENDPROC       UARTINIT
   -------         PROC          _UARTSEND
   D:0009H         SYMBOL        string
@@ -289,24 +261,21 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   -------         DO            
   D:0006H         SYMBOL        i
   -------         ENDDO         
-  C:0B5DH         LINE#         161
-  C:0B65H         LINE#         163
-  C:0B7CH         LINE#         164
-  C:0B8BH         LINE#         165
-  C:0B8EH         LINE#         166
-  C:0B90H         LINE#         167
-  C:0B97H         LINE#         168
-  C:0B9CH         LINE#         169
-  C:0B9FH         LINE#         170
-  C:0BA2H         LINE#         171
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  17:04:41  PAGE 6
-
-
-  C:0BA4H         LINE#         172
-  C:0BA7H         LINE#         173
-  C:0BAAH         LINE#         174
-  C:0BACH         LINE#         175
-  C:0BACH         LINE#         176
+  C:0AB6H         LINE#         136
+  C:0ABEH         LINE#         138
+  C:0AD5H         LINE#         139
+  C:0AE4H         LINE#         140
+  C:0AE7H         LINE#         141
+  C:0AE9H         LINE#         142
+  C:0AF0H         LINE#         143
+  C:0AF5H         LINE#         144
+  C:0AF8H         LINE#         145
+  C:0AFBH         LINE#         146
+  C:0AFDH         LINE#         147
+  C:0B00H         LINE#         148
+  C:0B03H         LINE#         149
+  C:0B05H         LINE#         150
+  C:0B05H         LINE#         151
   -------         ENDPROC       _UARTSEND
   -------         ENDMOD        IR_REMOTE_CAR
 
@@ -315,7 +284,7 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   -------         ENDMOD        ?C?CLDOPTR
 
   -------         MODULE        ?C?SLDIV
-  C:0BF8H         PUBLIC        ?C?SLDIV
+  C:0B51H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
   -------         MODULE        ?C?ULDIV
@@ -323,8 +292,8 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   -------         ENDMOD        ?C?ULDIV
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02CEH BYTE (35%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 026DH BYTE (30%) *
 ******************************************************************************
 
-Program Size: data=17.1 xdata=0 code=1181
+Program Size: data=17.1 xdata=0 code=1084
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

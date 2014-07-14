@@ -74,13 +74,10 @@ void IR_TR(unsigned char direction){
 	unsigned char Adress = ADRESS;
 	CCAP0L = 128;
 	CCAP0H = 128;
-	if(lastDirection != direction){
-		lastDirection = direction;
-		CR = 1;
-		delay(8400);
-		CR = 0;
-		delay(4200);
-	}
+	CR = 1;
+	delay(8400);
+	CR = 0;
+	delay(4200);
 	for(i=0;i<8;i++){
 		if((Adress & 0x01)){
 			CR = 1;

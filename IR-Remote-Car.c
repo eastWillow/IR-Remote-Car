@@ -40,8 +40,9 @@ void main(){
 	UartInit();
 	while(1){
 		uartSend("Wellcom",7,1);
-		debug[0]=irReceiver();
+		debug[0] = irReceiver();
 		uartSend(debug,1,1);
+		Delay100ms();
 	}
 }
 void setup(){
@@ -98,56 +99,30 @@ void Delay100ms()		//@12.000MHz
 	} while (--i);
 }
 unsigned char irReceiver(){
-	unsigned int TimePass;
 	unsigned char adress;
 	unsigned char direction;
 	unsigned char counter;
-			if(!IR_RECEIVER){
-			TH1 = 0;
-			TL1 = 0;
-			TR1 = 1;
-			while(!IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-			if(TimePass > 8400){
-				TR1 = 0;
-				TH1 = 0;
-				TL1 = 0;
-				TR1 = 1;
-				while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-				if(TimePass > 4200){
-					repeat = 0;
-				}
-			}
-			else{
-				TR1 = 0;
-				TH1 = 0;
-				TL1 = 0;
-				repeat = 1;
-			}
-			if(!repeat){
-				for(counter = 0;counter < 8;counter++){
-					while(!IR_RECEIVER);
-					TR1 = 1;
-					while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-					TR1 = 0;
-					TL1 = 0;
-					TH1 = 0;
-					if(TimePass > IRHIGH) adress | (1 << counter);
-					else if (TimePass > IRLOW) adress | (0 << counter);
-				}
-			}
-			for(counter = 0;counter < 8;counter++){
-					while(!IR_RECEIVER);
-					TR1 = 1;
-					while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-					TR1 = 0;
-					TL1 = 0;
-					TH1 = 0;
-					if(TimePass > IRHIGH) direction | (1 << counter);
-					else if (TimePass > IRLOW) direction | (0 << counter);
-			}
-		}
-		if(adress == ADRESS) return direction;
-		else return 0;
+	unsigned char timeCounter;
+	while(!IR_RECEIVER) timeCounter++;
+	if(timeCounter > 8400){
+		while(IR_RECEIVER);
+		while(!IR_RECEIVER);
+	}
+	//starting
+	for(counter = 0;counter <8;counter++){
+		while(IR_RECEIVER) timeCounter++;
+		if(timeCounter > IRHIGH) adress | (0x01 << counter);
+		else if(timeCounter > IRLOW) adress | (0x00 << counter);
+		while(!IR_RECEIVER);
+	}
+	for(counter = 0;counter <8;counter++){
+		while(IR_RECEIVER) timeCounter++;
+		if(timeCounter > IRHIGH) direction | (0x01 << counter);
+		else if(timeCounter > IRLOW) direction | (0x00 << counter);
+		while(!IR_RECEIVER);
+	}
+	while(!IR_RECEIVER);
+	if(adress == ADRESS) return direction;
 }
 void UartInit(void)		//9600bps@12.000MHz
 {
