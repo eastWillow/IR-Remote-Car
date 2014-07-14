@@ -18,10 +18,10 @@ void IR_TR(unsigned char direction);
 void delay(unsigned int time);
 void steup(){
 	CMOD = 0x08;
-	CCAPM0 = 0x42;
 	CR = 0;
 	CCAP0L = 0;
-	CCAP0H = 0;
+	CCAP0H = 128;
+	CCAPM0 = 0x42;
 	
 	EA = 1;
 	EX0 = 1;
@@ -35,9 +35,6 @@ void steup(){
 void main(){
 	steup();
 	while(1){
-		CCAP0L = 0;
-		EA = 1;
-		delay(500);
 		PCON = 0x02;//Power Down
 	}
 }
@@ -69,12 +66,14 @@ void selectDirection () interrupt 0{
 		direction = direction | 0x08;
 	}
 	IR_TR(direction);
+	CCAP0L = 0;
+	EA = 1;
+	PCON = 0x02;
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
 	unsigned char Adress = ADRESS;
-	CCAP0L = 128; // start PWM
-	CCAP0H = 128;
+	CCAP0L = 128;
 	if(lastDirection != direction){
 		lastDirection = direction;
 		CR = 1;
