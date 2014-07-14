@@ -35,7 +35,6 @@ void steup(){
 void main(){
 	steup();
 	while(1){
-		CCAP0L = 0;
 		PCON = 0x02;//Power Down
 	}
 }
