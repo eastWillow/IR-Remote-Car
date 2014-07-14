@@ -20,8 +20,8 @@ Wiring
 #define ALL_WIDTH 20000 //20ms
 #define FULL 65535
 #define ADRESS 0xA5
-#define IRHIGH 
-#define IRLOW IRLOW
+#define IRHIGH 1844
+#define IRLOW 524
 sbit SERVOMOTOR1=P1^3; //PWM I/O
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
@@ -31,57 +31,17 @@ bit repeat;
 unsigned int servoMotorHighTime = 1250;
 void setup();
 void Delay100ms();
+unsigned char irReceiver();
+void uartSend (char *string,char len,char EOL);
+void UartInit(void);
 void main(){
-	unsigned int TimePass;
-	unsigned char adress;
-	unsigned char direction;
-	unsigned char counter;
+	char debug[1];
 	setup();
+	UartInit();
 	while(1){
-		if(!IR_RECEIVER){
-			TH1 = 0;
-			TL1 = 0;
-			TR1 = 1;
-			while(!IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-			if(TimePass > 8400){
-				TR1 = 0;
-				TH1 = 0;
-				TL1 = 0;
-				TR1 = 1;
-				while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-				if(TimePass > 4200){
-					repeat = 0;
-				}
-			}
-			else{
-				TR1 = 0;
-				TH1 = 0;
-				TL1 = 0;
-				repeat = 1;
-			}
-			if(!repeat){
-				for(counter = 0;counter < 8;counter++){
-					while(!IR_RECEIVER);
-					TR1 = 1;
-					while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-					TR1 = 0;
-					TL1 = 0;
-					TH1 = 0;
-					if(TimePass > IRHIGH) adress | (1 << counter);
-					else if (TimePass > IRLOW) adress | (0 << counter);
-				}
-			}
-			for(counter = 0;counter < 8;counter++){
-					while(!IR_RECEIVER);
-					TR1 = 1;
-					while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
-					TR1 = 0;
-					TL1 = 0;
-					TH1 = 0;
-					if(TimePass > IRHIGH) direction | (1 << counter);
-					else if (TimePass > IRLOW) direction | (0 << counter);
-			}
-		}
+		uartSend("Wellcom",7,1);
+		debug[0]=irReceiver();
+		uartSend(debug,1,1);
 	}
 }
 void setup(){
@@ -136,4 +96,81 @@ void Delay100ms()		//@12.000MHz
 			while (--k);
 		} while (--j);
 	} while (--i);
+}
+unsigned char irReceiver(){
+	unsigned int TimePass;
+	unsigned char adress;
+	unsigned char direction;
+	unsigned char counter;
+			if(!IR_RECEIVER){
+			TH1 = 0;
+			TL1 = 0;
+			TR1 = 1;
+			while(!IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+			if(TimePass > 8400){
+				TR1 = 0;
+				TH1 = 0;
+				TL1 = 0;
+				TR1 = 1;
+				while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+				if(TimePass > 4200){
+					repeat = 0;
+				}
+			}
+			else{
+				TR1 = 0;
+				TH1 = 0;
+				TL1 = 0;
+				repeat = 1;
+			}
+			if(!repeat){
+				for(counter = 0;counter < 8;counter++){
+					while(!IR_RECEIVER);
+					TR1 = 1;
+					while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+					TR1 = 0;
+					TL1 = 0;
+					TH1 = 0;
+					if(TimePass > IRHIGH) adress | (1 << counter);
+					else if (TimePass > IRLOW) adress | (0 << counter);
+				}
+			}
+			for(counter = 0;counter < 8;counter++){
+					while(!IR_RECEIVER);
+					TR1 = 1;
+					while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+					TR1 = 0;
+					TL1 = 0;
+					TH1 = 0;
+					if(TimePass > IRHIGH) direction | (1 << counter);
+					else if (TimePass > IRLOW) direction | (0 << counter);
+			}
+		}
+		if(adress == ADRESS) return direction;
+		else return 0;
+}
+void UartInit(void)		//9600bps@12.000MHz
+{
+	PCON &= 0x7F;		//Baudrate no doubled
+	SCON = 0x50;		//8bit and variable baudrate
+	AUXR |= 0x04;		//BRT's clock is Fosc (1T)
+	BRT = 0xD9;		//Set BRT's reload value
+	AUXR |= 0x01;		//Use BRT as baudrate generator
+	AUXR |= 0x10;		//BRT running
+}
+void uartSend (char *string,char len,char EOL){
+	int i;
+	for(i=0;i<len;i++){
+		SBUF = string[i];
+		while(!TI);
+		TI=0;
+	}
+	if(EOL == 1){
+		SBUF = 0x0D;
+		while(!TI);
+		TI=0;
+		SBUF = 0x0A;
+		while(!TI);
+		TI=0;
+	}
 }

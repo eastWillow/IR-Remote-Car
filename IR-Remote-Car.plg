@@ -117,3 +117,133 @@ linking...
 Program Size: data=16.1 xdata=0 code=1033
 creating hex file from "IR-Remote-Car"...
 "IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(43): error C141: syntax error near '}'
+IR-Remote-Car.c(98): error C231: 'irReceiver': redefinition
+IR-Remote-Car.c(103): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(104): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(109): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(110): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(121): error C202: 'counter': undefined identifier
+IR-Remote-Car.c(124): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(128): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(128): error C141: syntax error near ')'
+IR-Remote-Car.c(128): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(129): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(129): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(132): error C202: 'counter': undefined identifier
+IR-Remote-Car.c(135): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(139): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(139): error C141: syntax error near ')'
+IR-Remote-Car.c(139): error C202: 'direction': undefined identifier
+IR-Remote-Car.c(140): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(140): error C202: 'direction': undefined identifier
+IR-Remote-Car.c(143): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(143): error C202: 'direction': undefined identifier
+IR-Remote-Car.c(144): error C231: 'irReceiver': redefinition
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(43): error C141: syntax error near '}'
+IR-Remote-Car.c(98): error C231: 'irReceiver': redefinition
+IR-Remote-Car.c(104): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(105): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(110): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(111): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(122): error C202: 'counter': undefined identifier
+IR-Remote-Car.c(125): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(129): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(129): error C141: syntax error near ')'
+IR-Remote-Car.c(129): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(130): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(130): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(133): error C202: 'counter': undefined identifier
+IR-Remote-Car.c(136): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(140): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(140): error C141: syntax error near ')'
+IR-Remote-Car.c(140): error C202: 'counter': undefined identifier
+IR-Remote-Car.c(141): error C202: 'TimePass': undefined identifier
+IR-Remote-Car.c(141): error C202: 'counter': undefined identifier
+IR-Remote-Car.c(144): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(145): error C231: 'irReceiver': redefinition
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(39): error C141: syntax error near '}'
+IR-Remote-Car.c(94): error C231: 'irReceiver': redefinition
+IR-Remote-Car.c(128): error C141: syntax error near ')'
+IR-Remote-Car.c(129): error C202: 'IRLOW': undefined identifier
+IR-Remote-Car.c(139): error C141: syntax error near ')'
+IR-Remote-Car.c(140): error C202: 'IRLOW': undefined identifier
+IR-Remote-Car.c(144): error C231: 'irReceiver': redefinition
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(39): error C141: syntax error near '}'
+IR-Remote-Car.c(94): error C231: 'irReceiver': redefinition
+IR-Remote-Car.c(144): error C231: 'irReceiver': redefinition
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(94): error C231: 'irReceiver': redefinition
+IR-Remote-Car.c(144): error C231: 'irReceiver': redefinition
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(128): warning C275: expression with possibly no effect
+IR-Remote-Car.c(129): warning C275: expression with possibly no effect
+IR-Remote-Car.c(139): warning C275: expression with possibly no effect
+IR-Remote-Car.c(140): warning C275: expression with possibly no effect
+IR-Remote-Car.c(144): warning C291: not every exit path returns a value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UARTINIT?IR_REMOTE_CAR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTRECEIVE?IR_REMOTE_CAR
+Program Size: data=28.1 xdata=0 code=1184
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(38): warning C206: 'UartInit': missing function-prototype
+IR-Remote-Car.c(40): warning C206: 'uartSend': missing function-prototype
+IR-Remote-Car.c(40): error C267: 'uartSend': requires ANSI-style prototype
+IR-Remote-Car.c(149): error C231: 'UartInit': redefinition
+IR-Remote-Car.c(156): error C231: 'UartInit': redefinition
+IR-Remote-Car.c(157): error C231: 'uartSend': redefinition
+IR-Remote-Car.c(172): error C231: 'uartSend': redefinition
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(133): warning C275: expression with possibly no effect
+IR-Remote-Car.c(134): warning C275: expression with possibly no effect
+IR-Remote-Car.c(144): warning C275: expression with possibly no effect
+IR-Remote-Car.c(145): warning C275: expression with possibly no effect
+IR-Remote-Car.c(149): warning C291: not every exit path returns a value
+linking...
+Program Size: data=17.1 xdata=0 code=1164
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(133): warning C275: expression with possibly no effect
+IR-Remote-Car.c(134): warning C275: expression with possibly no effect
+IR-Remote-Car.c(144): warning C275: expression with possibly no effect
+IR-Remote-Car.c(145): warning C275: expression with possibly no effect
+linking...
+Program Size: data=17.1 xdata=0 code=1167
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(134): warning C275: expression with possibly no effect
+IR-Remote-Car.c(135): warning C275: expression with possibly no effect
+IR-Remote-Car.c(145): warning C275: expression with possibly no effect
+IR-Remote-Car.c(146): warning C275: expression with possibly no effect
+linking...
+Program Size: data=17.1 xdata=0 code=1181
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 4 Warning(s).
