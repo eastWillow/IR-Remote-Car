@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/14/2014 14:52:05 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/14/2014 14:53:30 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE
@@ -29,7 +29,7 @@ line level    source
   20   1        CMOD = 0x08;
   21   1        CR = 0;
   22   1        CCAP0L = 0;
-  23   1        CCAP0H = 128;
+  23   1        CCAP0H = 0;
   24   1        CCAPM0 = 0x42;
   25   1        
   26   1        EA = 1;
@@ -62,7 +62,7 @@ line level    source
   53   1        0x08: //RIGHT
   54   1      */
   55   1        EA = 0;
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/14/2014 14:52:05 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/14/2014 14:53:30 PAGE 2   
 
   56   1        delay(1000);
   57   1        if(!UP){
@@ -85,62 +85,63 @@ line level    source
   74   1        unsigned char i=0;
   75   1        unsigned char Adress = ADRESS;
   76   1        CCAP0L = 128;
-  77   1        if(lastDirection != direction){
-  78   2          lastDirection = direction;
-  79   2          CR = 1;
-  80   2          delay(8400);
-  81   2          CR = 0;
-  82   2          delay(4200);
-  83   2        }
-  84   1        for(i=0;i<8;i++){
-  85   2          if((Adress & 0x01)){
-  86   3            CR = 1;
-  87   3            delay(526);
-  88   3            CR = 0;
-  89   3            delay(1574);
-  90   3          }
-  91   2          else{
-  92   3            CR = 1;
-  93   3            delay(526);
-  94   3            CR = 0;
-  95   3            delay(524);
-  96   3          }
-  97   2          Adress = Adress >> 1;
-  98   2        }
-  99   1        for(i=0;i<8;i++){
- 100   2          if((direction & 0x01)){
- 101   3            CR = 1;
- 102   3            delay(526);
- 103   3            CR = 0;
- 104   3            delay(1574);
- 105   3          }
- 106   2          else{
- 107   3            CR = 1;
- 108   3            delay(526);
- 109   3            CR = 0;
- 110   3            delay(524);
- 111   3          }
- 112   2          direction = direction >> 1;
- 113   2        }
- 114   1        CR = 1;
- 115   1        delay(526);
- 116   1        CR = 0;
- 117   1        delay(20000);
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/14/2014 14:52:05 PAGE 3   
+  77   1        CCAP0H = 128;
+  78   1        if(lastDirection != direction){
+  79   2          lastDirection = direction;
+  80   2          CR = 1;
+  81   2          delay(8400);
+  82   2          CR = 0;
+  83   2          delay(4200);
+  84   2        }
+  85   1        for(i=0;i<8;i++){
+  86   2          if((Adress & 0x01)){
+  87   3            CR = 1;
+  88   3            delay(526);
+  89   3            CR = 0;
+  90   3            delay(1574);
+  91   3          }
+  92   2          else{
+  93   3            CR = 1;
+  94   3            delay(526);
+  95   3            CR = 0;
+  96   3            delay(524);
+  97   3          }
+  98   2          Adress = Adress >> 1;
+  99   2        }
+ 100   1        for(i=0;i<8;i++){
+ 101   2          if((direction & 0x01)){
+ 102   3            CR = 1;
+ 103   3            delay(526);
+ 104   3            CR = 0;
+ 105   3            delay(1574);
+ 106   3          }
+ 107   2          else{
+ 108   3            CR = 1;
+ 109   3            delay(526);
+ 110   3            CR = 0;
+ 111   3            delay(524);
+ 112   3          }
+ 113   2          direction = direction >> 1;
+ 114   2        }
+ 115   1        CR = 1;
+ 116   1        delay(526);
+ 117   1        CR = 0;
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/14/2014 14:53:30 PAGE 3   
 
- 118   1      }
- 119          void delay(unsigned int time){
- 120   1        TL0 = (FULL - time) %256;
- 121   1        TH0 = (FULL - time) /256;
- 122   1        TR0 = 1;
- 123   1        while(!TF0);
- 124   1        TR0 = 0;
- 125   1        TF0 = 0;
- 126   1      }
+ 118   1        delay(20000);
+ 119   1      }
+ 120          void delay(unsigned int time){
+ 121   1        TL0 = (FULL - time) %256;
+ 122   1        TH0 = (FULL - time) /256;
+ 123   1        TR0 = 1;
+ 124   1        while(!TF0);
+ 125   1        TR0 = 0;
+ 126   1        TF0 = 0;
+ 127   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    375    ----
+   CODE SIZE        =    377    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

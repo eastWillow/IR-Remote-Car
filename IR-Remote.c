@@ -20,7 +20,7 @@ void steup(){
 	CMOD = 0x08;
 	CR = 0;
 	CCAP0L = 0;
-	CCAP0H = 128;
+	CCAP0H = 0;
 	CCAPM0 = 0x42;
 	
 	EA = 1;
@@ -74,6 +74,7 @@ void IR_TR(unsigned char direction){
 	unsigned char i=0;
 	unsigned char Adress = ADRESS;
 	CCAP0L = 128;
+	CCAP0H = 128;
 	if(lastDirection != direction){
 		lastDirection = direction;
 		CR = 1;
