@@ -28,6 +28,7 @@ sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
 bit repeat;
+unsigned char IRdirection;
 unsigned int servoMotorHighTime = 1250;
 void setup();
 void Delay100ms();
@@ -94,11 +95,12 @@ void Delay100ms()		//@12.000MHz
 		} while (--j);
 	} while (--i);
 }
-unsigned char irReceiver(){
+unsigned char irReceiver() interrupt 2{
 	unsigned char adress;
 	unsigned char direction;
 	unsigned char counter;
 	unsigned char timeCounter;
+	while(IR_RECEIVER);
 	while(!IR_RECEIVER) timeCounter++;
 	if(timeCounter > 8400){
 		while(IR_RECEIVER);
@@ -118,5 +120,5 @@ unsigned char irReceiver(){
 		while(!IR_RECEIVER);
 	}
 	while(!IR_RECEIVER);
-	if(adress == ADRESS) return direction;
+	if(adress == ADRESS) IRdirection = direction;
 }
