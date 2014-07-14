@@ -19,9 +19,9 @@ void delay(unsigned int time);
 void steup(){
 	CMOD = 0x08;
 	CR = 0;
-	CCAPM0 = 0x42;
-	CCAP0L = 128;
+	CCAP0L = 0;
 	CCAP0H = 128;
+	CCAPM0 = 0x42;
 	
 	EA = 1;
 	EX0 = 1;
@@ -35,6 +35,7 @@ void steup(){
 void main(){
 	steup();
 	while(1){
+		CCAP0L = 0;
 		PCON = 0x02;//Power Down
 	}
 }
@@ -51,7 +52,8 @@ void selectDirection () interrupt 0{
 	0x04: //LEFT
 	0x08: //RIGHT
 */
-	PCON = 0x00;
+	EA = 0;
+	delay(1000);
 	if(!UP){
 		direction = 0x01;
 	}
@@ -65,10 +67,13 @@ void selectDirection () interrupt 0{
 		direction = direction | 0x08;
 	}
 	IR_TR(direction);
+	CCAP0L = 0;
+	EA = 1;
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
 	unsigned char Adress = ADRESS;
+	CCAP0L = 128;
 	if(lastDirection != direction){
 		lastDirection = direction;
 		CR = 1;
