@@ -31,12 +31,11 @@ void steup(){
 	TH0 = 0;
 	TR0 = 0;
 	TF0 = 0;
-	
-	PCON = 0x02;//Power Down
 }
 void main(){
 	steup();
 	while(1){
+		PCON = 0x02;//Power Down
 	}
 }
 void selectDirection () interrupt 0{
@@ -66,12 +65,12 @@ void selectDirection () interrupt 0{
 		direction = direction | 0x08;
 	}
 	IR_TR(direction);
-	PCON = 0x02;
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
 	unsigned char Adress = ADRESS;
 	if(lastDirection != direction){
+		lastDirection = direction;
 		CR = 1;
 		delay(8400);
 		CR = 0;

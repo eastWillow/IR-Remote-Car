@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/14/2014  12:49:09  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/14/2014  12:53:07  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -32,13 +32,13 @@ LINK MAP OF MODULE:  IR-Remote (IR_REMOTE)
             CODE    0003H     0003H     ABSOLUTE     
                     0006H     07FAH                  *** GAP ***
             CODE    0800H     00CEH     UNIT         ?C?LIB_CODE
-            CODE    08CEH     0088H     UNIT         ?PR?_IR_TR?IR_REMOTE
-            CODE    0956H     005AH     UNIT         ?PR?_DELAY?IR_REMOTE
-            CODE    09B0H     0058H     UNIT         ?PR?SELECTDIRECTION?IR_REMOTE
+            CODE    08CEH     008BH     UNIT         ?PR?_IR_TR?IR_REMOTE
+            CODE    0959H     005AH     UNIT         ?PR?_DELAY?IR_REMOTE
+            CODE    09B3H     0055H     UNIT         ?PR?SELECTDIRECTION?IR_REMOTE
             CODE    0A08H     0044H     UNIT         ?C?LDIV
-            CODE    0A4CH     0022H     UNIT         ?PR?STEUP?IR_REMOTE
-            CODE    0A6EH     000CH     UNIT         ?C_C51STARTUP
-            CODE    0A7AH     0005H     UNIT         ?PR?MAIN?IR_REMOTE
+            CODE    0A4CH     001FH     UNIT         ?PR?STEUP?IR_REMOTE
+            CODE    0A6BH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0A77H     0008H     UNIT         ?PR?MAIN?IR_REMOTE
 
 
 
@@ -59,7 +59,7 @@ SEGMENT                                 DATA_GROUP
 *** NEW ROOT ***************************************************
 
 ?C_C51STARTUP                         -----    -----
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:49:09  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:53:07  PAGE 2
 
 
   +--> ?PR?MAIN?IR_REMOTE
@@ -83,7 +83,7 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
   D:00FAH         PUBLIC        CCAP0H
-  C:095CH         PUBLIC        _delay
+  C:095FH         PUBLIC        _delay
   D:00EAH         PUBLIC        CCAP0L
   B:00D8H.6       PUBLIC        CR
   D:00DAH         PUBLIC        CCAPM0
@@ -92,8 +92,8 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   D:00D9H         PUBLIC        CMOD
   D:00D8H         PUBLIC        CCON
   B:0090H.2       PUBLIC        UP
-  C:0A7AH         PUBLIC        main
-  C:09B0H         PUBLIC        selectDirection
+  C:0A77H         PUBLIC        main
+  C:09B3H         PUBLIC        selectDirection
   B:0080H.6       PUBLIC        LEFT
   D:0087H         PUBLIC        PCON
   C:0A4CH         PUBLIC        steup
@@ -119,43 +119,42 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   C:0A5CH         LINE#         27
   C:0A5EH         LINE#         29
   C:0A61H         LINE#         30
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:49:09  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:53:07  PAGE 3
 
 
   C:0A64H         LINE#         31
   C:0A66H         LINE#         32
   C:0A68H         LINE#         33
-  C:0A6AH         LINE#         35
-  C:0A6DH         LINE#         36
+  C:0A6AH         LINE#         34
   -------         ENDPROC       STEUP
   -------         PROC          MAIN
+  C:0A77H         LINE#         35
+  C:0A77H         LINE#         36
   C:0A7AH         LINE#         37
   C:0A7AH         LINE#         38
   C:0A7DH         LINE#         39
-  C:0A7DH         LINE#         40
   -------         ENDPROC       MAIN
   -------         PROC          SELECTDIRECTION
   -------         DO            
   D:0007H         SYMBOL        direction
   -------         ENDDO         
-  C:09B0H         LINE#         42
-  C:09CDH         LINE#         43
-  C:09CFH         LINE#         55
-  C:09D1H         LINE#         56
-  C:09D4H         LINE#         57
-  C:09D5H         LINE#         58
-  C:09D5H         LINE#         59
-  C:09D8H         LINE#         60
-  C:09DBH         LINE#         61
-  C:09DBH         LINE#         62
-  C:09DEH         LINE#         63
-  C:09E1H         LINE#         64
-  C:09E1H         LINE#         65
-  C:09E4H         LINE#         66
-  C:09E7H         LINE#         67
-  C:09E7H         LINE#         68
-  C:09EAH         LINE#         69
-  C:09EDH         LINE#         70
+  C:09B3H         LINE#         41
+  C:09D0H         LINE#         42
+  C:09D2H         LINE#         54
+  C:09D4H         LINE#         55
+  C:09D7H         LINE#         56
+  C:09D8H         LINE#         57
+  C:09D8H         LINE#         58
+  C:09DBH         LINE#         59
+  C:09DEH         LINE#         60
+  C:09DEH         LINE#         61
+  C:09E1H         LINE#         62
+  C:09E4H         LINE#         63
+  C:09E4H         LINE#         64
+  C:09E7H         LINE#         65
+  C:09EAH         LINE#         66
+  C:09EAH         LINE#         67
+  C:09EDH         LINE#         68
   -------         ENDPROC       SELECTDIRECTION
   -------         PROC          _IR_TR
   D:0008H         SYMBOL        direction
@@ -163,67 +162,68 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   D:0009H         SYMBOL        i
   D:000AH         SYMBOL        Adress
   -------         ENDDO         
-  C:08CEH         LINE#         71
-  C:08D0H         LINE#         72
-  C:08D3H         LINE#         73
-  C:08D6H         LINE#         74
-  C:08DCH         LINE#         75
-  C:08DEH         LINE#         76
-  C:08E5H         LINE#         77
-  C:08E7H         LINE#         78
-  C:08EEH         LINE#         79
-  C:08EEH         LINE#         80
-  C:08F1H         LINE#         81
-  C:08F6H         LINE#         82
-  C:08F6H         LINE#         83
-  C:08F9H         LINE#         84
-  C:08FBH         LINE#         85
-  C:08FFH         LINE#         86
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:49:09  PAGE 4
+  C:08CEH         LINE#         69
+  C:08D0H         LINE#         70
+  C:08D3H         LINE#         71
+  C:08D6H         LINE#         72
+  C:08DCH         LINE#         73
+  C:08DFH         LINE#         74
+  C:08E1H         LINE#         75
+  C:08E8H         LINE#         76
+  C:08EAH         LINE#         77
+  C:08F1H         LINE#         78
+  C:08F1H         LINE#         79
+  C:08F4H         LINE#         80
+  C:08F9H         LINE#         81
+  C:08F9H         LINE#         82
+  C:08FCH         LINE#         83
+  C:08FEH         LINE#         84
+  C:0902H         LINE#         85
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:53:07  PAGE 4
 
 
-  C:0901H         LINE#         87
-  C:0901H         LINE#         88
-  C:0901H         LINE#         89
-  C:0904H         LINE#         90
-  C:0906H         LINE#         91
-  C:090DH         LINE#         92
-  C:090DH         LINE#         93
-  C:0913H         LINE#         94
-  C:091CH         LINE#         95
-  C:091FH         LINE#         96
-  C:0924H         LINE#         97
-  C:0924H         LINE#         98
-  C:0927H         LINE#         99
-  C:0929H         LINE#         100
-  C:092DH         LINE#         101
-  C:092FH         LINE#         102
-  C:092FH         LINE#         103
-  C:092FH         LINE#         104
-  C:0932H         LINE#         105
-  C:0934H         LINE#         106
-  C:093BH         LINE#         107
-  C:093BH         LINE#         108
-  C:0941H         LINE#         109
-  C:094AH         LINE#         110
-  C:094AH         LINE#         111
-  C:094DH         LINE#         112
-  C:094FH         LINE#         113
+  C:0904H         LINE#         86
+  C:0904H         LINE#         87
+  C:0904H         LINE#         88
+  C:0907H         LINE#         89
+  C:0909H         LINE#         90
+  C:0910H         LINE#         91
+  C:0910H         LINE#         92
+  C:0916H         LINE#         93
+  C:091FH         LINE#         94
+  C:0922H         LINE#         95
+  C:0927H         LINE#         96
+  C:0927H         LINE#         97
+  C:092AH         LINE#         98
+  C:092CH         LINE#         99
+  C:0930H         LINE#         100
+  C:0932H         LINE#         101
+  C:0932H         LINE#         102
+  C:0932H         LINE#         103
+  C:0935H         LINE#         104
+  C:0937H         LINE#         105
+  C:093EH         LINE#         106
+  C:093EH         LINE#         107
+  C:0944H         LINE#         108
+  C:094DH         LINE#         109
+  C:094DH         LINE#         110
+  C:0950H         LINE#         111
+  C:0952H         LINE#         112
   -------         ENDPROC       _IR_TR
-  C:0956H         SYMBOL        L?0028
+  C:0959H         SYMBOL        L?0028
   -------         PROC          L?0027
   -------         ENDPROC       L?0027
-  C:0956H         SYMBOL        L?0028
+  C:0959H         SYMBOL        L?0028
   -------         PROC          _DELAY
   D:000BH         SYMBOL        time
-  C:095CH         LINE#         115
-  C:0960H         LINE#         116
-  C:0982H         LINE#         117
-  C:09A6H         LINE#         118
-  C:09A8H         LINE#         119
-  C:09ABH         LINE#         120
-  C:09ADH         LINE#         121
-  C:09AFH         LINE#         122
+  C:095FH         LINE#         114
+  C:0963H         LINE#         115
+  C:0985H         LINE#         116
+  C:09A9H         LINE#         117
+  C:09ABH         LINE#         118
+  C:09AEH         LINE#         119
+  C:09B0H         LINE#         120
+  C:09B2H         LINE#         121
   -------         ENDPROC       _DELAY
   -------         ENDMOD        IR_REMOTE
 
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
 * RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0164H BYTE (17%) *
 ******************************************************************************
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:49:09  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/14/2014  12:53:07  PAGE 5
 
 
 Program Size: data=15.0 xdata=0 code=645
