@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 17:09:53 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/14/2014 16:29:39 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -7,113 +7,176 @@ COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE IR-Remote-Car.c BROWSE DEBUG OBJECT
 
 line level    source
 
-   1          #include <STC12C5A60S2.H>
-   2          /*
-   3          TA7267
-   4          IN1 IN2 OUT1 OUT2
-   5           1   1    L    L
-   6           0   1    L    H backward
-   7           1   0    H    L forward
-   8           0   0    Z    Z
-   9          */
-  10          /*
-  11          YELLOW
-  12          BLACK
-  13          RED
-  14          YELLOW
-  15          ORANGE
-  16          BLUE
+   1          /*
+   2          TA7267
+   3          IN1 IN2 OUT1 OUT2
+   4           1   1    L    L break
+   5           0   1    L    H backward
+   6           1   0    H    L forward
+   7           0   0    Z    Z nothing
+   8          */
+   9          /*
+  10          Wiring
+  11            YELLOW
+  12            BLACK
+  13            RED
+  14            YELLOW
+  15            ORANGE
+  16            BLUE
   17          */
   18          #include <STC12C5A60S2.H>
   19          #include <intrins.h>
   20          #define ALL_WIDTH 20000 //20ms
   21          #define FULL 65535
-  22          sbit SERVOMOTOR1=P1^3; //PWM I/O
-  23          sbit LIMITSWITCH=P3^2; // INT0
-  24          sbit IR_RECEIVER=P3^3; // INT1
-  25          sbit IN1=P0^1;
-  26          sbit IN2=P0^2;
-  27          unsigned int servoMotorHighTime = 1250;
-  28          void setup();
-  29          void Delay100ms();
-  30          void main(){
-  31   1        int i;
-  32   1        setup();
-  33   1        TR0 = 1;
-  34   1        while(1){
-  35   2          IN1 =1;
-  36   2          IN2 =0;
-  37   2          if(servoMotorHighTime == 1000){
-  38   3              IN1 =0;
-  39   3              IN2 =0;
-  40   3              Delay100ms();
-  41   3            for(i=0;i<5;i++){
-  42   4              IN1 =0;
-  43   4              IN2 =1;
-  44   4              Delay100ms();
-  45   4            }
-  46   3            servoMotorHighTime = 1250;
-  47   3          }
-  48   2        }
-  49   1      }
-  50          void setup(){
-  51   1        EA = 1;
-  52   1        ET0 = 1;
-  53   1        EX0 = 1;
-  54   1        PX0 = 1;
-  55   1        TR0 = 0; //reset Timer0 Switch
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/11/2014 17:09:53 PAGE 2   
+  22          #define ADRESS 0xA5
+  23          sbit SERVOMOTOR1=P1^3; //PWM I/O
+  24          sbit LIMITSWITCH=P3^2; // INT0
+  25          sbit IR_RECEIVER=P3^3; // INT1
+  26          sbit IN1=P0^1;
+  27          sbit IN2=P0^2;
+  28          bit repeat;
+  29          unsigned int servoMotorHighTime = 1250;
+  30          void setup();
+  31          void Delay100ms();
+  32          void main(){
+  33   1        unsigned int TimePass;
+  34   1        unsigned char adress;
+  35   1        unsigned char direction;
+  36   1        unsigned char counter;
+  37   1        setup();
+  38   1        while(1){
+  39   2          if(!IR_RECEIVER){
+  40   3            TH1 = 0;
+  41   3            TL1 = 0;
+  42   3            TR1 = 1;
+  43   3            while(!IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+  44   3            if(TimePass > 8400){
+  45   4              TR1 = 0;
+  46   4              TH1 = 0;
+  47   4              TL1 = 0;
+  48   4              TR1 = 1;
+  49   4              while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+  50   4              if(TimePass > 4200){
+  51   5                repeat = 0;
+  52   5              }
+  53   4            }
+  54   3            else{
+  55   4              TR1 = 0;
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/14/2014 16:29:39 PAGE 2   
 
-  56   1        TMOD = 0x01; //0000 0010
-  57   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  58   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  59   1        SERVOMOTOR1 = 0;
-  60   1      }
-  61          void servoMotor () interrupt 1 {
-  62   1        TR0 = 0;
-  63   1        if(SERVOMOTOR1){
-  64   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  65   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  66   2          SERVOMOTOR1 = 0;
-  67   2        }
-  68   1        else{
-  69   2          TL0 = (FULL - servoMotorHighTime) %256;
-  70   2          TH0 = (FULL - servoMotorHighTime) / 256;
-  71   2          SERVOMOTOR1 = 1;
-  72   2        }
-  73   1        TR0 = 1;
-  74   1      }
-  75          void limitSwitch () interrupt 0{
-  76   1          servoMotorHighTime = 1000;
-  77   1      }
-  78          void Delay100ms()   //@12.000MHz
-  79          {
-  80   1        unsigned char i, j, k;
-  81   1      
-  82   1        _nop_();
-  83   1        _nop_();
-  84   1        i = 5;
-  85   1        j = 144;
-  86   1        k = 71;
-  87   1        do
-  88   1        {
-  89   2          do
-  90   2          {
-  91   3            while (--k);
-  92   3          } while (--j);
-  93   2        } while (--i);
-  94   1      }
+  56   4              TH1 = 0;
+  57   4              TL1 = 0;
+  58   4              repeat = 1;
+  59   4            }
+  60   3            if(repeat){
+  61   4              for(counter = 0;counter < 8;counter++){
+  62   5                while(!IR_RECEIVER);
+  63   5                TR1 = 1;
+  64   5                while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+  65   5                TR1 = 0;
+  66   5                TL1 = 0;
+  67   5                TH1 = 0;
+  68   5                if(TimePass > 1574) direction | (1 << counter);
+*** WARNING C275 IN LINE 68 OF IR-Remote-Car.c: expression with possibly no effect
+  69   5                else if (TimePass > 524) direction | (0 << counter);
+*** WARNING C275 IN LINE 69 OF IR-Remote-Car.c: expression with possibly no effect
+  70   5              }
+  71   4            }
+  72   3            else{
+  73   4              for(counter = 0;counter < 8;counter++){
+  74   5                while(!IR_RECEIVER);
+  75   5                TR1 = 1;
+  76   5                while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+  77   5                TR1 = 0;
+  78   5                TL1 = 0;
+  79   5                TH1 = 0;
+  80   5                if(TimePass > 1574) adress | (1 << counter);
+*** WARNING C275 IN LINE 80 OF IR-Remote-Car.c: expression with possibly no effect
+  81   5                else if (TimePass > 524) adress | (0 << counter);
+*** WARNING C275 IN LINE 81 OF IR-Remote-Car.c: expression with possibly no effect
+  82   5              }
+  83   4              for(counter = 0;counter < 8;counter++){
+  84   5                while(!IR_RECEIVER);
+  85   5                TR1 = 1;
+  86   5                while(IR_RECEIVER) TimePass = TL1 | (TH1 << 8);
+  87   5                TR1 = 0;
+  88   5                TL1 = 0;
+  89   5                TH1 = 0;
+  90   5                if(TimePass > 1574) direction | (1 << counter);
+*** WARNING C275 IN LINE 90 OF IR-Remote-Car.c: expression with possibly no effect
+  91   5                else if (TimePass > 524) direction | (0 << counter);
+*** WARNING C275 IN LINE 91 OF IR-Remote-Car.c: expression with possibly no effect
+  92   5              }
+  93   4            }
+  94   3          }
+  95   2        }
+  96   1      }
+  97          void setup(){
+  98   1        EA = 1;
+  99   1        ET0 = 1;
+ 100   1        EX0 = 1;
+ 101   1        PX0 = 1;
+ 102   1        TR0 = 0; //reset Timer0 Switch
+ 103   1        TR0 = 0; //reset Timer1 Switch
+ 104   1        TMOD = 0x11; //0010 0010
+ 105   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+ 106   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+ 107   1        SERVOMOTOR1 = 0;
+ 108   1        TR0 = 1;
+ 109   1      }
+ 110          void servoMotor () interrupt 1 {
+ 111   1        TR0 = 0;
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/14/2014 16:29:39 PAGE 3   
+
+ 112   1        if(SERVOMOTOR1){
+ 113   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+ 114   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+ 115   2          SERVOMOTOR1 = 0;
+ 116   2        }
+ 117   1        else{
+ 118   2          TL0 = (FULL - servoMotorHighTime) %256;
+ 119   2          TH0 = (FULL - servoMotorHighTime) / 256;
+ 120   2          SERVOMOTOR1 = 1;
+ 121   2        }
+ 122   1        TR0 = 1;
+ 123   1      }
+ 124          void limitSwitch () interrupt 0{
+ 125   1        IN1 =0;
+ 126   1        IN2 =1;
+ 127   1        Delay100ms();
+ 128   1        Delay100ms();
+ 129   1        Delay100ms();
+ 130   1        Delay100ms();
+ 131   1        Delay100ms();
+ 132   1      }
+ 133          void Delay100ms()   //@12.000MHz
+ 134          {
+ 135   1        unsigned char i, j, k;
+ 136   1      
+ 137   1        _nop_();
+ 138   1        _nop_();
+ 139   1        i = 5;
+ 140   1        j = 144;
+ 141   1        k = 71;
+ 142   1        do
+ 143   1        {
+ 144   2          do
+ 145   2          {
+ 146   3            while (--k);
+ 147   3          } while (--j);
+ 148   2        } while (--i);
+ 149   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    386    ----
+   CODE SIZE        =    605    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      2       2
+   DATA SIZE        =      2       5
    IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
+   BIT SIZE         =      1    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  6 WARNING(S),  0 ERROR(S)

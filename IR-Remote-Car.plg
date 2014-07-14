@@ -7,3 +7,113 @@ C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.uvproj
 Project File Date:  07/14/2014
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(38): error C141: syntax error near 'void'
+IR-Remote-Car.c(38): error C141: syntax error near '{'
+IR-Remote-Car.c(51): error C141: syntax error near 'void'
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(31): warning C280: 'i': unreferenced local variable
+IR-Remote-Car.c(69): error C267: 'Delay100ms': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(31): warning C280: 'i': unreferenced local variable
+linking...
+Program Size: data=13.0 xdata=0 code=831
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(31): warning C280: 'i': unreferenced local variable
+linking...
+Program Size: data=13.0 xdata=0 code=831
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=841
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(51): error C141: syntax error near 'void'
+IR-Remote-Car.c(51): error C141: syntax error near '{'
+IR-Remote-Car.c(64): error C141: syntax error near 'void'
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(52): error C141: syntax error near 'void'
+IR-Remote-Car.c(52): error C141: syntax error near '{'
+IR-Remote-Car.c(65): error C141: syntax error near 'void'
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.1 xdata=0 code=899
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): warning C275: expression with possibly no effect
+IR-Remote-Car.c(69): warning C275: expression with possibly no effect
+IR-Remote-Car.c(80): error C202: 'adress': undefined identifier
+IR-Remote-Car.c(81): error C202: 'adress': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): warning C275: expression with possibly no effect
+IR-Remote-Car.c(69): warning C275: expression with possibly no effect
+IR-Remote-Car.c(80): warning C275: expression with possibly no effect
+IR-Remote-Car.c(81): warning C275: expression with possibly no effect
+IR-Remote-Car.c(90): warning C275: expression with possibly no effect
+IR-Remote-Car.c(91): warning C275: expression with possibly no effect
+linking...
+Program Size: data=16.1 xdata=0 code=1033
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): error C213: left side of asn-op not an lvalue
+IR-Remote-Car.c(69): error C141: syntax error near '='
+IR-Remote-Car.c(91): error C141: syntax error near '='
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): error C213: left side of asn-op not an lvalue
+IR-Remote-Car.c(91): error C141: syntax error near '='
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): error C213: left side of asn-op not an lvalue
+IR-Remote-Car.c(91): error C141: syntax error near '='
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): error C213: left side of asn-op not an lvalue
+Target not created
+Build target 'Target 1'
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c(68): warning C275: expression with possibly no effect
+IR-Remote-Car.c(69): warning C275: expression with possibly no effect
+IR-Remote-Car.c(80): warning C275: expression with possibly no effect
+IR-Remote-Car.c(81): warning C275: expression with possibly no effect
+IR-Remote-Car.c(90): warning C275: expression with possibly no effect
+IR-Remote-Car.c(91): warning C275: expression with possibly no effect
+linking...
+Program Size: data=16.1 xdata=0 code=1033
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=16.1 xdata=0 code=1033
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=16.1 xdata=0 code=1033
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
