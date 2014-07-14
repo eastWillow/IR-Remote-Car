@@ -8,12 +8,13 @@ LEFT 	--- INT0,P0^6
 #include <intrins.h>
 #define FULL 65535
 #define ADRESS 0xA5
+#define INT0 P3^2
 sbit IR = P1^3;
 sbit UP = P1^2;
 sbit DOWN = P3^5;
 sbit RIGHT = P1^1;
 sbit LEFT = P0^6;
-unsigned char lastDirection;
+unsigned char repeat;
 void IR_TR(unsigned char direction);
 void delay(unsigned int time);
 void steup(){
@@ -65,7 +66,11 @@ void selectDirection () interrupt 0{
 	if(!RIGHT){
 		direction = direction | 0x08;
 	}
-	IR_TR(direction);
+	while(!INT0){
+		IR_TR(direction);
+		repeat = 1;
+	}
+	repeat = 0;
 	CCAP0L = 0;
 	EA = 1;
 }
@@ -74,8 +79,7 @@ void IR_TR(unsigned char direction){
 	unsigned char Adress = ADRESS;
 	CCAP0L = 128;
 	CCAP0H = 128;
-	if(lastDirection != direction){
-		lastDirection = direction;
+	if(repeat != 1){
 		CR = 1;
 		delay(8400);
 		CR = 0;
