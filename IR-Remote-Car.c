@@ -20,8 +20,8 @@ Wiring
 #define ALL_WIDTH 20000 //20ms
 #define FULL 65535
 #define ADRESS 0xA5
-#define IRHIGH 1844
-#define IRLOW 524
+#define IRHIGH 2 //1844
+#define IRLOW 1 //524
 sbit SERVOMOTOR1=P1^3; //PWM I/O
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
@@ -35,14 +35,10 @@ unsigned char irReceiver();
 void uartSend (char *string,char len,char EOL);
 void UartInit(void);
 void main(){
-	char debug[1];
+	unsigned char direction;
 	setup();
-	UartInit();
 	while(1){
-		uartSend("Wellcom",7,1);
-		debug[0] = irReceiver();
-		uartSend(debug,1,1);
-		Delay100ms();
+		direction = irReceiver();
 	}
 }
 void setup(){
@@ -123,29 +119,4 @@ unsigned char irReceiver(){
 	}
 	while(!IR_RECEIVER);
 	if(adress == ADRESS) return direction;
-}
-void UartInit(void)		//9600bps@12.000MHz
-{
-	PCON &= 0x7F;		//Baudrate no doubled
-	SCON = 0x50;		//8bit and variable baudrate
-	AUXR |= 0x04;		//BRT's clock is Fosc (1T)
-	BRT = 0xD9;		//Set BRT's reload value
-	AUXR |= 0x01;		//Use BRT as baudrate generator
-	AUXR |= 0x10;		//BRT running
-}
-void uartSend (char *string,char len,char EOL){
-	int i;
-	for(i=0;i<len;i++){
-		SBUF = string[i];
-		while(!TI);
-		TI=0;
-	}
-	if(EOL == 1){
-		SBUF = 0x0D;
-		while(!TI);
-		TI=0;
-		SBUF = 0x0A;
-		while(!TI);
-		TI=0;
-	}
 }
