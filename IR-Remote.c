@@ -35,7 +35,6 @@ void steup(){
 void main(){
 	steup();
 	while(1){
-		CCAP0L = 0;
 		PCON = 0x02;//Power Down
 	}
 }
@@ -69,6 +68,7 @@ void selectDirection () interrupt 0{
 	IR_TR(direction);
 	CCAP0L = 0;
 	EA = 1;
+	PCON = 0x02;
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
