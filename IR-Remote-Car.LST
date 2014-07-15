@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:10:22 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:45:35 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -48,119 +48,131 @@ line level    source
   39          sbit IR_RECEIVER=P3^3; // INT1
   40          sbit IN1=P0^1;
   41          sbit IN2=P0^2;
-  42          unsigned char IRdirection;
-  43          unsigned int servoMotorHighTime = 1250;
-  44          void setup();
-  45          void Delay100ms();
-  46          //void UartInit (void);
-  47          //void uartSend (unsigned char number);
-  48          void main(){
-  49   1        setup();
-  50   1        //UartInit();
-  51   1        while(1){
-  52   2          if(IRdirection == 0x04) servoMotorHighTime = 1000;
-  53   2          if(IRdirection == 0x04) servoMotorHighTime = 1500;
-  54   2        }
-  55   1      }
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:10:22 PAGE 2   
+  42          unsigned int servoMotorHighTime = 1250;
+  43          void setup();
+  44          void Delay100ms();
+  45          void UartInit (void);
+  46          void uartSend (unsigned char number);
+  47          /*void irReceiver() interrupt 2{
+  48            unsigned int counter;
+  49            unsigned char i;
+  50            while(IR_RECEIVER == 0) counter++;
+  51            if(counter >=15656){
+  52              counter =0;
+  53              while(IR_RECEIVER == 1)counter++;
+  54              if(counter >= 3000){
+  55                for(i=0;i<8;i++){
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:45:35 PAGE 2   
 
-  56          void setup(){
-  57   1        EA = 1;
-  58   1        ET0 = 1;
-  59   1        EX0 = 1;
-  60   1        EX1 = 1;
-  61   1        PX0 = 1;
-  62   1        TR0 = 0; //reset Timer0 Switch
-  63   1        TR0 = 0; //reset Timer1 Switch
-  64   1        TMOD = 0x11; //0010 0010
-  65   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  66   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  67   1        SERVOMOTOR1 = 0;
-  68   1        TR0 = 1;
-  69   1      }
-  70          void servoMotor () interrupt 1 {
-  71   1        TR0 = 0;
-  72   1        if(SERVOMOTOR1){
-  73   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  74   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  75   2          SERVOMOTOR1 = 0;
-  76   2        }
-  77   1        else{
-  78   2          TL0 = (FULL - servoMotorHighTime) %256;
-  79   2          TH0 = (FULL - servoMotorHighTime) / 256;
-  80   2          SERVOMOTOR1 = 1;
-  81   2        }
-  82   1        TR0 = 1;
-  83   1      }
-  84          void limitSwitch () interrupt 0{
-  85   1        IN1 =0;
-  86   1        IN2 =1;
-  87   1        Delay100ms();
-  88   1        Delay100ms();
-  89   1        Delay100ms();
-  90   1        Delay100ms();
-  91   1        Delay100ms();
-  92   1      }
-  93          void Delay100ms()   //@12.000MHz
-  94          {
-  95   1        unsigned char i, j, k;
-  96   1      
-  97   1        _nop_();
-  98   1        _nop_();
-  99   1        i = 5;
- 100   1        j = 144;
- 101   1        k = 71;
- 102   1        do
- 103   1        {
- 104   2          do
- 105   2          {
- 106   3            while (--k);
- 107   3          } while (--j);
- 108   2        } while (--i);
- 109   1      }
- 110          void irReceiver() interrupt 2{
- 111   1        unsigned int counter;
- 112   1        unsigned char i;
- 113   1        while(IR_RECEIVER == 0) counter++;
- 114   1        if(counter >=15656){
- 115   2          counter =0;
- 116   2          while(IR_RECEIVER == 1)counter++;
- 117   2          if(counter >= 3000){
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:10:22 PAGE 3   
+  56                  counter = 0;
+  57                  while(IR_RECEIVER == 0)counter++;
+  58                  if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
+  59                  while(IR_RECEIVER == 1);
+  60                }
+  61              }
+  62            }
+  63            if(counter <=15656) return;
+  64          }*/
+  65          void main(){
+  66   1        unsigned char IRdirection;
+  67   1        unsigned int counter;
+  68   1        unsigned char i;
+  69   1        setup();
+  70   1        UartInit();
+  71   1        while(1){
+  72   2          while(IR_RECEIVER == 0) counter++;
+  73   2          if(counter >=15656){
+  74   3          counter =0;
+  75   3          while(IR_RECEIVER == 1)counter++;
+  76   3          if(counter >= 3000){
+  77   4            for(i=0;i<8;i++){
+  78   5              counter = 0;
+  79   5              while(IR_RECEIVER == 0)counter++;
+  80   5              if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
+  81   5              while(IR_RECEIVER == 1);
+  82   5            }
+  83   4          }
+  84   3        }
+  85   2        }
+  86   1      }
+  87          void setup(){
+  88   1        EA = 1;
+  89   1        ET0 = 1;
+  90   1        EX0 = 1;
+  91   1        //EX1 = 1;
+  92   1        PX0 = 1;
+  93   1        TR0 = 0; //reset Timer0 Switch
+  94   1        TR0 = 0; //reset Timer1 Switch
+  95   1        TMOD = 0x11; //0010 0010
+  96   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+  97   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+  98   1        SERVOMOTOR1 = 0;
+  99   1        TR0 = 1;
+ 100   1      }
+ 101          void servoMotor () interrupt 1 {
+ 102   1        TR0 = 0;
+ 103   1        if(SERVOMOTOR1){
+ 104   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+ 105   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+ 106   2          SERVOMOTOR1 = 0;
+ 107   2        }
+ 108   1        else{
+ 109   2          TL0 = (FULL - servoMotorHighTime) %256;
+ 110   2          TH0 = (FULL - servoMotorHighTime) / 256;
+ 111   2          SERVOMOTOR1 = 1;
+ 112   2        }
+ 113   1        TR0 = 1;
+ 114   1      }
+ 115          void limitSwitch () interrupt 0{
+ 116   1        IN1 =0;
+ 117   1        IN2 =1;
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:45:35 PAGE 3   
 
- 118   3            for(i=0;i<8;i++){
- 119   4              counter = 0;
- 120   4              while(IR_RECEIVER == 0)counter++;
- 121   4              if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
- 122   4              while(IR_RECEIVER == 1);
- 123   4            }
- 124   3            //uartSend(IRdirection);
- 125   3          }
- 126   2        }
- 127   1        if(counter <=15656) return;
- 128   1      }
- 129          /*void UartInit(void)   //9600bps@12.000MHz
- 130          {
- 131            PCON &= 0x7F;   //Baudrate no doubled
- 132            SCON = 0x50;    //8bit and variable baudrate
- 133            AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 134            BRT = 0xD9;   //Set BRT's reload value
- 135            AUXR |= 0x01;   //Use BRT as baudrate generator
- 136            AUXR |= 0x10;   //BRT running
- 137          }
- 138          void uartSend (unsigned char number){
- 139              SBUF = number;
- 140              while(!TI);
- 141              TI=0;
- 142          }*/
+ 118   1        Delay100ms();
+ 119   1        Delay100ms();
+ 120   1        Delay100ms();
+ 121   1        Delay100ms();
+ 122   1        Delay100ms();
+ 123   1      }
+ 124          void Delay100ms()   //@12.000MHz
+ 125          {
+ 126   1        unsigned char i, j, k;
+ 127   1      
+ 128   1        _nop_();
+ 129   1        _nop_();
+ 130   1        i = 5;
+ 131   1        j = 144;
+ 132   1        k = 71;
+ 133   1        do
+ 134   1        {
+ 135   2          do
+ 136   2          {
+ 137   3            while (--k);
+ 138   3          } while (--j);
+ 139   2        } while (--i);
+ 140   1      }
+ 141          void UartInit(void)   //9600bps@12.000MHz
+ 142          {
+ 143   1        PCON &= 0x7F;   //Baudrate no doubled
+ 144   1        SCON = 0x50;    //8bit and variable baudrate
+ 145   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
+ 146   1        BRT = 0xD9;   //Set BRT's reload value
+ 147   1        AUXR |= 0x01;   //Use BRT as baudrate generator
+ 148   1        AUXR |= 0x10;   //BRT running
+ 149   1      }
+ 150          void uartSend (unsigned char number){
+ 151   1          SBUF = number;
+ 152   1          while(!TI);
+ 153   1          TI=0;
+ 154   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    541    ----
+   CODE SIZE        =    538    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      3    ----
+   DATA SIZE        =      2       4
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
