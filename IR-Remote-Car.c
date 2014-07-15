@@ -15,13 +15,25 @@ Wiring
 	ORANGE
 	BLUE
 */
+/*
+	direction:
+	0x01: //UP
+	0x05: //UP+LEFT
+	0x09: //UP+RIGHT
+	0x02: //DOWN
+	0x06: //DOWN+RIGHT
+	0x0A: //DOWN+RIGHT
+	0x04: //LEFT
+	0x08: //RIGHT
+*/
 #include <STC12C5A60S2.H>
 #include <intrins.h>
 #define ALL_WIDTH 20000 //20ms
 #define FULL 65535
 #define ADRESS 0xA5
-#define IRHIGH 2 //1844
-#define IRLOW 1 //524
+#define IRHIGH 1844
+#define IRLOW 524
+#define HEAD 8400
 sbit SERVOMOTOR1=P1^3; //PWM I/O
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
@@ -31,20 +43,19 @@ unsigned char IRdirection;
 unsigned int servoMotorHighTime = 1250;
 void setup();
 void Delay100ms();
-unsigned char irReceiver();
-void uartSend (char *string,char len,char EOL);
-void UartInit(void);
 void main(){
-	unsigned char direction;
 	setup();
 	while(1){
-		direction = irReceiver();
+		if(IRdirection == 0x04) servoMotorHighTime = 1000;
+		if(IRdirection == 0x04) servoMotorHighTime = 1500;
 	}
 }
 void setup(){
 	EA = 1;
 	ET0 = 1;
 	EX0 = 1;
+	EX1 = 1;
+	IT1 = 1;
 	PX0 = 1;
 	TR0 = 0; //reset Timer0 Switch
 	TR0 = 0; //reset Timer1 Switch
@@ -94,6 +105,34 @@ void Delay100ms()		//@12.000MHz
 		} while (--j);
 	} while (--i);
 }
-unsigned char irReceiver() interrupt 2{
-
+void irReceiver() interrupt 2{
+	unsigned int counter;
+	unsigned char adress;
+	int i;
+	IRdirection = 0;
+	while(IR_RECEIVER == 0) counter++;
+	if (counter >= HEAD){
+		counter = 0;
+		while(IR_RECEIVER == 1);
+		while(IR_RECEIVER == 0);
+		while(IR_RECEIVER == 1) counter++;
+	}
+	else{
+		counter = 0;
+		while(IR_RECEIVER == 1) counter++;
+	}
+	//Start Coding
+	if (counter >= IRHIGH) adress = adress | 0x01;
+	for(i=0;i<7;i++){
+		while(IR_RECEIVER == 0);
+		counter = 0;
+		while(IR_RECEIVER == 1) counter++;
+		if (counter >= IRHIGH) adress = adress | (0x02 << i);
+	}
+	for(i=0;i<8;i++){
+		while(IR_RECEIVER == 0);
+		counter = 0;
+		while(IR_RECEIVER == 1)	counter++;
+		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
+	}
 }
