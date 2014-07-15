@@ -1,17 +1,12 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  17:41:55  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  17:59:56  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
 C:\KEIL\C51\BIN\BL51.EXE IR-Remote-Car.obj TO IR-Remote-Car RAMSIZE (256)
 
 
-MEMORY MODEL: SMALL
-
-
 INPUT MODULES INCLUDED:
   IR-Remote-Car.obj (IR_REMOTE_CAR)
-  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
-  C:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
 
 
 LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
@@ -22,31 +17,9 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0004H     UNIT         _DATA_GROUP_
-            DATA    000CH     0002H     UNIT         ?DT?IR_REMOTE_CAR
-            IDATA   000EH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     0003H     ABSOLUTE     
-                    0003H     07FDH                  *** GAP ***
-            CODE    0800H     00C0H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    08C0H     0016H     UNIT         ?C?LIB_CODE
-            CODE    08D6H     000CH     UNIT         ?C_C51STARTUP
-            CODE    08E2H     000BH     UNIT         ?PR?SETUP?IR_REMOTE_CAR
-
-
-
-OVERLAY MAP OF MODULE:   IR-Remote-Car (IR_REMOTE_CAR)
-
-
-SEGMENT                           DATA_GROUP 
-  +--> CALLED SEGMENT           START    LENGTH
------------------------------------------------
-?C_C51STARTUP                   -----    -----
-  +--> ?PR?MAIN?IR_REMOTE_CAR
-
-?PR?MAIN?IR_REMOTE_CAR          0008H    0004H
-  +--> ?PR?SETUP?IR_REMOTE_CAR
+            CODE    0000H     0063H     ABSOLUTE     
 
 
 
@@ -56,92 +29,41 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   ----------------------------------
 
   -------         MODULE        IR_REMOTE_CAR
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0080H         PUBLIC        P0
-  D:0090H         PUBLIC        P1
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  17:41:55  PAGE 2
-
-
-  D:00B0H         PUBLIC        P3
-  B:00A8H.7       PUBLIC        EA
-  D:00A8H         PUBLIC        IE
-  D:00B8H         PUBLIC        IP
-  D:00D8H         PUBLIC        CCON
-  C:0800H         PUBLIC        main
-  C:08E2H         PUBLIC        setup
-  D:0098H         PUBLIC        SCON
-  D:0088H         PUBLIC        TCON
-  B:0080H.1       PUBLIC        IN1
-  B:0080H.2       PUBLIC        IN2
-  B:00A8H.1       PUBLIC        ET0
-  B:00A8H.0       PUBLIC        EX0
-  B:00B0H.3       PUBLIC        IR_RECEIVER
-  B:00B8H.0       PUBLIC        PX0
-  B:00B8H.2       PUBLIC        PX1
-  D:000CH         PUBLIC        servoMotorHighTime
-  D:00D0H         PUBLIC        PSW
-  -------         PROC          MAIN
-  -------         DO            
-  D:0008H         SYMBOL        IRdirection
-  D:0009H         SYMBOL        counter
-  D:000BH         SYMBOL        i
-  -------         ENDDO         
-  C:0800H         LINE#         46
-  C:0800H         LINE#         50
-  C:0803H         LINE#         52
-  C:0803H         LINE#         53
-  C:080CH         LINE#         54
-  C:080CH         LINE#         55
-  C:0821H         LINE#         56
-  C:0823H         LINE#         57
-  C:0825H         LINE#         58
-  C:0829H         LINE#         59
-  C:0829H         LINE#         60
-  C:0829H         LINE#         61
-  C:083EH         LINE#         62
-  C:0840H         LINE#         63
-  C:0842H         LINE#         64
-  C:0846H         LINE#         65
-  C:0846H         LINE#         66
-  C:0846H         LINE#         67
-  C:0848H         LINE#         68
-  C:084AH         LINE#         69
-  C:084AH         LINE#         70
-  C:084AH         LINE#         71
-  C:0857H         LINE#         72
-  C:0862H         LINE#         73
-  C:0865H         LINE#         74
-  C:0869H         LINE#         75
-  C:0876H         LINE#         76
-  C:0881H         LINE#         77
-  C:0884H         LINE#         78
-  C:0889H         LINE#         79
-  C:0896H         LINE#         80
-  C:08AEH         LINE#         81
-  C:08B1H         LINE#         82
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  17:41:55  PAGE 3
-
-
-  C:08B8H         LINE#         83
-  -------         ENDPROC       MAIN
-  -------         PROC          SETUP
-  C:08E2H         LINE#         88
-  C:08E2H         LINE#         89
-  C:08E4H         LINE#         90
-  C:08E6H         LINE#         91
-  C:08E8H         LINE#         93
-  C:08EAH         LINE#         94
-  C:08ECH         LINE#         98
-  -------         ENDPROC       SETUP
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.1       SYMBOL        ET0
+  B:00A8H.0       SYMBOL        EX0
+  B:00A8H.2       SYMBOL        EX1
+  B:0080H.1       SYMBOL        IN1
+  B:0080H.2       SYMBOL        IN2
+  B:00B0H.3       SYMBOL        IR_RECEIVER
+  B:00B0H.2       SYMBOL        LIMITSWITCH
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00B0H         SYMBOL        P3
+  B:00B8H.0       SYMBOL        PX0
+  B:00B8H.2       SYMBOL        PX1
+  B:0090H.3       SYMBOL        SERVOMOTOR1
+  C:0050H         SYMBOL        SETUP
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:0000H         LINE#         7
+  C:0050H         LINE#         10
+  C:0052H         LINE#         11
+  C:0054H         LINE#         12
+  C:0056H         LINE#         13
+  C:0058H         LINE#         14
+  C:005AH         LINE#         15
+  C:005CH         LINE#         16
+  C:005EH         LINE#         17
+  C:0061H         LINE#         18
   -------         ENDMOD        IR_REMOTE_CAR
 
-  -------         MODULE        ?C?SLCMP
-  C:08C0H         PUBLIC        ?C?SLCMP
-  -------         ENDMOD        ?C?SLCMP
-
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00CBH BYTE ( 9%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  17:59:56  PAGE 2
+
+
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0015H BYTE ( 1%) *
 ******************************************************************************
 
-Program Size: data=15.0 xdata=0 code=240
+Program Size: data=8.0 xdata=0 code=99
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
