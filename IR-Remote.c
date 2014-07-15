@@ -7,7 +7,6 @@ LEFT 	--- INT0,P0^6
 #include <STC12C5A60S2.H>
 #include <intrins.h>
 #define FULL 65535
-#define ADRESS 0xA5
 sbit IR = P1^3;
 sbit UP = P1^2;
 sbit DOWN = P3^5;
@@ -71,27 +70,13 @@ void selectDirection () interrupt 0{
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
-	unsigned char Adress = ADRESS;
 	CCAP0L = 128;
 	CCAP0H = 128;
-	CR = 1;
-	delay(16800);
-	CR = 0;
-	delay(8400);
-	for(i=0;i<8;i++){
-		if((Adress & 0x01)){
-			CR = 1;
-			delay(526);
-			CR = 0;
-			delay(1574);
-		}
-		else{
-			CR = 1;
-			delay(526);
-			CR = 0;
-			delay(524);
-		}
-		Adress = Adress >> 1;
+	for(i=0;i<3;i++){
+		CR = 1;
+		delay(16800);
+		CR = 0;
+		delay(8400);
 	}
 	for(i=0;i<8;i++){
 		if((direction & 0x01)){
