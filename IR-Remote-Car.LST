@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/14/2014 18:13:51 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 09:17:10 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -36,7 +36,7 @@ line level    source
   27          sbit IR_RECEIVER=P3^3; // INT1
   28          sbit IN1=P0^1;
   29          sbit IN2=P0^2;
-  30          bit repeat;
+  30          unsigned char IRdirection;
   31          unsigned int servoMotorHighTime = 1250;
   32          void setup();
   33          void Delay100ms();
@@ -62,7 +62,7 @@ line level    source
   53   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
   54   1        SERVOMOTOR1 = 0;
   55   1        TR0 = 1;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/14/2014 18:13:51 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 09:17:10 PAGE 2   
 
   56   1      }
   57          void servoMotor () interrupt 1 {
@@ -105,7 +105,8 @@ line level    source
   94   3          } while (--j);
   95   2        } while (--i);
   96   1      }
-  97          unsigned char irReceiver(){
+  97          unsigned char irReceiver() interrupt 2{
+*** ERROR C138 IN LINE 97 OF IR-Remote-Car.c: 'irReceiver': interrupt() may not receive or return value(s)
   98   1        unsigned char adress;
   99   1        unsigned char direction;
  100   1        unsigned char counter;
@@ -120,36 +121,19 @@ line level    source
  109   1        for(counter = 0;counter <8;counter++){
  110   2          while(IR_RECEIVER) timeCounter++;
  111   2          if(timeCounter > IRHIGH) adress | (0x01 << counter);
-*** WARNING C275 IN LINE 111 OF IR-Remote-Car.c: expression with possibly no effect
  112   2          else if(timeCounter > IRLOW) adress | (0x00 << counter);
-*** WARNING C275 IN LINE 112 OF IR-Remote-Car.c: expression with possibly no effect
  113   2          while(!IR_RECEIVER);
  114   2        }
  115   1        for(counter = 0;counter <8;counter++){
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/14/2014 18:13:51 PAGE 3   
-
  116   2          while(IR_RECEIVER) timeCounter++;
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 09:17:10 PAGE 3   
+
  117   2          if(timeCounter > IRHIGH) direction | (0x01 << counter);
-*** WARNING C275 IN LINE 117 OF IR-Remote-Car.c: expression with possibly no effect
  118   2          else if(timeCounter > IRLOW) direction | (0x00 << counter);
-*** WARNING C275 IN LINE 118 OF IR-Remote-Car.c: expression with possibly no effect
  119   2          while(!IR_RECEIVER);
  120   2        }
  121   1        while(!IR_RECEIVER);
- 122   1        if(adress == ADRESS) return direction;
+ 122   1        if(adress == ADRESS) IRdirection = direction;
  123   1      }
-*** WARNING C291 IN LINE 123 OF IR-Remote-Car.c: not every exit path returns a value
 
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    473    ----
-   CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =   ----    ----
-   PDATA SIZE       =   ----    ----
-   DATA SIZE        =      2       4
-   IDATA SIZE       =   ----    ----
-   BIT SIZE         =      1    ----
-END OF MODULE INFORMATION.
-
-
-C51 COMPILATION COMPLETE.  5 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
