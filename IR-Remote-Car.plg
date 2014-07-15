@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <body>
 <pre>
@@ -7,3 +8,23 @@ C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.uvproj
 Project File Date:  07/15/2014
 
 <h2>Output:</h2>
+=======
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=963
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(113): error C141: syntax error near 'D'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(113): error C202: 'D': undefined identifier
+Target not created
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=14.0 xdata=0 code=969
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+>>>>>>> parent of 13af063... IR_Receiver Final OK

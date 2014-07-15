@@ -42,8 +42,14 @@ sbit IN2=P0^2;
 unsigned int servoMotorHighTime;
 void setup();
 <<<<<<< HEAD
+<<<<<<< HEAD
 //void UartInit (void);
 //void uartSend (unsigned char number);
+=======
+void Delay100ms();
+void UartInit (void);
+void uartSend (unsigned char number);
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 =======
 void Delay100ms();
 void UartInit (void);
@@ -145,6 +151,7 @@ void irReceiver() interrupt 2{
 	if(counter >> 8 == 0x3D){
 		uartSend(counter >> 8);
 		uartSend(counter);
+<<<<<<< HEAD
 	}
 	/*unsigned int counter;
 	unsigned char adress;
@@ -158,6 +165,21 @@ void irReceiver() interrupt 2{
 		while(IR_RECEIVER == 0);
 		while(IR_RECEIVER == 1) counter++;
 	}
+=======
+	}
+	/*unsigned int counter;
+	unsigned char adress;
+	int i;
+	IRdirection = 0;
+	while(IR_RECEIVER == 0) counter++;
+	uartSend(counter);
+	if (counter >= HEAD){
+		counter = 0;
+		while(IR_RECEIVER == 1);
+		while(IR_RECEIVER == 0);
+		while(IR_RECEIVER == 1) counter++;
+	}
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 	else{
 		counter = 0;
 		while(IR_RECEIVER == 1) counter++;
@@ -178,6 +200,9 @@ void irReceiver() interrupt 2{
 	}*/
 }
 void UartInit(void)		//9600bps@12.000MHz
+<<<<<<< HEAD
+>>>>>>> parent of 13af063... IR_Receiver Final OK
+=======
 >>>>>>> parent of 13af063... IR_Receiver Final OK
 {
 	PCON &= 0x7F;		//Baudrate no doubled
@@ -191,4 +216,8 @@ void uartSend (unsigned char number){
 		SBUF = number;
 		while(!TI);
 		TI=0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of 13af063... IR_Receiver Final OK

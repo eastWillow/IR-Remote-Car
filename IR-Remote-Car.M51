@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  17:59:56  PAGE 1
+=======
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 =======
 BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
 >>>>>>> parent of 13af063... IR_Receiver Final OK
@@ -79,6 +83,9 @@ SEGMENT                                 DATA_GROUP
 ?PR?MAIN?IR_REMOTE_CAR                -----    -----
   +--> ?PR?SETUP?IR_REMOTE_CAR
   +--> ?PR?UARTINIT?IR_REMOTE_CAR
+<<<<<<< HEAD
+>>>>>>> parent of 13af063... IR_Receiver Final OK
+=======
 >>>>>>> parent of 13af063... IR_Receiver Final OK
 
 
@@ -293,5 +300,8 @@ Program Size: data=8.0 xdata=0 code=99
 ******************************************************************************
 
 Program Size: data=14.0 xdata=0 code=969
+<<<<<<< HEAD
+>>>>>>> parent of 13af063... IR_Receiver Final OK
+=======
 >>>>>>> parent of 13af063... IR_Receiver Final OK
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
