@@ -1,8 +1,8 @@
 /*
-UP 		--- INT0,P1^2
-DOWN 	--- INT0,P3^5
-RIGHT --- INT0,P1^1
-LEFT 	--- INT0,P0^6
+UP 		--- P1^2
+DOWN 	--- P3^5
+RIGHT --- P1^1
+LEFT 	--- P0^6
 */
 #include <STC12C5A60S2.H>
 #include <intrins.h>
@@ -21,10 +21,6 @@ void steup(){
 	CCAP0L = 0;
 	CCAP0H = 0;
 	CCAPM0 = 0x42;
-	
-	EA = 1;
-	EX0 = 1;
-	
 	TMOD = 0x01;
 	TL0 = 0;
 	TH0 = 0;
@@ -32,14 +28,10 @@ void steup(){
 	TF0 = 0;
 }
 void main(){
+	unsigned char direction = 0;//using 8bit to be a arrary and save direction
 	steup();
 	while(1){
-		PCON = 0x02;//Power Down
-	}
-}
-void selectDirection () interrupt 0{
-	unsigned char direction = 0;//using 8bit to be a arrary and save direction
-/*
+	/*
 	direction:
 	0x01: //UP
 	0x05: //UP+LEFT
@@ -49,9 +41,7 @@ void selectDirection () interrupt 0{
 	0x0A: //DOWN+RIGHT
 	0x04: //LEFT
 	0x08: //RIGHT
-*/
-	EA = 0;
-	delay(1000);
+	*/
 	if(!UP){
 		direction = 0x01;
 	}
@@ -65,8 +55,8 @@ void selectDirection () interrupt 0{
 		direction = direction | 0x08;
 	}
 	IR_TR(direction);
-	CCAP0L = 0;
-	EA = 1;
+	direction = 0;
+	}
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
@@ -79,7 +69,7 @@ void IR_TR(unsigned char direction){
 		delay(8400);
 	}
 	for(i=0;i<8;i++){
-		if((direction & 0x01)){
+		if((direction^0 == 1)){
 			CR = 1;
 			delay(526);
 			CR = 0;
@@ -97,6 +87,8 @@ void IR_TR(unsigned char direction){
 	delay(526);
 	CR = 0;
 	delay(20000);
+	CCAP0L = 0;
+	CCAP0H = 0;
 }
 void delay(unsigned int time){
 	TL0 = (FULL - time) %256;
