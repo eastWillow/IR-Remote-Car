@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:10:22 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -52,17 +52,17 @@ line level    source
   43          unsigned int servoMotorHighTime = 1250;
   44          void setup();
   45          void Delay100ms();
-  46          void UartInit (void);
-  47          void uartSend (unsigned char number);
+  46          //void UartInit (void);
+  47          //void uartSend (unsigned char number);
   48          void main(){
   49   1        setup();
-  50   1        UartInit();
+  50   1        //UartInit();
   51   1        while(1){
   52   2          if(IRdirection == 0x04) servoMotorHighTime = 1000;
   53   2          if(IRdirection == 0x04) servoMotorHighTime = 1500;
   54   2        }
   55   1      }
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:10:22 PAGE 2   
 
   56          void setup(){
   57   1        EA = 1;
@@ -120,66 +120,47 @@ line level    source
  109   1      }
  110          void irReceiver() interrupt 2{
  111   1        unsigned int counter;
- 112   1        while(IR_RECEIVER == 0) counter++;
- 113   1        if(counter >> 8 == 0x3D){
- 114   2          uartSend(counter >> 8);
- 115   2          uartSend(counter);
- 116   2        }
- 117   1        /*unsigned int counter;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 3   
+ 112   1        unsigned char i;
+ 113   1        while(IR_RECEIVER == 0) counter++;
+ 114   1        if(counter >=15656){
+ 115   2          counter =0;
+ 116   2          while(IR_RECEIVER == 1)counter++;
+ 117   2          if(counter >= 3000){
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 14:10:22 PAGE 3   
 
- 118   1        unsigned char adress;
- 119   1        int i;
- 120   1        IRdirection = 0;
- 121   1        while(IR_RECEIVER == 0) counter++;
- 122   1        uartSend(counter);
- 123   1        if (counter >= HEAD){
- 124   1          counter = 0;
- 125   1          while(IR_RECEIVER == 1);
- 126   1          while(IR_RECEIVER == 0);
- 127   1          while(IR_RECEIVER == 1) counter++;
- 128   1        }
- 129   1        else{
- 130   1          counter = 0;
- 131   1          while(IR_RECEIVER == 1) counter++;
- 132   1        }
- 133   1        //Start Coding
- 134   1        if (counter >= IRHIGH) adress = adress | 0x01;
- 135   1        for(i=0;i<7;i++){
- 136   1          while(IR_RECEIVER == 0);
- 137   1          counter = 0;
- 138   1          while(IR_RECEIVER == 1) counter++;
- 139   1          if (counter >= IRHIGH) adress = adress | (0x02 << i);
- 140   1        }
- 141   1        for(i=0;i<8;i++){
- 142   1          while(IR_RECEIVER == 0);
- 143   1          counter = 0;
- 144   1          while(IR_RECEIVER == 1) counter++;
- 145   1          if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
- 146   1        }*/
- 147   1      }
- 148          void UartInit(void)   //9600bps@12.000MHz
- 149          {
- 150   1        PCON &= 0x7F;   //Baudrate no doubled
- 151   1        SCON = 0x50;    //8bit and variable baudrate
- 152   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 153   1        BRT = 0xD9;   //Set BRT's reload value
- 154   1        AUXR |= 0x01;   //Use BRT as baudrate generator
- 155   1        AUXR |= 0x10;   //BRT running
- 156   1      }
- 157          void uartSend (unsigned char number){
- 158   1          SBUF = number;
- 159   1          while(!TI);
- 160   1          TI=0;
- 161   1      }
+ 118   3            for(i=0;i<8;i++){
+ 119   4              counter = 0;
+ 120   4              while(IR_RECEIVER == 0)counter++;
+ 121   4              if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
+ 122   4              while(IR_RECEIVER == 1);
+ 123   4            }
+ 124   3            //uartSend(IRdirection);
+ 125   3          }
+ 126   2        }
+ 127   1        if(counter <=15656) return;
+ 128   1      }
+ 129          /*void UartInit(void)   //9600bps@12.000MHz
+ 130          {
+ 131            PCON &= 0x7F;   //Baudrate no doubled
+ 132            SCON = 0x50;    //8bit and variable baudrate
+ 133            AUXR |= 0x04;   //BRT's clock is Fosc (1T)
+ 134            BRT = 0xD9;   //Set BRT's reload value
+ 135            AUXR |= 0x01;   //Use BRT as baudrate generator
+ 136            AUXR |= 0x10;   //BRT running
+ 137          }
+ 138          void uartSend (unsigned char number){
+ 139              SBUF = number;
+ 140              while(!TI);
+ 141              TI=0;
+ 142          }*/
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    538    ----
+   CODE SIZE        =    541    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      3       2
+   DATA SIZE        =      3    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

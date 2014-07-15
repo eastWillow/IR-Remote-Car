@@ -43,11 +43,11 @@ unsigned char IRdirection;
 unsigned int servoMotorHighTime = 1250;
 void setup();
 void Delay100ms();
-void UartInit (void);
-void uartSend (unsigned char number);
+//void UartInit (void);
+//void uartSend (unsigned char number);
 void main(){
 	setup();
-	UartInit();
+	//UartInit();
 	while(1){
 		if(IRdirection == 0x04) servoMotorHighTime = 1000;
 		if(IRdirection == 0x04) servoMotorHighTime = 1500;
@@ -109,43 +109,24 @@ void Delay100ms()		//@12.000MHz
 }
 void irReceiver() interrupt 2{
 	unsigned int counter;
+	unsigned char i;
 	while(IR_RECEIVER == 0) counter++;
-	if(counter >> 8 == 0x3D){
-		uartSend(counter >> 8);
-		uartSend(counter);
+	if(counter >=15656){
+		counter =0;
+		while(IR_RECEIVER == 1)counter++;
+		if(counter >= 3000){
+			for(i=0;i<8;i++){
+				counter = 0;
+				while(IR_RECEIVER == 0)counter++;
+				if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
+				while(IR_RECEIVER == 1);
+			}
+			//uartSend(IRdirection);
+		}
 	}
-	/*unsigned int counter;
-	unsigned char adress;
-	int i;
-	IRdirection = 0;
-	while(IR_RECEIVER == 0) counter++;
-	uartSend(counter);
-	if (counter >= HEAD){
-		counter = 0;
-		while(IR_RECEIVER == 1);
-		while(IR_RECEIVER == 0);
-		while(IR_RECEIVER == 1) counter++;
-	}
-	else{
-		counter = 0;
-		while(IR_RECEIVER == 1) counter++;
-	}
-	//Start Coding
-	if (counter >= IRHIGH) adress = adress | 0x01;
-	for(i=0;i<7;i++){
-		while(IR_RECEIVER == 0);
-		counter = 0;
-		while(IR_RECEIVER == 1) counter++;
-		if (counter >= IRHIGH) adress = adress | (0x02 << i);
-	}
-	for(i=0;i<8;i++){
-		while(IR_RECEIVER == 0);
-		counter = 0;
-		while(IR_RECEIVER == 1)	counter++;
-		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
-	}*/
+	if(counter <=15656) return;
 }
-void UartInit(void)		//9600bps@12.000MHz
+/*void UartInit(void)		//9600bps@12.000MHz
 {
 	PCON &= 0x7F;		//Baudrate no doubled
 	SCON = 0x50;		//8bit and variable baudrate
@@ -158,4 +139,4 @@ void uartSend (unsigned char number){
 		SBUF = number;
 		while(!TI);
 		TI=0;
-}
+}*/
