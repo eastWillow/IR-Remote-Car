@@ -1,29 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 17:59:56 PAGE     1
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 1   
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 1   
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 1   
->>>>>>> parent of eb9d237... Debug IrData
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 1   
->>>>>>> parent of eb9d237... Debug IrData
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 1   
->>>>>>> parent of 13af063... IR_Receiver Final OK
+A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 18:28:29 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02b
-OBJECT MODULE PLACED IN IR-Remote-Car.OBJ
-<<<<<<< HEAD
+NO OBJECT MODULE REQUESTED
 ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE IR-Remote-Car.a51 SET(SMALL) DEBUG EP
 
 LOC  OBJ            LINE     SOURCE
@@ -33,21 +12,27 @@ LOC  OBJ            LINE     SOURCE
   00B3                 3     IR_RECEIVER set P3.3
   0081                 4     IN1 set P0.1
   0082                 5     IN2 set P0.2
-0000                   6     org 0x00
-0000 804E              7     jmp 0x50
-0050                   8     org 0x50
-0050                   9     setup :
-0050 D2AF             10     setb EA
-0052 D2A9             11     setb ET0
-0054 D2A8             12     setb EX0
-0056 D2AA             13     setb EX1
-0058 D2B8             14     setb PX0
-005A D2BA             15     setb PX1
-005C C28C             16     clr TR0  
-005E 758901           17     mov TMOD,#0x01; ;0000 0001
-0061 C293             18     clr SERVOMOTOR1
-                      19     end
-A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 17:59:56 PAGE     2
+                       6     IRdirection DATA
+*** _________________________________________^
+*** ERROR #A15 IN 6 (IR-Remote-Car.a51, LINE 6): MISSING FACTOR
+0000                   7     org 0x00
+0000 804E              8     jmp 0x50
+0050                   9     org 0x50
+0050                  10     setup:
+0050 758180           11     mov sp,#0x80
+0053 D2AF             12     setb EA
+0055 D2A9             13     setb ET0
+0057 D2A8             14     setb EX0
+0059 D2AA             15     setb EX1
+005B D2B8             16     setb PX0
+005D D2BA             17     setb PX1
+005F C28C             18     clr TR0  
+0061 758901           19     mov TMOD,#0x01; ;0000 0001
+0064 C293             20     clr SERVOMOTOR1
+0066                  21     loop:
+                      22     
+                      23     end
+A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 18:28:29 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -61,8 +46,10 @@ EX0. . . . . . . .  B ADDR   00A8H.0 A
 EX1. . . . . . . .  B ADDR   00A8H.2 A   
 IN1. . . . . . . .  B ADDR   0080H.1 A   
 IN2. . . . . . . .  B ADDR   0080H.2 A   
+IRDIRECTION. . . .    ----   -----       
 IR_RECEIVER. . . .  B ADDR   00B0H.3 A   
 LIMITSWITCH. . . .  B ADDR   00B0H.2 A   
+LOOP . . . . . . .  C ADDR   0066H   A   
 P0 . . . . . . . .  D ADDR   0080H   A   
 P1 . . . . . . . .  D ADDR   0090H   A   
 P3 . . . . . . . .  D ADDR   00B0H   A   
@@ -70,6 +57,7 @@ PX0. . . . . . . .  B ADDR   00B8H.0 A
 PX1. . . . . . . .  B ADDR   00B8H.2 A   
 SERVOMOTOR1. . . .  B ADDR   0090H.3 A   
 SETUP. . . . . . .  C ADDR   0050H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
 TMOD . . . . . . .  D ADDR   0089H   A   
 TR0. . . . . . . .  B ADDR   0088H.4 A   
 
@@ -77,314 +65,4 @@ TR0. . . . . . . .  B ADDR   0088H.4 A
 REGISTER BANK(S) USED: 0 
 
 
-ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
-=======
-COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE IR-Remote-Car.c BROWSE DEBUG OBJECTEXTEND TABS(2)
-
-line level    source
-
-   1          /*
-   2          TA7267
-   3          IN1 IN2 OUT1 OUT2
-   4           1   1    L    L break
-   5           0   1    L    H backward
-   6           1   0    H    L forward
-   7           0   0    Z    Z nothing
-   8          */
-   9          /*
-  10          Wiring
-  11            YELLOW
-  12            BLACK
-  13            RED
-  14            YELLOW
-  15            ORANGE
-  16            BLUE
-  17          */
-  18          /*
-  19            direction:
-  20            0x01: //UP
-  21            0x05: //UP+LEFT
-  22            0x09: //UP+RIGHT
-  23            0x02: //DOWN
-  24            0x06: //DOWN+RIGHT
-  25            0x0A: //DOWN+RIGHT
-  26            0x04: //LEFT
-  27            0x08: //RIGHT
-  28          */
-  29          #include <STC12C5A60S2.H>
-  30          #include <intrins.h>
-  31          #define ALL_WIDTH 20000 //20ms
-  32          #define FULL 65535
-  33          #define ADRESS 0xA5
-  34          #define IRHIGH 1844
-  35          #define IRLOW 524
-  36          #define HEAD 8400
-  37          sbit SERVOMOTOR1=P1^3; //PWM I/O
-  38          sbit LIMITSWITCH=P3^2; // INT0
-  39          sbit IR_RECEIVER=P3^3; // INT1
-  40          sbit IN1=P0^1;
-  41          sbit IN2=P0^2;
-  42          unsigned char IRdirection;
-  43          unsigned int servoMotorHighTime = 1250;
-  44          void setup();
-<<<<<<< HEAD
-  45          void Delay100ms();
-  46          void UartInit (void);
-  47          void uartSend (unsigned char number);
-  48          void main(){
-  49   1        setup();
-  50   1        UartInit();
-  51   1        while(1){
-  52   2          if(IRdirection == 0x04) servoMotorHighTime = 1000;
-  53   2          if(IRdirection == 0x04) servoMotorHighTime = 1500;
-  54   2        }
-  55   1      }
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 2   
-
-  56          void setup(){
-  57   1        EA = 1;
-  58   1        ET0 = 1;
-  59   1        EX0 = 1;
-  60   1        EX1 = 1;
-  61   1        PX0 = 1;
-  62   1        TR0 = 0; //reset Timer0 Switch
-  63   1        TR0 = 0; //reset Timer1 Switch
-  64   1        TMOD = 0x11; //0010 0010
-  65   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  66   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  67   1        SERVOMOTOR1 = 0;
-  68   1        TR0 = 1;
-  69   1      }
-  70          void servoMotor () interrupt 1 {
-  71   1        TR0 = 0;
-  72   1        if(SERVOMOTOR1){
-  73   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  74   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  75   2          SERVOMOTOR1 = 0;
-  76   2        }
-  77   1        else{
-  78   2          TL0 = (FULL - servoMotorHighTime) %256;
-  79   2          TH0 = (FULL - servoMotorHighTime) / 256;
-  80   2          SERVOMOTOR1 = 1;
-  81   2        }
-  82   1        TR0 = 1;
-  83   1      }
-  84          void limitSwitch () interrupt 0{
-  85   1        IN1 =0;
-  86   1        IN2 =1;
-  87   1        Delay100ms();
-  88   1        Delay100ms();
-  89   1        Delay100ms();
-  90   1        Delay100ms();
-  91   1        Delay100ms();
-  92   1      }
-  93          void Delay100ms()   //@12.000MHz
-  94          {
-  95   1        unsigned char i, j, k;
-  96   1      
-  97   1        _nop_();
-  98   1        _nop_();
-  99   1        i = 5;
- 100   1        j = 144;
- 101   1        k = 71;
- 102   1        do
- 103   1        {
- 104   2          do
- 105   2          {
- 106   3            while (--k);
- 107   3          } while (--j);
- 108   2        } while (--i);
- 109   1      }
- 110          void irReceiver() interrupt 2{
- 111   1        unsigned int counter;
- 112   1        while(IR_RECEIVER == 0) counter++;
- 113   1        if(counter >> 8 == 0x3D){
- 114   2          uartSend(counter >> 8);
- 115   2          uartSend(counter);
- 116   2        }
- 117   1        /*unsigned int counter;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 3   
-
- 118   1        unsigned char adress;
- 119   1        int i;
- 120   1        IRdirection = 0;
- 121   1        while(IR_RECEIVER == 0) counter++;
- 122   1        uartSend(counter);
- 123   1        if (counter >= HEAD){
- 124   1          counter = 0;
- 125   1          while(IR_RECEIVER == 1);
- 126   1          while(IR_RECEIVER == 0);
- 127   1          while(IR_RECEIVER == 1) counter++;
- 128   1        }
- 129   1        else{
- 130   1          counter = 0;
- 131   1          while(IR_RECEIVER == 1) counter++;
- 132   1        }
- 133   1        //Start Coding
- 134   1        if (counter >= IRHIGH) adress = adress | 0x01;
- 135   1        for(i=0;i<7;i++){
- 136   1          while(IR_RECEIVER == 0);
- 137   1          counter = 0;
- 138   1          while(IR_RECEIVER == 1) counter++;
- 139   1          if (counter >= IRHIGH) adress = adress | (0x02 << i);
- 140   1        }
- 141   1        for(i=0;i<8;i++){
- 142   1          while(IR_RECEIVER == 0);
- 143   1          counter = 0;
- 144   1          while(IR_RECEIVER == 1) counter++;
- 145   1          if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
- 146   1        }*/
- 147   1      }
- 148          void UartInit(void)   //9600bps@12.000MHz
- 149          {
- 150   1        PCON &= 0x7F;   //Baudrate no doubled
- 151   1        SCON = 0x50;    //8bit and variable baudrate
- 152   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 153   1        BRT = 0xD9;   //Set BRT's reload value
- 154   1        AUXR |= 0x01;   //Use BRT as baudrate generator
- 155   1        AUXR |= 0x10;   //BRT running
- 156   1      }
- 157          void uartSend (unsigned char number){
- 158   1          SBUF = number;
- 159   1          while(!TI);
- 160   1          TI=0;
- 161   1      }
-<<<<<<< HEAD
-
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    538    ----
-=======
-  45          void UartInit (void);
-  46          void uartSend (unsigned char number);
-  47          void main(){
-  48   1        setup();
-  49   1        UartInit();
-  50   1        while(1){
-  51   2          switch(IRdirection){
-  52   3            case 0x01:
-  53   3              IN1 = 1;
-  54   3              IN2 = 0;
-  55   3              break;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 2   
-
-  56   3            case 0x02:
-  57   3              IN1 = 0;
-  58   3              IN2 = 1;
-  59   3              break;
-  60   3            case 0x04:
-  61   3              TR0 = 0;
-  62   3              servoMotorHighTime = 1000;
-  63   3              break;
-  64   3            case 0x05:
-  65   3              break;
-  66   3            case 0x06:
-  67   3              break;
-  68   3            case 0x08:
-  69   3              TR0 = 0;
-  70   3              servoMotorHighTime = 1500;
-  71   3              break;
-  72   3            case 0x09:
-  73   3              break;
-  74   3            case 0x0A:
-  75   3              break;
-  76   3            default:
-  77   3              TR0 = 0;
-  78   3              servoMotorHighTime = 1250;
-  79   3              IN1 = 0;
-  80   3              IN2 = 0;
-  81   3              break;
-  82   3          }
-  83   2          TR0 = 1;
-  84   2          }
-  85   1      }
-  86          void setup(){
-  87   1        EA = 1;
-  88   1        ET0 = 1;
-  89   1        EX0 = 1;
-  90   1        EX1 = 1;
-  91   1        PX0 = 1;
-  92   1        PX1 = 1;
-  93   1        IPH = 0x30;
-  94   1        IT1 = 1;
-  95   1        TR0 = 0; //reset Timer0 Switch
-  96   1        TMOD = 0x01; //0010 0010
-  97   1        SERVOMOTOR1 = 0;
-  98   1      }
-  99          void servoMotor ()interrupt 1 {
- 100   1        TR0 = 0;
- 101   1        if(SERVOMOTOR1){
- 102   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
- 103   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
- 104   2          SERVOMOTOR1 = 0;
- 105   2        }
- 106   1        else{
- 107   2          TL0 = (FULL - servoMotorHighTime) %256;
- 108   2          TH0 = (FULL - servoMotorHighTime) / 256;
- 109   2          SERVOMOTOR1 = 1;
- 110   2        }
- 111   1        TR0 = 1;
- 112   1      }
- 113          void limitSwitch ()interrupt 0{
- 114   1        IN1 =0;
- 115   1        IN2 =1;
- 116   1      }
- 117          void irReceiver()interrupt 2{
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 3   
-
- 118   1        unsigned int counter;
- 119   1        unsigned char i;
- 120   1        while(IR_RECEIVER == 0) counter++;
- 121   1        if(counter >=15656){
- 122   2          counter =0;
- 123   2          while(IR_RECEIVER == 1)counter++;
- 124   2          if(counter >= 3000){
- 125   3            for(i=0;i<8;i++){
- 126   4              counter = 0;
- 127   4              while(IR_RECEIVER == 0)counter++;
- 128   4              if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
- 129   4              while(IR_RECEIVER == 1);
- 130   4            }
- 131   3          }
- 132   2        }
- 133   1        uartSend(IRdirection);
- 134   1      }
- 135          void UartInit(void)   //9600bps@12.000MHz
- 136          {
- 137   1        PCON &= 0x7F;   //Baudrate no doubled
- 138   1        SCON = 0x50;    //8bit and variable baudrate
- 139   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 140   1        BRT = 0xD9;   //Set BRT's reload value
- 141   1        AUXR |= 0x01;   //Use BRT as baudrate generator
- 142   1        AUXR |= 0x10;   //BRT running
- 143   1      }
- 144          void uartSend (unsigned char number){
- 145   1          SBUF = number;
- 146   1          while(!TI);
- 147   1          TI=0;
- 148   1      }
-
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    514    ----
-<<<<<<< HEAD
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
-
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    538    ----
->>>>>>> parent of 13af063... IR_Receiver Final OK
-   CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =   ----    ----
-   PDATA SIZE       =   ----    ----
-   DATA SIZE        =      3       2
-   IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
-END OF MODULE INFORMATION.
-
-
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
->>>>>>> parent of 13af063... IR_Receiver Final OK
+ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)
