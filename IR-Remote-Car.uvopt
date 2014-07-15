@@ -123,7 +123,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDP51</Key>
-          <Name>(98=984,352,1317,635,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=631,291,829,395,1)(99=871,219,1074,507,1)(91=1100,228,1300,492,1)(92=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0)</Name>
+          <Name>(98=984,352,1317,635,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=55,450,253,554,1)(99=-1,-1,-1,-1,0)(91=1113,499,1313,763,1)(92=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
@@ -133,19 +133,7 @@
           <WinNumber>1</WinNumber>
           <ItemText>IRdirection</ItemText>
         </Ww>
-        <Ww>
-          <count>1</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>counter</ItemText>
-        </Ww>
       </WatchWindow1>
-      <MemoryWindow1>
-        <Mm>
-          <WinNumber>1</WinNumber>
-          <SubType>0</SubType>
-          <ItemText>D:0x0a</ItemText>
-        </Mm>
-      </MemoryWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -157,7 +145,7 @@
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
         <aPa>0</aPa>
-        <viewmode>2</viewmode>
+        <viewmode>1</viewmode>
         <vrSel>0</vrSel>
         <aSym>0</aSym>
         <aTbox>0</aTbox>
@@ -196,16 +184,16 @@
     <File>
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
-      <FileType>2</FileType>
+      <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>23</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>18</CurrentLine>
+      <TopLine>81</TopLine>
+      <CurrentLine>113</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\IR-Remote-Car.a51</PathWithFileName>
-      <FilenameWithoutPath>IR-Remote-Car.a51</FilenameWithoutPath>
+      <PathWithFileName>.\IR-Remote-Car.c</PathWithFileName>
+      <FilenameWithoutPath>IR-Remote-Car.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
