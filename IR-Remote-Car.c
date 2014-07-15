@@ -58,7 +58,6 @@ void setup(){
 	ET0 = 1;
 	EX0 = 1;
 	EX1 = 1;
-	IT1 = 1;
 	PX0 = 1;
 	TR0 = 0; //reset Timer0 Switch
 	TR0 = 0; //reset Timer1 Switch
@@ -109,6 +108,12 @@ void Delay100ms()		//@12.000MHz
 	} while (--i);
 }
 void irReceiver() interrupt 2{
+	unsigned int counter;
+	while(IR_RECEIVER == 0) counter++;
+	if (counter == 7906){
+		uartSend(counter >> 8);
+		uartSend(counter);
+	}
 	/*unsigned int counter;
 	unsigned char adress;
 	int i;
@@ -138,7 +143,7 @@ void irReceiver() interrupt 2{
 		counter = 0;
 		while(IR_RECEIVER == 1)	counter++;
 		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
-	}
+	}*/
 }
 void UartInit(void)		//9600bps@12.000MHz
 {
@@ -148,7 +153,7 @@ void UartInit(void)		//9600bps@12.000MHz
 	BRT = 0xD9;		//Set BRT's reload value
 	AUXR |= 0x01;		//Use BRT as baudrate generator
 	AUXR |= 0x10;		//BRT running
-}*/
+}
 void uartSend (unsigned char number){
 		SBUF = number;
 		while(!TI);

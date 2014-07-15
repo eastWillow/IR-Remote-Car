@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 10:18:23 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 10:55:04 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -62,119 +62,124 @@ line level    source
   53   2          if(IRdirection == 0x04) servoMotorHighTime = 1500;
   54   2        }
   55   1      }
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 10:18:23 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 10:55:04 PAGE 2   
 
   56          void setup(){
   57   1        EA = 1;
   58   1        ET0 = 1;
   59   1        EX0 = 1;
   60   1        EX1 = 1;
-  61   1        IT1 = 1;
-  62   1        PX0 = 1;
-  63   1        TR0 = 0; //reset Timer0 Switch
-  64   1        TR0 = 0; //reset Timer1 Switch
-  65   1        TMOD = 0x11; //0010 0010
-  66   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  67   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  68   1        SERVOMOTOR1 = 0;
-  69   1        TR0 = 1;
-  70   1      }
-  71          void servoMotor () interrupt 1 {
-  72   1        TR0 = 0;
-  73   1        if(SERVOMOTOR1){
-  74   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-  75   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-  76   2          SERVOMOTOR1 = 0;
-  77   2        }
-  78   1        else{
-  79   2          TL0 = (FULL - servoMotorHighTime) %256;
-  80   2          TH0 = (FULL - servoMotorHighTime) / 256;
-  81   2          SERVOMOTOR1 = 1;
-  82   2        }
-  83   1        TR0 = 1;
-  84   1      }
-  85          void limitSwitch () interrupt 0{
-  86   1        IN1 =0;
-  87   1        IN2 =1;
+  61   1        PX0 = 1;
+  62   1        TR0 = 0; //reset Timer0 Switch
+  63   1        TR0 = 0; //reset Timer1 Switch
+  64   1        TMOD = 0x11; //0010 0010
+  65   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+  66   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+  67   1        SERVOMOTOR1 = 0;
+  68   1        TR0 = 1;
+  69   1      }
+  70          void servoMotor () interrupt 1 {
+  71   1        TR0 = 0;
+  72   1        if(SERVOMOTOR1){
+  73   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+  74   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+  75   2          SERVOMOTOR1 = 0;
+  76   2        }
+  77   1        else{
+  78   2          TL0 = (FULL - servoMotorHighTime) %256;
+  79   2          TH0 = (FULL - servoMotorHighTime) / 256;
+  80   2          SERVOMOTOR1 = 1;
+  81   2        }
+  82   1        TR0 = 1;
+  83   1      }
+  84          void limitSwitch () interrupt 0{
+  85   1        IN1 =0;
+  86   1        IN2 =1;
+  87   1        Delay100ms();
   88   1        Delay100ms();
   89   1        Delay100ms();
   90   1        Delay100ms();
   91   1        Delay100ms();
-  92   1        Delay100ms();
-  93   1      }
-  94          void Delay100ms()   //@12.000MHz
-  95          {
-  96   1        unsigned char i, j, k;
-  97   1      
+  92   1      }
+  93          void Delay100ms()   //@12.000MHz
+  94          {
+  95   1        unsigned char i, j, k;
+  96   1      
+  97   1        _nop_();
   98   1        _nop_();
-  99   1        _nop_();
- 100   1        i = 5;
- 101   1        j = 144;
- 102   1        k = 71;
- 103   1        do
- 104   1        {
- 105   2          do
- 106   2          {
- 107   3            while (--k);
- 108   3          } while (--j);
- 109   2        } while (--i);
- 110   1      }
- 111          void irReceiver() interrupt 2{
- 112   1        unsigned int counter;
- 113   1        unsigned char adress;
- 114   1        int i;
- 115   1        IRdirection = 0;
- 116   1        while(IR_RECEIVER == 0) counter++;
- 117   1        uartSend(counter);
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 10:18:23 PAGE 3   
+  99   1        i = 5;
+ 100   1        j = 144;
+ 101   1        k = 71;
+ 102   1        do
+ 103   1        {
+ 104   2          do
+ 105   2          {
+ 106   3            while (--k);
+ 107   3          } while (--j);
+ 108   2        } while (--i);
+ 109   1      }
+ 110          void irReceiver() interrupt 2{
+ 111   1        unsigned int counter;
+ 112   1        while(IR_RECEIVER == 0) counter++;
+ 113   1        if (counter == 7906){
+ 114   2          uartSend(counter >> 8);
+ 115   2          uartSend(counter);
+ 116   2        }
+ 117   1        /*unsigned int counter;
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 10:55:04 PAGE 3   
 
- 118   1        if (counter >= HEAD){
- 119   2          counter = 0;
- 120   2          while(IR_RECEIVER == 1);
- 121   2          while(IR_RECEIVER == 0);
- 122   2          while(IR_RECEIVER == 1) counter++;
- 123   2        }
- 124   1        else{
- 125   2          counter = 0;
- 126   2          while(IR_RECEIVER == 1) counter++;
- 127   2        }
- 128   1        //Start Coding
- 129   1        if (counter >= IRHIGH) adress = adress | 0x01;
- 130   1        for(i=0;i<7;i++){
- 131   2          while(IR_RECEIVER == 0);
- 132   2          counter = 0;
- 133   2          while(IR_RECEIVER == 1) counter++;
- 134   2          if (counter >= IRHIGH) adress = adress | (0x02 << i);
- 135   2        }
- 136   1        for(i=0;i<8;i++){
- 137   2          while(IR_RECEIVER == 0);
- 138   2          counter = 0;
- 139   2          while(IR_RECEIVER == 1) counter++;
- 140   2          if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
- 141   2        }
- 142   1      }
- 143          void UartInit(void)   //9600bps@12.000MHz
- 144          {
- 145   1        PCON &= 0x7F;   //Baudrate no doubled
- 146   1        SCON = 0x50;    //8bit and variable baudrate
- 147   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 148   1        BRT = 0xD9;   //Set BRT's reload value
- 149   1        AUXR |= 0x01;   //Use BRT as baudrate generator
- 150   1        AUXR |= 0x10;   //BRT running
- 151   1      }
- 152          void uartSend (unsigned char number){
- 153   1          SBUF = number;
- 154   1          while(!TI);
- 155   1          TI=0;
+ 118   1        unsigned char adress;
+ 119   1        int i;
+ 120   1        IRdirection = 0;
+ 121   1        while(IR_RECEIVER == 0) counter++;
+ 122   1        uartSend(counter);
+ 123   1        if (counter >= HEAD){
+ 124   1          counter = 0;
+ 125   1          while(IR_RECEIVER == 1);
+ 126   1          while(IR_RECEIVER == 0);
+ 127   1          while(IR_RECEIVER == 1) counter++;
+ 128   1        }
+ 129   1        else{
+ 130   1          counter = 0;
+ 131   1          while(IR_RECEIVER == 1) counter++;
+ 132   1        }
+ 133   1        //Start Coding
+ 134   1        if (counter >= IRHIGH) adress = adress | 0x01;
+ 135   1        for(i=0;i<7;i++){
+ 136   1          while(IR_RECEIVER == 0);
+ 137   1          counter = 0;
+ 138   1          while(IR_RECEIVER == 1) counter++;
+ 139   1          if (counter >= IRHIGH) adress = adress | (0x02 << i);
+ 140   1        }
+ 141   1        for(i=0;i<8;i++){
+ 142   1          while(IR_RECEIVER == 0);
+ 143   1          counter = 0;
+ 144   1          while(IR_RECEIVER == 1) counter++;
+ 145   1          if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
+ 146   1        }*/
+ 147   1      }
+ 148          void UartInit(void)   //9600bps@12.000MHz
+ 149          {
+ 150   1        PCON &= 0x7F;   //Baudrate no doubled
+ 151   1        SCON = 0x50;    //8bit and variable baudrate
+ 152   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
+ 153   1        BRT = 0xD9;   //Set BRT's reload value
+ 154   1        AUXR |= 0x01;   //Use BRT as baudrate generator
+ 155   1        AUXR |= 0x10;   //BRT running
  156   1      }
+ 157          void uartSend (unsigned char number){
+ 158   1          SBUF = number;
+ 159   1          while(!TI);
+ 160   1          TI=0;
+ 161   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    725    ----
+   CODE SIZE        =    540    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      3       3
+   DATA SIZE        =      3       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
