@@ -288,7 +288,7 @@
             <IntegerPromotion>1</IntegerPromotion>
             <uAregs>0</uAregs>
             <UseInterruptVector>1</UseInterruptVector>
-            <Fuzzy>3</Fuzzy>
+            <Fuzzy>0</Fuzzy>
             <Optimize>8</Optimize>
             <WarningLevel>2</WarningLevel>
             <SizeSpeed>1</SizeSpeed>
@@ -352,9 +352,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>IR-Remote-Car.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\IR-Remote-Car.c</FilePath>
+              <FileName>IR-Remote-Car.a51</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\IR-Remote-Car.a51</FilePath>
             </File>
           </Files>
         </Group>
