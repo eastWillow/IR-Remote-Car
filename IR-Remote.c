@@ -42,59 +42,62 @@ void main(){
 	0x04: //LEFT
 	0x08: //RIGHT
 	*/
-	if(!UP){
+	direction = 0;
+	if(UP == 0){
 		direction = 0x01;
 	}
-	if(!DOWN){
+	if(DOWN == 0){
 		direction = direction | 0x02;
 	}
-	if(!LEFT){
+	if(LEFT == 0){
 		direction = direction | 0x04;
 	}
-	if(!RIGHT){
+	if(RIGHT == 0){
 		direction = direction | 0x08;
 	}
-	if(!UP || !DOWN || !LEFT || !RIGHT) IR_TR(direction);
-	direction = 0;
+	if(!UP || !DOWN || !LEFT || !RIGHT){
+		IR_TR(direction);
+		direction = 0;
+		}
+		delay(1000);
 	}
 }
 void IR_TR(unsigned char direction){
 	unsigned char i=0;
+	bit j;
 	CCAP0L = 128;
 	CCAP0H = 128;
-	for(i=0;i<3;i++){
-		CR = 1;
-		delay(16800);
-		CR = 0;
-		delay(8400);
-	}
+	CR = 1;
+	delay(2);//delay(16800);
+	CR = 0;
+	delay(2);//delay(8400);
 	for(i=0;i<8;i++){
-		if((direction^0 == 1)){
+		j = (_cror_(direction,i)&0x01);
+		if(j == 0){
 			CR = 1;
-			delay(526);
+			delay(2);//delay(500);
 			CR = 0;
-			delay(1574);
+			delay(2);//delay(3000);
 		}
-		else{
+		if(j == 1){
 			CR = 1;
-			delay(526);
+			delay(2);//delay(500);
 			CR = 0;
-			delay(524);
+			delay(2);//delay(500);
 		}
-		direction = direction >> 1;
 	}
 	CR = 1;
-	delay(526);
+	delay(2);//delay(526);
 	CR = 0;
-	delay(20000);
+	delay(2);//delay(20000);
 	CCAP0L = 0;
 	CCAP0H = 0;
 }
 void delay(unsigned int time){
-	TL0 = (FULL - time) %256;
-	TH0 = (FULL - time) /256;
-	TR0 = 1;
-	while(!TF0);
-	TR0 = 0;
-	TF0 = 0;
+	//TL0 = (FULL - time) %256;
+	//TH0 = (FULL - time) /256;
+	//TR0 = 1;
+	//while(!TF0);
+	//TR0 = 0;
+	//TF0 = 0;
 }
