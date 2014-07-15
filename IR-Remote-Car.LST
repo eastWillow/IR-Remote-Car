@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 17:59:56 PAGE     1
 =======
 C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 1   
@@ -8,6 +9,9 @@ C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                          
 =======
 C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 11:03:09 PAGE 1   
 >>>>>>> parent of 13af063... IR_Receiver Final OK
+=======
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 1   
+>>>>>>> parent of eb9d237... Debug IrData
 =======
 C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 1   
 >>>>>>> parent of eb9d237... Debug IrData
@@ -358,6 +362,9 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    514    ----
+<<<<<<< HEAD
+>>>>>>> parent of eb9d237... Debug IrData
+=======
 >>>>>>> parent of eb9d237... Debug IrData
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----

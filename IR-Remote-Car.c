@@ -154,6 +154,7 @@ void irReceiver() interrupt 2{
 		while(IR_RECEIVER == 0);
 		while(IR_RECEIVER == 1) counter++;
 	}
+<<<<<<< HEAD
 	}
 	/*unsigned int counter;
 	unsigned char adress;
@@ -185,6 +186,9 @@ void irReceiver() interrupt 2{
 		while(IR_RECEIVER == 1)	counter++;
 		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
 	}*/
+=======
+	uartSend(IRdirection);
+>>>>>>> parent of eb9d237... Debug IrData
 }
 void UartInit(void)		//9600bps@12.000MHz
 {
