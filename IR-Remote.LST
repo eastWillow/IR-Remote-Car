@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 11:09:40 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 10:58:13 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE
@@ -16,81 +16,81 @@ line level    source
    7          #include <STC12C5A60S2.H>
    8          #include <intrins.h>
    9          #define FULL 65535
-  10          sbit IR = P1^3;
-  11          sbit UP = P1^2;
-  12          sbit DOWN = P3^5;
-  13          sbit RIGHT = P1^1;
-  14          sbit LEFT = P0^6;
-  15          unsigned char lastDirection;
-  16          void IR_TR(unsigned char direction);
-  17          void delay(unsigned int time);
-  18          void steup(){
-  19   1        CMOD = 0x08;
-  20   1        CR = 0;
-  21   1        CCAP0L = 0;
-  22   1        CCAP0H = 0;
-  23   1        CCAPM0 = 0x42;
-  24   1        
-  25   1        EA = 1;
-  26   1        EX0 = 1;
-  27   1        
-  28   1        TMOD = 0x01;
-  29   1        TL0 = 0;
-  30   1        TH0 = 0;
-  31   1        TR0 = 0;
-  32   1        TF0 = 0;
-  33   1      }
-  34          void main(){
-  35   1        steup();
-  36   1        while(1){
-  37   2          PCON = 0x02;//Power Down
-  38   2        }
-  39   1      }
-  40          void selectDirection () interrupt 0{
-  41   1        unsigned char direction = 0;//using 8bit to be a arrary and save direction
-  42   1      /*
-  43   1        direction:
-  44   1        0x01: //UP
-  45   1        0x05: //UP+LEFT
-  46   1        0x09: //UP+RIGHT
-  47   1        0x02: //DOWN
-  48   1        0x06: //DOWN+RIGHT
-  49   1        0x0A: //DOWN+RIGHT
-  50   1        0x04: //LEFT
-  51   1        0x08: //RIGHT
-  52   1      */
-  53   1        EA = 0;
-  54   1        delay(1000);
-  55   1        if(!UP){
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 11:09:40 PAGE 2   
+  10          #define ADRESS 0xA5
+  11          sbit IR = P1^3;
+  12          sbit UP = P1^2;
+  13          sbit DOWN = P3^5;
+  14          sbit RIGHT = P1^1;
+  15          sbit LEFT = P0^6;
+  16          unsigned char lastDirection;
+  17          void IR_TR(unsigned char direction);
+  18          void delay(unsigned int time);
+  19          void steup(){
+  20   1        CMOD = 0x08;
+  21   1        CR = 0;
+  22   1        CCAP0L = 0;
+  23   1        CCAP0H = 0;
+  24   1        CCAPM0 = 0x42;
+  25   1        
+  26   1        EA = 1;
+  27   1        EX0 = 1;
+  28   1        
+  29   1        TMOD = 0x01;
+  30   1        TL0 = 0;
+  31   1        TH0 = 0;
+  32   1        TR0 = 0;
+  33   1        TF0 = 0;
+  34   1      }
+  35          void main(){
+  36   1        steup();
+  37   1        while(1){
+  38   2          PCON = 0x02;//Power Down
+  39   2        }
+  40   1      }
+  41          void selectDirection () interrupt 0{
+  42   1        unsigned char direction = 0;//using 8bit to be a arrary and save direction
+  43   1      /*
+  44   1        direction:
+  45   1        0x01: //UP
+  46   1        0x05: //UP+LEFT
+  47   1        0x09: //UP+RIGHT
+  48   1        0x02: //DOWN
+  49   1        0x06: //DOWN+RIGHT
+  50   1        0x0A: //DOWN+RIGHT
+  51   1        0x04: //LEFT
+  52   1        0x08: //RIGHT
+  53   1      */
+  54   1        EA = 0;
+  55   1        delay(1000);
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 10:58:13 PAGE 2   
 
-  56   2          direction = 0x01;
-  57   2        }
-  58   1        if(!DOWN){
-  59   2          direction = direction | 0x02;
-  60   2        }
-  61   1        if(!LEFT){
-  62   2          direction = direction | 0x04;
-  63   2        }
-  64   1        if(!RIGHT){
-  65   2          direction = direction | 0x08;
-  66   2        }
-  67   1        IR_TR(direction);
-  68   1        CCAP0L = 0;
-  69   1        EA = 1;
-  70   1      }
-  71          void IR_TR(unsigned char direction){
-  72   1        unsigned char i=0;
-  73   1        CCAP0L = 128;
-  74   1        CCAP0H = 128;
-  75   1        for(i=0;i<3;i++){
-  76   2          CR = 1;
-  77   2          delay(16800);
-  78   2          CR = 0;
-  79   2          delay(8400);
-  80   2        }
+  56   1        if(!UP){
+  57   2          direction = 0x01;
+  58   2        }
+  59   1        if(!DOWN){
+  60   2          direction = direction | 0x02;
+  61   2        }
+  62   1        if(!LEFT){
+  63   2          direction = direction | 0x04;
+  64   2        }
+  65   1        if(!RIGHT){
+  66   2          direction = direction | 0x08;
+  67   2        }
+  68   1        IR_TR(direction);
+  69   1        CCAP0L = 0;
+  70   1        EA = 1;
+  71   1      }
+  72          void IR_TR(unsigned char direction){
+  73   1        unsigned char i=0;
+  74   1        unsigned char Adress = ADRESS;
+  75   1        CCAP0L = 128;
+  76   1        CCAP0H = 128;
+  77   1        CR = 1;
+  78   1        delay(16800);
+  79   1        CR = 0;
+  80   1        delay(8400);
   81   1        for(i=0;i<8;i++){
-  82   2          if((direction & 0x01)){
+  82   2          if((Adress & 0x01)){
   83   3            CR = 1;
   84   3            delay(526);
   85   3            CR = 0;
@@ -102,32 +102,47 @@ line level    source
   91   3            CR = 0;
   92   3            delay(524);
   93   3          }
-  94   2          direction = direction >> 1;
+  94   2          Adress = Adress >> 1;
   95   2        }
-  96   1        CR = 1;
-  97   1        delay(526);
-  98   1        CR = 0;
-  99   1        delay(20000);
- 100   1      }
- 101          void delay(unsigned int time){
- 102   1        TL0 = (FULL - time) %256;
- 103   1        TH0 = (FULL - time) /256;
- 104   1        TR0 = 1;
- 105   1        while(!TF0);
- 106   1        TR0 = 0;
- 107   1        TF0 = 0;
- 108   1      }
+  96   1        for(i=0;i<8;i++){
+  97   2          if((direction & 0x01)){
+  98   3            CR = 1;
+  99   3            delay(526);
+ 100   3            CR = 0;
+ 101   3            delay(1574);
+ 102   3          }
+ 103   2          else{
+ 104   3            CR = 1;
+ 105   3            delay(526);
+ 106   3            CR = 0;
+ 107   3            delay(524);
+ 108   3          }
+ 109   2          direction = direction >> 1;
+ 110   2        }
+ 111   1        CR = 1;
+ 112   1        delay(526);
+ 113   1        CR = 0;
+ 114   1        delay(20000);
+ 115   1      }
+ 116          void delay(unsigned int time){
+ 117   1        TL0 = (FULL - time) %256;
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 10:58:13 PAGE 3   
+
+ 118   1        TH0 = (FULL - time) /256;
+ 119   1        TR0 = 1;
+ 120   1        while(!TF0);
+ 121   1        TR0 = 0;
+ 122   1        TF0 = 0;
+ 123   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    327    ----
+   CODE SIZE        =    365    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      1       5
+   DATA SIZE        =      1       6
    IDATA SIZE       =   ----    ----
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 11:09:40 PAGE 3   
-
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
