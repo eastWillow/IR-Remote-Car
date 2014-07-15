@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <body>
 <pre>
@@ -7,3 +8,680 @@ F:\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.uvproj
 Project File Date:  07/15/2014
 
 <h2>Output:</h2>
+=======
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=905
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=14.0 xdata=0 code=905
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=14.0 xdata=0 code=905
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=905
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(56): error C175: 0x1: duplicate case value
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(72): error C202: 'IN0': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(76): error C141: syntax error near 'void'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(76): error C141: syntax error near '{'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(90): error C141: syntax error near 'void'
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(56): error C175: 0x1: duplicate case value
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(72): error C202: 'IN0': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(56): error C175: 0x1: duplicate case value
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=927
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=941
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Rebuild Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): warning C206: 'uasrtSend': missing function-prototype
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): error C267: 'uasrtSend': requires ANSI-style prototype
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): warning C206: 'uasrtSend': missing function-prototype
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): error C267: 'uasrtSend': requires ANSI-style prototype
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): warning C206: 'uasrtSend': missing function-prototype
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): error C267: 'uasrtSend': requires ANSI-style prototype
+Target not created
+Rebuild Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): warning C206: 'uasrtSend': missing function-prototype
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): error C267: 'uasrtSend': requires ANSI-style prototype
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): warning C206: 'uasrtSend': missing function-prototype
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): error C267: 'uasrtSend': requires ANSI-style prototype
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): warning C206: 'uasrtSend': missing function-prototype
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(57): error C267: 'uasrtSend': requires ANSI-style prototype
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=894
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=799
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=852
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(97): error C141: syntax error near 'reentrant', expected 'const'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(97): error C141: syntax error near 'reentrant'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(98): error C231: 'TR0': redefinition
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(98): error C231: 'TR0': redefinition
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(99): error C141: syntax error near 'if'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(99): error C129: missing ';' before '{'
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=852
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=854
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=801
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=803
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=12.0 xdata=0 code=803
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(55): error C141: syntax error near '}'
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(156): error C141: syntax error near 'void'
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(155): error C141: syntax error near 'void'
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=846
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=873
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=16.0 xdata=0 code=1018
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=16.0 xdata=0 code=1024
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+compiling IR-Remote-Car.c...
+IR-Remote-Car.c - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=16.0 xdata=0 code=891
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=16.0 xdata=0 code=891
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Rebuild Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(63): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(64): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(65): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(72): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(73): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(77): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(78): error C202: 'servoMotorHighTime': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(63): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(64): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(65): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(72): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(73): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(77): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(78): error C202: 'servoMotorHighTime': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(63): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(64): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(65): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(72): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(73): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(77): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(78): error C202: 'servoMotorHighTime': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(63): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(64): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(65): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(72): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(73): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(77): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(78): error C202: 'servoMotorHighTime': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=873
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=789
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=796
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=725
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=728
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=724
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(154): warning C206: 'delay100ms': missing function-prototype
+linking...
+Program Size: data=14.0 xdata=0 code=770
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(155): error C141: syntax error near '}'
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=731
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(52): warning C214: 'Argument': conversion: pointer to non-pointer
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 09BAH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 09BFH
+Program Size: data=12.0 xdata=0 code=739
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(52): warning C214: 'Argument': conversion: pointer to non-pointer
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+    CALLER1: ?PR?IRRECEIVER?IR_REMOTE_CAR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AFCH
+Program Size: data=21.0 xdata=0 code=982
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 6 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+    CALLER1: ?PR?IRRECEIVER?IR_REMOTE_CAR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AFCH
+Program Size: data=21.0 xdata=0 code=982
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+    CALLER1: ?PR?IRRECEIVER?IR_REMOTE_CAR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AFCH
+Program Size: data=21.0 xdata=0 code=982
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+    CALLER1: ?PR?IRRECEIVER?IR_REMOTE_CAR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AFCH
+Program Size: data=21.0 xdata=0 code=982
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+    CALLER1: ?PR?IRRECEIVER?IR_REMOTE_CAR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF6H
+Program Size: data=21.0 xdata=0 code=976
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+    CALLER1: ?PR?IRRECEIVER?IR_REMOTE_CAR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF6H
+Program Size: data=21.0 xdata=0 code=976
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 5 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  UARTINIT
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AEEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UARTSEND
+    MODULE:  IR-Remote-Car.obj (IR_REMOTE_CAR)
+    ADDRESS: 0AF3H
+Program Size: data=18.0 xdata=0 code=973
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 4 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=18.0 xdata=0 code=1003
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=18.0 xdata=0 code=1135
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(50): error C202: 'IRdirection': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(62): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(70): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(95): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(96): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(97): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(104): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(105): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(109): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(110): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(147): error C202: 'IRdirection': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(50): error C202: 'IRdirection': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(62): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(70): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(95): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(96): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(97): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(104): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(105): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(109): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(110): error C202: 'servoMotorHighTime': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(147): error C202: 'IRdirection': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(51): error C202: 'IRdirection': undefined identifier
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(149): error C202: 'IRdirection': undefined identifier
+Target not created
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=19.0 xdata=0 code=999
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=19.0 xdata=0 code=999
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=19.0 xdata=0 code=1179
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=19.0 xdata=0 code=1179
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=19.0 xdata=0 code=1179
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=19.0 xdata=0 code=1173
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=19.0 xdata=0 code=1210
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=981
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=15.0 xdata=0 code=987
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+Program Size: data=15.0 xdata=0 code=987
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+C:\Users\eastWiilowDocuments\Dropbox\Project\IR-Remote-Car\IR-Remote-Car.c(49): warning C280: 'IrData': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+Program Size: data=15.0 xdata=0 code=984
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 2 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+Program Size: data=14.0 xdata=0 code=984
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+Program Size: data=14.0 xdata=0 code=984
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
+Program Size: data=14.0 xdata=0 code=984
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=969
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=12.0 xdata=0 code=921
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=13.0 xdata=0 code=919
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=13.0 xdata=0 code=919
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=13.0 xdata=0 code=919
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=924
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=772
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=13.0 xdata=0 code=772
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=12.0 xdata=0 code=764
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+Program Size: data=14.0 xdata=0 code=812
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 0 Warning(s).
+Build Project 'IR-Remote-Car' - Target 'Target 1'
+compiling IR-Remote-Car.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
+Program Size: data=12.0 xdata=0 code=764
+creating hex file from "IR-Remote-Car"...
+"IR-Remote-Car" - 0 Error(s), 1 Warning(s).
+>>>>>>> parent of d4569ae... It is Lag And Wired

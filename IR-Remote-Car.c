@@ -39,19 +39,62 @@ sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
+<<<<<<< HEAD
 unsigned char IRdirection;
 unsigned int servoMotorHighTime = 1250;
 void setup();
 void Delay100ms();
+=======
+unsigned int servoMotorHighTime;
+unsigned char IRdirection;
+void setup();
+>>>>>>> parent of d4569ae... It is Lag And Wired
 void UartInit (void);
 void uartSend (unsigned char number);
 void main(){
 	setup();
 	UartInit();
 	while(1){
+<<<<<<< HEAD
 		if(IRdirection == 0x04) servoMotorHighTime = 1000;
 		if(IRdirection == 0x04) servoMotorHighTime = 1500;
 	}
+=======
+		switch(IRdirection){
+			case 0x01:
+				IN1 = 1;
+				IN2 = 0;
+				break;
+			case 0x02:
+				IN1 = 0;
+				IN2 = 1;
+				break;
+			case 0x04:
+				TR0 = 0;
+				servoMotorHighTime = 1000;
+				break;
+			case 0x05:
+				break;
+			case 0x06:
+				break;
+			case 0x08:
+				TR0 = 0;
+				servoMotorHighTime = 1500;
+				break;
+			case 0x09:
+				break;
+			case 0x0A:
+				break;
+			default:
+				TR0 = 0;
+				servoMotorHighTime = 1250;
+				IN1 = 0;
+				IN2 = 0;
+				break;
+		}
+		TR0 = 1;
+		}
+>>>>>>> parent of d4569ae... It is Lag And Wired
 }
 void setup(){
 	EA = 1;
@@ -59,6 +102,7 @@ void setup(){
 	EX0 = 1;
 	EX1 = 1;
 	PX0 = 1;
+<<<<<<< HEAD
 	TR0 = 0; //reset Timer0 Switch
 	TR0 = 0; //reset Timer1 Switch
 	TMOD = 0x11; //0010 0010
@@ -68,6 +112,16 @@ void setup(){
 	TR0 = 1;
 }
 void servoMotor () interrupt 1 {
+=======
+	PX1 = 1;
+	IPH = 0x30;
+	IT1 = 1;
+	TR0 = 0; //reset Timer0 Switch
+	TMOD = 0x01; //0010 0010
+	SERVOMOTOR1 = 0;
+}
+void servoMotor ()interrupt 1 {
+>>>>>>> parent of d4569ae... It is Lag And Wired
 	TR0 = 0;
 	if(SERVOMOTOR1){
 		TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
@@ -84,6 +138,7 @@ void servoMotor () interrupt 1 {
 void limitSwitch () interrupt 0{
 	IN1 =0;
 	IN2 =1;
+<<<<<<< HEAD
 	Delay100ms();
 	Delay100ms();
 	Delay100ms();
@@ -144,6 +199,25 @@ void irReceiver() interrupt 2{
 		while(IR_RECEIVER == 1)	counter++;
 		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
 	}*/
+=======
+}
+void irReceiver()interrupt 2{
+	unsigned int counter;
+	unsigned char i;
+	while(IR_RECEIVER == 0) counter++;
+	if(counter >=15656){
+		counter =0;
+		while(IR_RECEIVER == 1)counter++;
+		if(counter >= 3000){
+			for(i=0;i<8;i++){
+				counter = 0;
+				while(IR_RECEIVER == 0)counter++;
+				if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
+				while(IR_RECEIVER == 1);
+			}
+		}
+	}
+>>>>>>> parent of d4569ae... It is Lag And Wired
 }
 void UartInit(void)		//9600bps@12.000MHz
 {
