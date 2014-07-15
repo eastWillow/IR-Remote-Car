@@ -68,36 +68,36 @@ void IR_TR(unsigned char direction){
 	CCAP0L = 128;
 	CCAP0H = 128;
 	CR = 1;
-	delay(2);//delay(16800);
+	delay(16800);
 	CR = 0;
-	delay(2);//delay(8400);
+	delay(8400);
 	for(i=0;i<8;i++){
 		j = (_cror_(direction,i)&0x01);
-		if(j == 0){
-			CR = 1;
-			delay(2);//delay(500);
-			CR = 0;
-			delay(2);//delay(3000);
-		}
 		if(j == 1){
 			CR = 1;
-			delay(2);//delay(500);
+			delay(1844);
 			CR = 0;
-			delay(2);//delay(500);
+			delay(500);
+		}
+		if(j == 0){
+			CR = 1;
+			delay(524);
+			CR = 0;
+			delay(500);
 		}
 	}
 	CR = 1;
-	delay(2);//delay(526);
+	delay(526);
 	CR = 0;
-	delay(2);//delay(20000);
+	delay(20000);
 	CCAP0L = 0;
 	CCAP0H = 0;
 }
 void delay(unsigned int time){
-	//TL0 = (FULL - time) %256;
-	//TH0 = (FULL - time) /256;
-	//TR0 = 1;
-	//while(!TF0);
-	//TR0 = 0;
-	//TF0 = 0;
+	TL0 = (FULL - time) %256;
+	TH0 = (FULL - time) /256;
+	TR0 = 1;
+	while(!TF0);
+	TR0 = 0;
+	TF0 = 0;
 }

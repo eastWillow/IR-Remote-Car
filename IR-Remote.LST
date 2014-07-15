@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 13:21:16 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 13:31:30 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE
@@ -62,7 +62,7 @@ line level    source
   53   3          direction = direction | 0x04;
   54   3        }
   55   2        if(RIGHT == 0){
-C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 13:21:16 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_REMOTE                                                         07/15/2014 13:31:30 PAGE 2   
 
   56   3          direction = direction | 0x08;
   57   3        }
@@ -79,44 +79,43 @@ line level    source
   68   1        CCAP0L = 128;
   69   1        CCAP0H = 128;
   70   1        CR = 1;
-  71   1        delay(2);//delay(16800);
+  71   1        delay(16800);
   72   1        CR = 0;
-  73   1        delay(2);//delay(8400);
+  73   1        delay(8400);
   74   1        for(i=0;i<8;i++){
   75   2          j = (_cror_(direction,i)&0x01);
-  76   2          if(j == 0){
+  76   2          if(j == 1){
   77   3            CR = 1;
-  78   3            delay(2);//delay(500);
+  78   3            delay(1844);
   79   3            CR = 0;
-  80   3            delay(2);//delay(3000);
+  80   3            delay(500);
   81   3          }
-  82   2          if(j == 1){
+  82   2          if(j == 0){
   83   3            CR = 1;
-  84   3            delay(2);//delay(500);
+  84   3            delay(524);
   85   3            CR = 0;
-  86   3            delay(2);//delay(500);
+  86   3            delay(500);
   87   3          }
   88   2        }
   89   1        CR = 1;
-  90   1        delay(2);//delay(526);
+  90   1        delay(526);
   91   1        CR = 0;
-  92   1        delay(2);//delay(20000);
+  92   1        delay(20000);
   93   1        CCAP0L = 0;
   94   1        CCAP0H = 0;
   95   1      }
   96          void delay(unsigned int time){
-  97   1        //TL0 = (FULL - time) %256;
-  98   1        //TH0 = (FULL - time) /256;
-  99   1        //TR0 = 1;
- 100   1        //while(!TF0);
- 101   1        //TR0 = 0;
- 102   1        //TF0 = 0;
+  97   1        TL0 = (FULL - time) %256;
+  98   1        TH0 = (FULL - time) /256;
+  99   1        TR0 = 1;
+ 100   1        while(!TF0);
+ 101   1        TR0 = 0;
+ 102   1        TF0 = 0;
  103   1      }
-*** WARNING C280 IN LINE 96 OF IR-Remote.c: 'time': unreferenced local variable
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    182    ----
+   CODE SIZE        =    286    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
@@ -126,4 +125,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
