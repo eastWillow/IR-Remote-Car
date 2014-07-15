@@ -130,7 +130,6 @@ void irReceiver()interrupt 2{
 			}
 		}
 	}
-	uartSend(IRdirection);
 }
 void UartInit(void)		//9600bps@12.000MHz
 {

@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:30:14 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
@@ -62,7 +62,7 @@ line level    source
   53   3              IN1 = 1;
   54   3              IN2 = 0;
   55   3              break;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:30:14 PAGE 2   
 
   56   3            case 0x02:
   57   3              IN1 = 0;
@@ -126,7 +126,7 @@ line level    source
  115   1        IN2 =1;
  116   1      }
  117          void irReceiver()interrupt 2{
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:28:47 PAGE 3   
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:30:14 PAGE 3   
 
  118   1        unsigned int counter;
  119   1        unsigned char i;
@@ -143,30 +143,29 @@ line level    source
  130   4            }
  131   3          }
  132   2        }
- 133   1        uartSend(IRdirection);
- 134   1      }
- 135          void UartInit(void)   //9600bps@12.000MHz
- 136          {
- 137   1        PCON &= 0x7F;   //Baudrate no doubled
- 138   1        SCON = 0x50;    //8bit and variable baudrate
- 139   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 140   1        BRT = 0xD9;   //Set BRT's reload value
- 141   1        AUXR |= 0x01;   //Use BRT as baudrate generator
- 142   1        AUXR |= 0x10;   //BRT running
- 143   1      }
- 144          void uartSend (unsigned char number){
- 145   1          SBUF = number;
- 146   1          while(!TI);
- 147   1          TI=0;
- 148   1      }
+ 133   1      }
+ 134          void UartInit(void)   //9600bps@12.000MHz
+ 135          {
+ 136   1        PCON &= 0x7F;   //Baudrate no doubled
+ 137   1        SCON = 0x50;    //8bit and variable baudrate
+ 138   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
+ 139   1        BRT = 0xD9;   //Set BRT's reload value
+ 140   1        AUXR |= 0x01;   //Use BRT as baudrate generator
+ 141   1        AUXR |= 0x10;   //BRT running
+ 142   1      }
+ 143          void uartSend (unsigned char number){
+ 144   1          SBUF = number;
+ 145   1          while(!TI);
+ 146   1          TI=0;
+ 147   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    514    ----
+   CODE SIZE        =    466    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      3       2
+   DATA SIZE        =      3    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
