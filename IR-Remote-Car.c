@@ -41,14 +41,20 @@ sbit IN1=P0^1;
 sbit IN2=P0^2;
 unsigned int servoMotorHighTime;
 void setup();
+<<<<<<< HEAD
 //void UartInit (void);
 //void uartSend (unsigned char number);
+=======
+void Delay100ms();
+void UartInit (void);
+void uartSend (unsigned char number);
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 void main(){
 	unsigned char IRdirection;
 	unsigned int counter;
 	unsigned char i;
 	setup();
-	//UartInit();
+	UartInit();
 	while(1){
 		switch(IRdirection){
 					case 0x01:
@@ -116,8 +122,63 @@ void limitSwitch ()interrupt 0{
 }*/
 /*void irReceiver()interrupt 2{
 
+<<<<<<< HEAD
 }*/
 /*void UartInit(void)		//9600bps@12.000MHz
+=======
+	_nop_();
+	_nop_();
+	i = 5;
+	j = 144;
+	k = 71;
+	do
+	{
+		do
+		{
+			while (--k);
+		} while (--j);
+	} while (--i);
+}
+void irReceiver() interrupt 2{
+	unsigned int counter;
+	while(IR_RECEIVER == 0) counter++;
+	if(counter >> 8 == 0x3D){
+		uartSend(counter >> 8);
+		uartSend(counter);
+	}
+	/*unsigned int counter;
+	unsigned char adress;
+	int i;
+	IRdirection = 0;
+	while(IR_RECEIVER == 0) counter++;
+	uartSend(counter);
+	if (counter >= HEAD){
+		counter = 0;
+		while(IR_RECEIVER == 1);
+		while(IR_RECEIVER == 0);
+		while(IR_RECEIVER == 1) counter++;
+	}
+	else{
+		counter = 0;
+		while(IR_RECEIVER == 1) counter++;
+	}
+	//Start Coding
+	if (counter >= IRHIGH) adress = adress | 0x01;
+	for(i=0;i<7;i++){
+		while(IR_RECEIVER == 0);
+		counter = 0;
+		while(IR_RECEIVER == 1) counter++;
+		if (counter >= IRHIGH) adress = adress | (0x02 << i);
+	}
+	for(i=0;i<8;i++){
+		while(IR_RECEIVER == 0);
+		counter = 0;
+		while(IR_RECEIVER == 1)	counter++;
+		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
+	}*/
+}
+void UartInit(void)		//9600bps@12.000MHz
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 {
 	PCON &= 0x7F;		//Baudrate no doubled
 	SCON = 0x50;		//8bit and variable baudrate
@@ -130,4 +191,4 @@ void uartSend (unsigned char number){
 		SBUF = number;
 		while(!TI);
 		TI=0;
-}*/
+}
