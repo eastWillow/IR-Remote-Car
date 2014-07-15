@@ -43,8 +43,11 @@ unsigned char IRdirection;
 unsigned int servoMotorHighTime = 1250;
 void setup();
 void Delay100ms();
+void UartInit (void);
+void uartSend (unsigned char number);
 void main(){
 	setup();
+	UartInit();
 	while(1){
 		if(IRdirection == 0x04) servoMotorHighTime = 1000;
 		if(IRdirection == 0x04) servoMotorHighTime = 1500;
@@ -106,11 +109,12 @@ void Delay100ms()		//@12.000MHz
 	} while (--i);
 }
 void irReceiver() interrupt 2{
-	unsigned int counter;
+	/*unsigned int counter;
 	unsigned char adress;
 	int i;
 	IRdirection = 0;
 	while(IR_RECEIVER == 0) counter++;
+	uartSend(counter);
 	if (counter >= HEAD){
 		counter = 0;
 		while(IR_RECEIVER == 1);
@@ -135,4 +139,18 @@ void irReceiver() interrupt 2{
 		while(IR_RECEIVER == 1)	counter++;
 		if (counter >= IRHIGH) IRdirection = IRdirection | (0x01 << i);
 	}
+}
+void UartInit(void)		//9600bps@12.000MHz
+{
+	PCON &= 0x7F;		//Baudrate no doubled
+	SCON = 0x50;		//8bit and variable baudrate
+	AUXR |= 0x04;		//BRT's clock is Fosc (1T)
+	BRT = 0xD9;		//Set BRT's reload value
+	AUXR |= 0x01;		//Use BRT as baudrate generator
+	AUXR |= 0x10;		//BRT running
+}*/
+void uartSend (unsigned char number){
+		SBUF = number;
+		while(!TI);
+		TI=0;
 }
