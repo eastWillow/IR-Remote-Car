@@ -54,7 +54,7 @@ void main(){
 	if(!RIGHT){
 		direction = direction | 0x08;
 	}
-	IR_TR(direction);
+	if(!UP || !DOWN || !LEFT || !RIGHT) IR_TR(direction);
 	direction = 0;
 	}
 }
