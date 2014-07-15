@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  17:59:56  PAGE 1
 =======
 BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
@@ -15,6 +16,9 @@ BL51 BANKED LINKER/LOCATER V6.22                                                
 =======
 BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  16:28:47  PAGE 1
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -64,6 +68,7 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
             CODE    0BA1H     000FH     UNIT         ?PR?DELAY100MS?IR_REMOTE_CAR
             CODE    0BB0H     0008H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
             CODE    0BB8H     0005H     UNIT         ?C_INITSEG
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of eb9d237... Debug IrData
@@ -79,6 +84,8 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
 >>>>>>> parent of eb9d237... Debug IrData
 =======
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 
 
 
@@ -90,6 +97,9 @@ SEGMENT                                 DATA_GROUP
 -----------------------------------------------------
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 ?PR?LIMITSWITCH?IR_REMOTE_CAR         -----    -----
   +--> ?PR?DELAY100MS?IR_REMOTE_CAR
 BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 2
@@ -98,6 +108,7 @@ SEGMENT                                 DATA_GROUP
 
 *** NEW ROOT ***************************************************
 
+<<<<<<< HEAD
 =======
 >>>>>>> parent of eb9d237... Debug IrData
 =======
@@ -119,6 +130,13 @@ SEGMENT                                 DATA_GROUP
 
 
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+?PR?IRRECEIVER?IR_REMOTE_CAR          000BH    0002H
+  +--> ?PR?_UARTSEND?IR_REMOTE_CAR
+
+*** NEW ROOT ***************************************************
+
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 ?C_C51STARTUP                         -----    -----
   +--> ?PR?MAIN?IR_REMOTE_CAR
   +--> ?C_INITSEG
@@ -129,6 +147,7 @@ SEGMENT                                 DATA_GROUP
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 13af063... IR_Receiver Final OK
 =======
 >>>>>>> parent of 13af063... IR_Receiver Final OK
@@ -136,6 +155,8 @@ SEGMENT                                 DATA_GROUP
 >>>>>>> parent of eb9d237... Debug IrData
 =======
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 
 
 
@@ -191,6 +212,9 @@ Program Size: data=8.0 xdata=0 code=99
   B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   C:0A8BH         PUBLIC        irReceiver
   C:0AE1H         PUBLIC        limitSwitch
   D:00B8H         PUBLIC        IP
@@ -202,6 +226,7 @@ Program Size: data=8.0 xdata=0 code=99
   C:0A2BH         PUBLIC        setup
   D:0098H         PUBLIC        SCON
   C:0B8EH         PUBLIC        UartInit
+<<<<<<< HEAD
 =======
   C:099FH         PUBLIC        irReceiver
   C:0B1BH         PUBLIC        limitSwitch
@@ -218,6 +243,8 @@ Program Size: data=8.0 xdata=0 code=99
 >>>>>>> parent of eb9d237... Debug IrData
 =======
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
   D:008EH         PUBLIC        AUXR
@@ -227,6 +254,7 @@ Program Size: data=8.0 xdata=0 code=99
   B:00A8H.1       PUBLIC        ET0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   C:0BB0H         PUBLIC        _uartSend
 =======
   C:0B13H         PUBLIC        _uartSend
@@ -234,6 +262,9 @@ Program Size: data=8.0 xdata=0 code=99
 =======
   C:0B13H         PUBLIC        _uartSend
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+  C:0BB0H         PUBLIC        _uartSend
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   D:008CH         PUBLIC        TH0
   B:00A8H.0       PUBLIC        EX0
   B:00A8H.2       PUBLIC        EX1
@@ -253,6 +284,9 @@ Program Size: data=8.0 xdata=0 code=99
   -------         PROC          MAIN
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   C:0B70H         LINE#         48
   C:0B70H         LINE#         49
   C:0B73H         LINE#         50
@@ -303,6 +337,7 @@ Program Size: data=8.0 xdata=0 code=99
   C:0B0BH         LINE#         90
   C:0B0EH         LINE#         91
   C:0B11H         LINE#         92
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of eb9d237... Debug IrData
@@ -391,6 +426,8 @@ Program Size: data=8.0 xdata=0 code=99
 >>>>>>> parent of eb9d237... Debug IrData
 =======
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   -------         ENDPROC       LIMITSWITCH
 BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 4
 
@@ -418,6 +455,7 @@ Program Size: data=8.0 xdata=0 code=99
   -------         PROC          IRRECEIVER
   -------         DO            
   D:000BH         SYMBOL        counter
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   -------         ENDDO         
@@ -494,17 +532,50 @@ Program Size: data=8.0 xdata=0 code=99
 >>>>>>> parent of eb9d237... Debug IrData
 =======
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+  -------         ENDDO         
+  C:0A8BH         LINE#         110
+  C:0AA8H         LINE#         112
+  C:0AB5H         LINE#         113
+  C:0ABEH         LINE#         114
+  C:0AC1H         LINE#         115
+  C:0AC6H         LINE#         116
+  C:0AC6H         LINE#         147
+  -------         ENDPROC       IRRECEIVER
+  -------         PROC          UARTINIT
+  C:0B8EH         LINE#         148
+  C:0B8EH         LINE#         149
+  C:0B8EH         LINE#         150
+  C:0B91H         LINE#         151
+  C:0B94H         LINE#         152
+  C:0B97H         LINE#         153
+  C:0B9AH         LINE#         154
+  C:0B9DH         LINE#         155
+  C:0BA0H         LINE#         156
+  -------         ENDPROC       UARTINIT
+  -------         PROC          _UARTSEND
+  D:0007H         SYMBOL        number
+  C:0BB0H         LINE#         157
+  C:0BB0H         LINE#         158
+  C:0BB2H         LINE#         159
+  C:0BB5H         LINE#         160
+  C:0BB7H         LINE#         161
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   -------         ENDPROC       _UARTSEND
   -------         ENDMOD        IR_REMOTE_CAR
 
   -------         MODULE        ?C?SLDIV
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
   C:0B2CH         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
 BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 5
 
+<<<<<<< HEAD
 =======
   C:0A97H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
@@ -513,12 +584,15 @@ Program Size: data=8.0 xdata=0 code=99
   C:0A97H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 
   -------         MODULE        ?C?ULDIV
   C:090DH         PUBLIC        ?C?ULDIV
   -------         ENDMOD        ?C?ULDIV
 
 ******************************************************************************
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 * RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0227H BYTE (26%) *
@@ -540,4 +614,10 @@ Program Size: data=14.0 xdata=0 code=812
 >>>>>>> parent of eb9d237... Debug IrData
 =======
 >>>>>>> parent of eb9d237... Debug IrData
+=======
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0227H BYTE (26%) *
+******************************************************************************
+
+Program Size: data=14.0 xdata=0 code=969
+>>>>>>> parent of 13af063... IR_Receiver Final OK
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
