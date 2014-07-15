@@ -123,10 +123,17 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDP51</Key>
-          <Name>(98=1033,340,1366,623,1)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=568,284,766,388,1)(99=-1,-1,-1,-1,0)(91=800,335,1000,599,1)(92=862,0,1062,264,1)(5067=-1,-1,-1,-1,0)</Name>
+          <Name>(98=984,352,1317,635,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=55,450,253,554,1)(99=-1,-1,-1,-1,0)(91=1113,499,1313,763,1)(92=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
+      <WatchWindow1>
+        <Ww>
+          <count>0</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>IRdirection</ItemText>
+        </Ww>
+      </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -161,8 +168,8 @@
       <LogicAnalyzers>
         <Wi>
           <IntNumber>0</IntNumber>
-          <FirstString>(P1 &amp; 0x8) &gt;&gt; 3</FirstString>
-          <SecondString>FF00000000000000000000000000000000E06F400100000000000000000000000000000050310000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000000000000000F03F1300000000000000000000000000000000000000CF0800FF</SecondString>
+          <FirstString>(P3 &amp; 0x8) &gt;&gt; 3</FirstString>
+          <SecondString>FF00000000000000000000000000000000E06F400100000000000000000000000000000050330000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000900000001000000000000000000F03F0C00000000000000000000000000000000000000F70B00FF</SecondString>
         </Wi>
       </LogicAnalyzers>
     </TargetOption>
@@ -180,10 +187,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>19</ColumnNumber>
+      <ColumnNumber>23</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>14</TopLine>
-      <CurrentLine>22</CurrentLine>
+      <TopLine>81</TopLine>
+      <CurrentLine>113</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\IR-Remote-Car.c</PathWithFileName>
       <FilenameWithoutPath>IR-Remote-Car.c</FilenameWithoutPath>

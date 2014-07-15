@@ -110,7 +110,7 @@ void Delay100ms()		//@12.000MHz
 void irReceiver() interrupt 2{
 	unsigned int counter;
 	while(IR_RECEIVER == 0) counter++;
-	if (counter == 7906){
+	if(counter >> 8 == 0x3D){
 		uartSend(counter >> 8);
 		uartSend(counter);
 	}

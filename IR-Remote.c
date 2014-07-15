@@ -75,9 +75,9 @@ void IR_TR(unsigned char direction){
 	CCAP0L = 128;
 	CCAP0H = 128;
 	CR = 1;
-	delay(8400);
+	delay(16800);
 	CR = 0;
-	delay(4200);
+	delay(8400);
 	for(i=0;i<8;i++){
 		if((Adress & 0x01)){
 			CR = 1;
