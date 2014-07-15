@@ -39,12 +39,82 @@ sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
-unsigned int servoMotorHighTime = 1250;
+unsigned int servoMotorHighTime;
+unsigned char IRdirection;
 void setup();
-void Delay100ms();
 void UartInit (void);
 void uartSend (unsigned char number);
-/*void irReceiver() interrupt 2{
+void main(){
+	setup();
+	UartInit();
+	while(1){
+		switch(IRdirection){
+			case 0x01:
+				IN1 = 1;
+				IN2 = 0;
+				break;
+			case 0x02:
+				IN1 = 0;
+				IN2 = 1;
+				break;
+			case 0x04:
+				TR0 = 0;
+				servoMotorHighTime = 1000;
+				break;
+			case 0x05:
+				break;
+			case 0x06:
+				break;
+			case 0x08:
+				TR0 = 0;
+				servoMotorHighTime = 1500;
+				break;
+			case 0x09:
+				break;
+			case 0x0A:
+				break;
+			default:
+				TR0 = 0;
+				servoMotorHighTime = 1250;
+				IN1 = 0;
+				IN2 = 0;
+				break;
+		}
+		TR0 = 1;
+		}
+}
+void setup(){
+	EA = 1;
+	ET0 = 1;
+	EX0 = 1;
+	EX1 = 1;
+	PX0 = 1;
+	PX1 = 1;
+	IPH = 0x30;
+	IT1 = 1;
+	TR0 = 0; //reset Timer0 Switch
+	TMOD = 0x01; //0010 0010
+	SERVOMOTOR1 = 0;
+}
+void servoMotor ()interrupt 1 {
+	TR0 = 0;
+	if(SERVOMOTOR1){
+		TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+		TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+		SERVOMOTOR1 = 0;
+	}
+	else{
+		TL0 = (FULL - servoMotorHighTime) %256;
+		TH0 = (FULL - servoMotorHighTime) / 256;
+		SERVOMOTOR1 = 1;
+	}
+	TR0 = 1;
+}
+void limitSwitch ()interrupt 0{
+	IN1 =0;
+	IN2 =1;
+}
+void irReceiver()interrupt 2{
 	unsigned int counter;
 	unsigned char i;
 	while(IR_RECEIVER == 0) counter++;
@@ -60,83 +130,7 @@ void uartSend (unsigned char number);
 			}
 		}
 	}
-	if(counter <=15656) return;
-}*/
-void main(){
-	unsigned char IRdirection;
-	unsigned int counter;
-	unsigned char i;
-	setup();
-	UartInit();
-	while(1){
-		while(IR_RECEIVER == 0) counter++;
-		if(counter >=15656){
-		counter =0;
-		while(IR_RECEIVER == 1)counter++;
-		if(counter >= 3000){
-			for(i=0;i<8;i++){
-				counter = 0;
-				while(IR_RECEIVER == 0)counter++;
-				if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
-				while(IR_RECEIVER == 1);
-			}
-		}
-	}
-	}
-}
-void setup(){
-	EA = 1;
-	ET0 = 1;
-	EX0 = 1;
-	//EX1 = 1;
-	PX0 = 1;
-	TR0 = 0; //reset Timer0 Switch
-	TR0 = 0; //reset Timer1 Switch
-	TMOD = 0x11; //0010 0010
-	TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-	TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-	SERVOMOTOR1 = 0;
-	TR0 = 1;
-}
-void servoMotor () interrupt 1 {
-	TR0 = 0;
-	if(SERVOMOTOR1){
-		TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
-		TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
-		SERVOMOTOR1 = 0;
-	}
-	else{
-		TL0 = (FULL - servoMotorHighTime) %256;
-		TH0 = (FULL - servoMotorHighTime) / 256;
-		SERVOMOTOR1 = 1;
-	}
-	TR0 = 1;
-}
-void limitSwitch () interrupt 0{
-	IN1 =0;
-	IN2 =1;
-	Delay100ms();
-	Delay100ms();
-	Delay100ms();
-	Delay100ms();
-	Delay100ms();
-}
-void Delay100ms()		//@12.000MHz
-{
-	unsigned char i, j, k;
-
-	_nop_();
-	_nop_();
-	i = 5;
-	j = 144;
-	k = 71;
-	do
-	{
-		do
-		{
-			while (--k);
-		} while (--j);
-	} while (--i);
+	uartSend(IRdirection);
 }
 void UartInit(void)		//9600bps@12.000MHz
 {
