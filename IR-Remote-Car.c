@@ -55,29 +55,42 @@ void main(){
 			case 0x01:
 				IN1 = 1;
 				IN2 = 0;
+				servoMotorHighTime = 1250;
 				break;
 			case 0x02:
-				IN2 = 1;
 				IN1 = 0;
+				IN2 = 1;
+				servoMotorHighTime = 1250;
 				break;
 			case 0x04:
 				servoMotorHighTime = 1050;
 				break;
 			case 0x05:
+				IN1 = 1;
+				IN2 = 0;
+				servoMotorHighTime = 1050;
 				break;
 			case 0x06:
+				IN1 = 0;
+				IN2 = 1;
+				servoMotorHighTime = 1050;
 				break;
 			case 0x08:
 				servoMotorHighTime = 1400;
 				break;
 			case 0x09:
+				IN1 = 1;
+				IN2 = 0;
+				servoMotorHighTime = 1400;
 				break;
 			case 0x0A:
+				IN1 = 0;
+				IN2 = 1;
+				servoMotorHighTime = 1400;
 				break;
 			case 0x03:
 				IN1 = 1;
 				IN2 = 1;
-				servoMotorHighTime = 1250;
 			break;
 		}
 		}
@@ -88,7 +101,7 @@ void setup(){
 	ET0 = 1;
 	EX0 = 1;
 	EX1 = 1;
-	PX0 = 1;
+	PX1 = 1;
 	TR0 = 0; //reset Timer0 Switch
 	TR0 = 0; //reset Timer1 Switch
 	TMOD = 0x11; //0010 0010
