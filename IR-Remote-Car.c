@@ -40,17 +40,16 @@ sbit IR_RECEIVER=P3^3; // INT1
 sbit IN1=P0^1;
 sbit IN2=P0^2;
 bit IrFlag;
-volatile char data IRdirection=0x00;
-volatile int data servoMotorHighTime = 1250;
+unsigned char data IRdirection=0x00;
+unsigned int data servoMotorHighTime = 1250;//volatile 
 void setup();
-void Delay100ms();
-//void UartInit (void);
-//void uartSend (unsigned char number);
+void UartInit (void);
+void uartSend (unsigned char number);
 void main(){
 	setup();
-	//UartInit();
+	UartInit();
 	while(1){
-		if(IRdirection != 0){
+			uartSend(IRdirection);
 			switch(IRdirection){
 			case 0x01:
 				IN1 = 1;
@@ -88,11 +87,11 @@ void main(){
 				IN2 = 1;
 				servoMotorHighTime = 1400;
 				break;
+			case 0x00:
 			case 0x03:
 				IN1 = 1;
 				IN2 = 1;
 			break;
-		}
 		}
 	}
 }
@@ -147,25 +146,7 @@ void irReceiver()interrupt 2{
 		}
 	}
 }
-void Delay100ms()		//@12.000MHz
-{
-	unsigned char i, j, k;
-
-	_nop_();
-	_nop_();
-	i = 5;
-	j = 144;
-	k = 71;
-	do
-	{
-		do
-		{
-			while (--k);
-		} while (--j);
-	} while (--i);
-}
-
-/*void UartInit(void)		//9600bps@12.000MHz
+void UartInit(void)		//9600bps@12.000MHz
 {
 	PCON &= 0x7F;		//Baudrate no doubled
 	SCON = 0x50;		//8bit and variable baudrate
@@ -178,4 +159,4 @@ void uartSend (unsigned char number){
 		SBUF = number;
 		while(!TI);
 		TI=0;
-}*/
+}
