@@ -1,42 +1,20 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  17:59:56  PAGE 1
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  16:28:47  PAGE 1
->>>>>>> parent of eb9d237... Debug IrData
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  16:28:47  PAGE 1
->>>>>>> parent of eb9d237... Debug IrData
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  11:03:09  PAGE 1
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  16:30:14  PAGE 1
->>>>>>> parent of d4569ae... It is Lag And Wired
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/16/2014  10:44:16  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
 C:\KEIL\C51\BIN\BL51.EXE IR-Remote-Car.obj TO IR-Remote-Car RAMSIZE (256)
 
 
+MEMORY MODEL: SMALL
+
+
 INPUT MODULES INCLUDED:
   IR-Remote-Car.obj (IR_REMOTE_CAR)
-<<<<<<< HEAD
-=======
   C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
   C:\KEIL\C51\LIB\C51S.LIB (?C?SLDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
   C:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
->>>>>>> parent of d4569ae... It is Lag And Wired
 
 
 LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
@@ -47,19 +25,13 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     0063H     ABSOLUTE     
-=======
-            DATA    0008H     0003H     UNIT         ?DT?IR_REMOTE_CAR
-            DATA    000BH     0002H     UNIT         _DATA_GROUP_
-            IDATA   000DH     0001H     UNIT         ?STACK
-=======
-            DATA    0008H     0003H     UNIT         ?DT?IR_REMOTE_CAR
-            IDATA   000BH     0001H     UNIT         ?STACK
->>>>>>> parent of d4569ae... It is Lag And Wired
+            DATA    0008H     0004H     UNIT         ?DT?IRRECEIVER?IR_REMOTE_CAR
+            DATA    000CH     0003H     UNIT         ?DT?DELAY100MS?IR_REMOTE_CAR
+            DATA    000FH     0003H     UNIT         ?DT?IR_REMOTE_CAR
+                    0012H     000EH                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?IR_REMOTE_CAR
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -69,136 +41,34 @@ LINK MAP OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
                     000EH     0005H                  *** GAP ***
             CODE    0013H     0003H     ABSOLUTE     
                     0016H     07EAH                  *** GAP ***
-            CODE    0800H     00D1H     UNIT         ?PR?SERVOMOTOR?IR_REMOTE_CAR
-            CODE    08D1H     00CEH     UNIT         ?C?LIB_CODE
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            CODE    099FH     008CH     UNIT         ?C_C51STARTUP
-            CODE    0A2BH     0060H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
-            CODE    0A8BH     0056H     UNIT         ?PR?IRRECEIVER?IR_REMOTE_CAR
-            CODE    0AE1H     004BH     UNIT         ?PR?LIMITSWITCH?IR_REMOTE_CAR
-            CODE    0B2CH     0044H     UNIT         ?C?LDIV
-            CODE    0B70H     001EH     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    0B8EH     0013H     UNIT         ?PR?UARTINIT?IR_REMOTE_CAR
-            CODE    0BA1H     000FH     UNIT         ?PR?DELAY100MS?IR_REMOTE_CAR
-            CODE    0BB0H     0008H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
-            CODE    0BB8H     0005H     UNIT         ?C_INITSEG
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of eb9d237... Debug IrData
-            CODE    099FH     00A7H     UNIT         ?PR?IRRECEIVER?IR_REMOTE_CAR
-            CODE    0A46H     0051H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    0A97H     0044H     UNIT         ?C?LDIV
-            CODE    0ADBH     0019H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
-            CODE    0AF4H     0013H     UNIT         ?PR?UARTINIT?IR_REMOTE_CAR
-            CODE    0B07H     000CH     UNIT         ?C_C51STARTUP
-            CODE    0B13H     0008H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
-            CODE    0B1BH     0005H     UNIT         ?PR?LIMITSWITCH?IR_REMOTE_CAR
-<<<<<<< HEAD
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-            CODE    099FH     0077H     UNIT         ?PR?IRRECEIVER?IR_REMOTE_CAR
-            CODE    0A16H     0051H     UNIT         ?PR?MAIN?IR_REMOTE_CAR
-            CODE    0A67H     0044H     UNIT         ?C?LDIV
-            CODE    0AABH     0019H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
-            CODE    0AC4H     0013H     UNIT         ?PR?UARTINIT?IR_REMOTE_CAR
-            CODE    0AD7H     000CH     UNIT         ?C_C51STARTUP
-            CODE    0AE3H     0008H     UNIT         ?PR?_UARTSEND?IR_REMOTE_CAR
-            CODE    0AEBH     0005H     UNIT         ?PR?LIMITSWITCH?IR_REMOTE_CAR
->>>>>>> parent of d4569ae... It is Lag And Wired
+            CODE    0800H     00FDH     UNIT         ?PR?SERVOMOTOR?IR_REMOTE_CAR
+            CODE    08FDH     00F4H     UNIT         ?C?LIB_CODE
+            CODE    09F1H     00A9H     UNIT         ?PR?IRRECEIVER?IR_REMOTE_CAR
+            CODE    0A9AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0B26H     0072H     UNIT         ?PR?SETUP?IR_REMOTE_CAR
+            CODE    0B98H     005EH     UNIT         ?PR?MAIN?IR_REMOTE_CAR
+            CODE    0BF6H     0044H     UNIT         ?C?LDIV
+            CODE    0C3AH     0021H     UNIT         ?PR?DELAY100MS?IR_REMOTE_CAR
+            CODE    0C5BH     0008H     UNIT         ?C_INITSEG
+            CODE    0C63H     0005H     UNIT         ?PR?LIMITSWITCH?IR_REMOTE_CAR
 
 
 
 OVERLAY MAP OF MODULE:   IR-Remote-Car (IR_REMOTE_CAR)
 
 
-<<<<<<< HEAD
-SEGMENT                                 DATA_GROUP 
-  +--> CALLED SEGMENT                 START    LENGTH
------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-?PR?LIMITSWITCH?IR_REMOTE_CAR         -----    -----
-  +--> ?PR?DELAY100MS?IR_REMOTE_CAR
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 2
-
-
-
-*** NEW ROOT ***************************************************
-
-<<<<<<< HEAD
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-?PR?IRRECEIVER?IR_REMOTE_CAR          000BH    0002H
-  +--> ?PR?_UARTSEND?IR_REMOTE_CAR
-
-*** NEW ROOT ***************************************************
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:28:47  PAGE 2
-
-
->>>>>>> parent of eb9d237... Debug IrData
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:28:47  PAGE 2
-
-
->>>>>>> parent of eb9d237... Debug IrData
-=======
-?PR?IRRECEIVER?IR_REMOTE_CAR          000BH    0002H
-  +--> ?PR?_UARTSEND?IR_REMOTE_CAR
-
-*** NEW ROOT ***************************************************
-
->>>>>>> parent of 13af063... IR_Receiver Final OK
-?C_C51STARTUP                         -----    -----
-=======
 SEGMENT
   +--> CALLED SEGMENT
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  10:44:16  PAGE 2
+
+
 ---------------------
 ?C_C51STARTUP
->>>>>>> parent of d4569ae... It is Lag And Wired
   +--> ?PR?MAIN?IR_REMOTE_CAR
   +--> ?C_INITSEG
 
-<<<<<<< HEAD
-?PR?MAIN?IR_REMOTE_CAR                -----    -----
-  +--> ?PR?SETUP?IR_REMOTE_CAR
-  +--> ?PR?UARTINIT?IR_REMOTE_CAR
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
 ?PR?MAIN?IR_REMOTE_CAR
   +--> ?PR?SETUP?IR_REMOTE_CAR
-  +--> ?PR?UARTINIT?IR_REMOTE_CAR
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:30:14  PAGE 2
-
-
->>>>>>> parent of d4569ae... It is Lag And Wired
 
 
 
@@ -208,624 +78,186 @@ SYMBOL TABLE OF MODULE:  IR-Remote-Car (IR_REMOTE_CAR)
   ----------------------------------
 
   -------         MODULE        IR_REMOTE_CAR
-<<<<<<< HEAD
-  B:00A8H.7       SYMBOL        EA
-  B:00A8H.1       SYMBOL        ET0
-  B:00A8H.0       SYMBOL        EX0
-  B:00A8H.2       SYMBOL        EX1
-  B:0080H.1       SYMBOL        IN1
-  B:0080H.2       SYMBOL        IN2
-  B:00B0H.3       SYMBOL        IR_RECEIVER
-  B:00B0H.2       SYMBOL        LIMITSWITCH
-  D:0080H         SYMBOL        P0
-  D:0090H         SYMBOL        P1
-  D:00B0H         SYMBOL        P3
-  B:00B8H.0       SYMBOL        PX0
-  B:00B8H.2       SYMBOL        PX1
-  B:0090H.3       SYMBOL        SERVOMOTOR1
-  C:0050H         SYMBOL        SETUP
-  D:0089H         SYMBOL        TMOD
-  B:0088H.4       SYMBOL        TR0
-  C:0000H         LINE#         7
-  C:0050H         LINE#         10
-  C:0052H         LINE#         11
-  C:0054H         LINE#         12
-  C:0056H         LINE#         13
-  C:0058H         LINE#         14
-  C:005AH         LINE#         15
-  C:005CH         LINE#         16
-  C:005EH         LINE#         17
-  C:0061H         LINE#         18
-  -------         ENDMOD        IR_REMOTE_CAR
-
-******************************************************************************
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  17:59:56  PAGE 2
-
-
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0015H BYTE ( 1%) *
-******************************************************************************
-
-Program Size: data=8.0 xdata=0 code=99
-=======
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-  C:0A8BH         PUBLIC        irReceiver
-  C:0AE1H         PUBLIC        limitSwitch
+  C:09F1H         PUBLIC        irReceiver
+  C:0C63H         PUBLIC        limitSwitch
   D:00B8H         PUBLIC        IP
-  B:0098H.1       PUBLIC        TI
   D:00D8H         PUBLIC        CCON
-  C:0B70H         PUBLIC        main
-  D:0099H         PUBLIC        SBUF
-  D:0087H         PUBLIC        PCON
-  C:0A2BH         PUBLIC        setup
+  C:0B98H         PUBLIC        main
+  C:0B26H         PUBLIC        setup
   D:0098H         PUBLIC        SCON
-  C:0B8EH         PUBLIC        UartInit
-<<<<<<< HEAD
-=======
-  C:099FH         PUBLIC        irReceiver
-  C:0B1BH         PUBLIC        limitSwitch
-  D:00B8H         PUBLIC        IP
-  B:0098H.1       PUBLIC        TI
-  D:00D8H         PUBLIC        CCON
-  C:0A46H         PUBLIC        main
-  D:0099H         PUBLIC        SBUF
-  D:0087H         PUBLIC        PCON
-  C:0ADBH         PUBLIC        setup
-  D:0098H         PUBLIC        SCON
-  C:0AF4H         PUBLIC        UartInit
-<<<<<<< HEAD
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-  C:099FH         PUBLIC        irReceiver
-  C:0AEBH         PUBLIC        limitSwitch
-  D:00B8H         PUBLIC        IP
-  B:0098H.1       PUBLIC        TI
-  D:00D8H         PUBLIC        CCON
-  C:0A16H         PUBLIC        main
-  D:0099H         PUBLIC        SBUF
-  D:0087H         PUBLIC        PCON
-  C:0AABH         PUBLIC        setup
-  D:0098H         PUBLIC        SCON
-  C:0AC4H         PUBLIC        UartInit
->>>>>>> parent of d4569ae... It is Lag And Wired
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  D:008EH         PUBLIC        AUXR
+  B:0020H.0       PUBLIC        IrFlag
   C:0800H         PUBLIC        servoMotor
   B:0080H.1       PUBLIC        IN1
   B:0080H.2       PUBLIC        IN2
   B:00A8H.1       PUBLIC        ET0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  C:0BB0H         PUBLIC        _uartSend
-=======
-  C:0B13H         PUBLIC        _uartSend
->>>>>>> parent of eb9d237... Debug IrData
-=======
-  C:0B13H         PUBLIC        _uartSend
->>>>>>> parent of eb9d237... Debug IrData
-=======
-  C:0BB0H         PUBLIC        _uartSend
->>>>>>> parent of 13af063... IR_Receiver Final OK
   D:008CH         PUBLIC        TH0
   B:00A8H.0       PUBLIC        EX0
-=======
-  C:0AE3H         PUBLIC        _uartSend
-  D:008CH         PUBLIC        TH0
-  B:00A8H.0       PUBLIC        EX0
-  B:0088H.2       PUBLIC        IT1
->>>>>>> parent of d4569ae... It is Lag And Wired
   B:00A8H.2       PUBLIC        EX1
   D:008AH         PUBLIC        TL0
   B:00B0H.3       PUBLIC        IR_RECEIVER
   B:0090H.3       PUBLIC        SERVOMOTOR1
   B:0088H.4       PUBLIC        TR0
   B:00B8H.0       PUBLIC        PX0
-<<<<<<< HEAD
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 3
-
-
-  D:0008H         PUBLIC        servoMotorHighTime
-  D:000AH         PUBLIC        IRdirection
-  C:0BA1H         PUBLIC        Delay100ms
-  D:009CH         PUBLIC        BRT
+  D:000FH         PUBLIC        servoMotorHighTime
+  D:0011H         PUBLIC        IRdirection
+  C:0C3AH         PUBLIC        Delay100ms
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-  C:0B70H         LINE#         48
-  C:0B70H         LINE#         49
-  C:0B73H         LINE#         50
-  C:0B76H         LINE#         51
-  C:0B76H         LINE#         52
-  C:0B81H         LINE#         53
-  C:0B8CH         LINE#         54
+  C:0B98H         LINE#         49
+  C:0B98H         LINE#         50
+  C:0B9BH         LINE#         52
+  C:0B9BH         LINE#         53
+  C:0B9FH         LINE#         54
+  C:0BC3H         LINE#         55
+  C:0BC3H         LINE#         56
+  C:0BC5H         LINE#         57
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  10:44:16  PAGE 3
+
+
+  C:0BC7H         LINE#         58
+  C:0BC9H         LINE#         59
+  C:0BC9H         LINE#         60
+  C:0BCBH         LINE#         61
+  C:0BCDH         LINE#         62
+  C:0BCFH         LINE#         63
+  C:0BCFH         LINE#         64
+  C:0BD5H         LINE#         65
+  C:0BD7H         LINE#         66
+  C:0BD7H         LINE#         67
+  C:0BD9H         LINE#         68
+  C:0BD9H         LINE#         69
+  C:0BDBH         LINE#         70
+  C:0BDBH         LINE#         71
+  C:0BE1H         LINE#         72
+  C:0BE3H         LINE#         73
+  C:0BE3H         LINE#         74
+  C:0BE5H         LINE#         75
+  C:0BE5H         LINE#         76
+  C:0BE7H         LINE#         77
+  C:0BE7H         LINE#         78
+  C:0BE9H         LINE#         79
+  C:0BEBH         LINE#         80
+  C:0BF1H         LINE#         81
+  C:0BF3H         LINE#         82
+  C:0BF3H         LINE#         83
+  C:0BF3H         LINE#         84
+  C:0BF5H         LINE#         85
   -------         ENDPROC       MAIN
   -------         PROC          SETUP
-  C:0A2BH         LINE#         56
-  C:0A2BH         LINE#         57
-  C:0A2DH         LINE#         58
-  C:0A2FH         LINE#         59
-  C:0A31H         LINE#         60
-  C:0A33H         LINE#         61
-  C:0A35H         LINE#         62
-  C:0A37H         LINE#         63
-  C:0A39H         LINE#         64
-  C:0A3CH         LINE#         65
-  C:0A62H         LINE#         66
-  C:0A86H         LINE#         67
-  C:0A88H         LINE#         68
-  C:0A8AH         LINE#         69
+  C:0B26H         LINE#         86
+  C:0B26H         LINE#         87
+  C:0B28H         LINE#         88
+  C:0B2AH         LINE#         89
+  C:0B2CH         LINE#         90
+  C:0B2EH         LINE#         91
+  C:0B30H         LINE#         92
+  C:0B32H         LINE#         93
+  C:0B34H         LINE#         94
+  C:0B37H         LINE#         95
+  C:0B69H         LINE#         96
+  C:0B93H         LINE#         97
+  C:0B95H         LINE#         98
+  C:0B97H         LINE#         99
   -------         ENDPROC       SETUP
   -------         PROC          SERVOMOTOR
-  C:0800H         LINE#         70
-  C:081DH         LINE#         71
-  C:081FH         LINE#         72
-  C:082AH         LINE#         73
-  C:0848H         LINE#         74
-  C:086CH         LINE#         75
-  C:086EH         LINE#         76
-  C:0870H         LINE#         77
-  C:0870H         LINE#         78
-  C:088EH         LINE#         79
-  C:08B2H         LINE#         80
-  C:08B4H         LINE#         81
-  C:08B4H         LINE#         82
-  C:08B6H         LINE#         83
+  C:0800H         LINE#         100
+  C:081DH         LINE#         101
+  C:081FH         LINE#         102
+  C:0822H         LINE#         103
+  C:0854H         LINE#         104
+  C:087EH         LINE#         105
+  C:0880H         LINE#         106
+  C:0882H         LINE#         107
+  C:0882H         LINE#         108
+  C:08B4H         LINE#         109
+  C:08DEH         LINE#         110
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  10:44:16  PAGE 4
+
+
+  C:08E0H         LINE#         111
+  C:08E0H         LINE#         112
+  C:08E2H         LINE#         113
   -------         ENDPROC       SERVOMOTOR
   -------         PROC          LIMITSWITCH
-  C:0AE1H         LINE#         84
-  C:0AFEH         LINE#         85
-  C:0B00H         LINE#         86
-  C:0B02H         LINE#         87
-  C:0B05H         LINE#         88
-  C:0B08H         LINE#         89
-  C:0B0BH         LINE#         90
-  C:0B0EH         LINE#         91
-  C:0B11H         LINE#         92
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of eb9d237... Debug IrData
-  C:0A46H         LINE#         47
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:28:47  PAGE 3
-
-
-  C:0A46H         LINE#         48
-  C:0A49H         LINE#         49
-  C:0A4CH         LINE#         50
-  C:0A4CH         LINE#         51
-  C:0A67H         LINE#         52
-  C:0A67H         LINE#         53
-  C:0A69H         LINE#         54
-  C:0A6BH         LINE#         55
-  C:0A6DH         LINE#         56
-  C:0A6DH         LINE#         57
-  C:0A6FH         LINE#         58
-  C:0A71H         LINE#         59
-  C:0A73H         LINE#         60
-  C:0A73H         LINE#         61
-  C:0A75H         LINE#         62
-  C:0A7BH         LINE#         63
-  C:0A7DH         LINE#         64
-  C:0A7DH         LINE#         65
-  C:0A7DH         LINE#         66
-  C:0A7DH         LINE#         67
-  C:0A7DH         LINE#         68
-  C:0A7DH         LINE#         69
-  C:0A7FH         LINE#         70
-  C:0A85H         LINE#         71
-  C:0A87H         LINE#         72
-  C:0A87H         LINE#         73
-  C:0A87H         LINE#         74
-  C:0A87H         LINE#         75
-  C:0A87H         LINE#         76
-  C:0A87H         LINE#         77
-  C:0A89H         LINE#         78
-  C:0A8FH         LINE#         79
-  C:0A91H         LINE#         80
-  C:0A93H         LINE#         81
-  C:0A93H         LINE#         82
-  C:0A93H         LINE#         83
-  C:0A95H         LINE#         84
-  -------         ENDPROC       MAIN
-  -------         PROC          SETUP
-  C:0ADBH         LINE#         86
-  C:0ADBH         LINE#         87
-  C:0ADDH         LINE#         88
-  C:0ADFH         LINE#         89
-  C:0AE1H         LINE#         90
-  C:0AE3H         LINE#         91
-  C:0AE5H         LINE#         92
-  C:0AE7H         LINE#         93
-  C:0AEAH         LINE#         94
-  C:0AECH         LINE#         95
-  C:0AEEH         LINE#         96
-  C:0AF1H         LINE#         97
-  C:0AF3H         LINE#         98
-=======
-  B:00B8H.2       PUBLIC        PX1
-  D:0008H         PUBLIC        servoMotorHighTime
-  D:00B7H         PUBLIC        IPH
-  D:000AH         PUBLIC        IRdirection
-  D:009CH         PUBLIC        BRT
-  D:00D0H         PUBLIC        PSW
-  -------         PROC          MAIN
-  C:0A16H         LINE#         47
-  C:0A16H         LINE#         48
-  C:0A19H         LINE#         49
-  C:0A1CH         LINE#         50
-  C:0A1CH         LINE#         51
-  C:0A37H         LINE#         52
-  C:0A37H         LINE#         53
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:30:14  PAGE 3
-
-
-  C:0A39H         LINE#         54
-  C:0A3BH         LINE#         55
-  C:0A3DH         LINE#         56
-  C:0A3DH         LINE#         57
-  C:0A3FH         LINE#         58
-  C:0A41H         LINE#         59
-  C:0A43H         LINE#         60
-  C:0A43H         LINE#         61
-  C:0A45H         LINE#         62
-  C:0A4BH         LINE#         63
-  C:0A4DH         LINE#         64
-  C:0A4DH         LINE#         65
-  C:0A4DH         LINE#         66
-  C:0A4DH         LINE#         67
-  C:0A4DH         LINE#         68
-  C:0A4DH         LINE#         69
-  C:0A4FH         LINE#         70
-  C:0A55H         LINE#         71
-  C:0A57H         LINE#         72
-  C:0A57H         LINE#         73
-  C:0A57H         LINE#         74
-  C:0A57H         LINE#         75
-  C:0A57H         LINE#         76
-  C:0A57H         LINE#         77
-  C:0A59H         LINE#         78
-  C:0A5FH         LINE#         79
-  C:0A61H         LINE#         80
-  C:0A63H         LINE#         81
-  C:0A63H         LINE#         82
-  C:0A63H         LINE#         83
-  C:0A65H         LINE#         84
-  -------         ENDPROC       MAIN
-  -------         PROC          SETUP
-  C:0AABH         LINE#         86
-  C:0AABH         LINE#         87
-  C:0AADH         LINE#         88
-  C:0AAFH         LINE#         89
-  C:0AB1H         LINE#         90
-  C:0AB3H         LINE#         91
-  C:0AB5H         LINE#         92
-  C:0AB7H         LINE#         93
-  C:0ABAH         LINE#         94
-  C:0ABCH         LINE#         95
-  C:0ABEH         LINE#         96
-  C:0AC1H         LINE#         97
-  C:0AC3H         LINE#         98
->>>>>>> parent of d4569ae... It is Lag And Wired
-  -------         ENDPROC       SETUP
-  -------         PROC          SERVOMOTOR
-  C:0800H         LINE#         99
-  C:081DH         LINE#         100
-  C:081FH         LINE#         101
-<<<<<<< HEAD
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:28:47  PAGE 4
-
-
-=======
->>>>>>> parent of d4569ae... It is Lag And Wired
-  C:082AH         LINE#         102
-  C:0848H         LINE#         103
-  C:086CH         LINE#         104
-  C:086EH         LINE#         105
-  C:0870H         LINE#         106
-  C:0870H         LINE#         107
-<<<<<<< HEAD
-=======
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:30:14  PAGE 4
-
-
->>>>>>> parent of d4569ae... It is Lag And Wired
-  C:088EH         LINE#         108
-  C:08B2H         LINE#         109
-  C:08B4H         LINE#         110
-  C:08B4H         LINE#         111
-  C:08B6H         LINE#         112
-  -------         ENDPROC       SERVOMOTOR
-  -------         PROC          LIMITSWITCH
-<<<<<<< HEAD
-  C:0B1BH         LINE#         113
-  C:0B1BH         LINE#         114
-  C:0B1DH         LINE#         115
-  C:0B1FH         LINE#         116
-<<<<<<< HEAD
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
+  C:0C63H         LINE#         114
+  C:0C63H         LINE#         115
+  C:0C65H         LINE#         116
+  C:0C67H         LINE#         117
   -------         ENDPROC       LIMITSWITCH
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 4
-
-
+  -------         PROC          IRRECEIVER
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:000AH         SYMBOL        counter
+  -------         ENDDO         
+  C:09F1H         LINE#         118
+  C:09FEH         LINE#         121
+  C:0A0BH         LINE#         122
+  C:0A16H         LINE#         123
+  C:0A21H         LINE#         124
+  C:0A27H         LINE#         125
+  C:0A34H         LINE#         126
+  C:0A3FH         LINE#         127
+  C:0A42H         LINE#         128
+  C:0A53H         LINE#         129
+  C:0A59H         LINE#         130
+  C:0A66H         LINE#         131
+  C:0A82H         LINE#         132
+  C:0A85H         LINE#         133
+  C:0A8FH         LINE#         134
+  C:0A8FH         LINE#         135
+  C:0A8FH         LINE#         136
+  -------         ENDPROC       IRRECEIVER
   -------         PROC          DELAY100MS
   -------         DO            
-  D:0007H         SYMBOL        i
-  D:0006H         SYMBOL        j
-  D:0005H         SYMBOL        k
+  D:000CH         SYMBOL        i
+  D:000DH         SYMBOL        j
+  D:000EH         SYMBOL        k
   -------         ENDDO         
-  C:0BA1H         LINE#         93
-  C:0BA1H         LINE#         94
-  C:0BA1H         LINE#         97
-  C:0BA2H         LINE#         98
-  C:0BA3H         LINE#         99
-  C:0BA5H         LINE#         100
-  C:0BA7H         LINE#         101
-  C:0BA9H         LINE#         103
-  C:0BA9H         LINE#         105
-  C:0BA9H         LINE#         106
-  C:0BABH         LINE#         107
-  C:0BADH         LINE#         108
-  C:0BAFH         LINE#         109
+  C:0C3AH         LINE#         137
+  C:0C3AH         LINE#         138
+  C:0C3AH         LINE#         141
+  C:0C3BH         LINE#         142
+  C:0C3CH         LINE#         143
+  C:0C3FH         LINE#         144
+  C:0C42H         LINE#         145
+  C:0C45H         LINE#         147
+  C:0C45H         LINE#         149
+  C:0C45H         LINE#         150
+  C:0C4CH         LINE#         151
+  C:0C53H         LINE#         152
+  C:0C5AH         LINE#         153
   -------         ENDPROC       DELAY100MS
-  -------         PROC          IRRECEIVER
-  -------         DO            
-  D:000BH         SYMBOL        counter
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  -------         ENDDO         
-  C:0A8BH         LINE#         110
-  C:0AA8H         LINE#         112
-  C:0AB5H         LINE#         113
-  C:0ABEH         LINE#         114
-  C:0AC1H         LINE#         115
-  C:0AC6H         LINE#         116
-  C:0AC6H         LINE#         147
-  -------         ENDPROC       IRRECEIVER
-  -------         PROC          UARTINIT
-  C:0B8EH         LINE#         148
-  C:0B8EH         LINE#         149
-  C:0B8EH         LINE#         150
-  C:0B91H         LINE#         151
-  C:0B94H         LINE#         152
-  C:0B97H         LINE#         153
-  C:0B9AH         LINE#         154
-  C:0B9DH         LINE#         155
-  C:0BA0H         LINE#         156
-  -------         ENDPROC       UARTINIT
-  -------         PROC          _UARTSEND
-  D:0007H         SYMBOL        number
-  C:0BB0H         LINE#         157
-  C:0BB0H         LINE#         158
-  C:0BB2H         LINE#         159
-  C:0BB5H         LINE#         160
-  C:0BB7H         LINE#         161
-=======
-=======
->>>>>>> parent of eb9d237... Debug IrData
-  D:0006H         SYMBOL        i
-  -------         ENDDO         
-  C:099FH         LINE#         117
-  C:09BCH         LINE#         120
-  C:09C9H         LINE#         121
-  C:09D4H         LINE#         122
-  C:09DAH         LINE#         123
-  C:09E7H         LINE#         124
-  C:09F2H         LINE#         125
-  C:09F4H         LINE#         126
-  C:09FAH         LINE#         127
-  C:0A07H         LINE#         128
-  C:0A1FH         LINE#         129
-  C:0A22H         LINE#         130
-  C:0A26H         LINE#         131
-  C:0A26H         LINE#         132
-  C:0A26H         LINE#         133
-  C:0A2BH         LINE#         134
-  -------         ENDPROC       IRRECEIVER
-  -------         PROC          UARTINIT
-  C:0AF4H         LINE#         135
-  C:0AF4H         LINE#         136
-  C:0AF4H         LINE#         137
-  C:0AF7H         LINE#         138
-  C:0AFAH         LINE#         139
-  C:0AFDH         LINE#         140
-  C:0B00H         LINE#         141
-  C:0B03H         LINE#         142
-  C:0B06H         LINE#         143
-  -------         ENDPROC       UARTINIT
-  -------         PROC          _UARTSEND
-  D:0007H         SYMBOL        number
-  C:0B13H         LINE#         144
-  C:0B13H         LINE#         145
-  C:0B15H         LINE#         146
-  C:0B18H         LINE#         147
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:28:47  PAGE 5
-
-
-  C:0B1AH         LINE#         148
-<<<<<<< HEAD
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
-  -------         ENDDO         
-  C:0A8BH         LINE#         110
-  C:0AA8H         LINE#         112
-  C:0AB5H         LINE#         113
-  C:0ABEH         LINE#         114
-  C:0AC1H         LINE#         115
-  C:0AC6H         LINE#         116
-  C:0AC6H         LINE#         147
-  -------         ENDPROC       IRRECEIVER
-  -------         PROC          UARTINIT
-  C:0B8EH         LINE#         148
-  C:0B8EH         LINE#         149
-  C:0B8EH         LINE#         150
-  C:0B91H         LINE#         151
-  C:0B94H         LINE#         152
-  C:0B97H         LINE#         153
-  C:0B9AH         LINE#         154
-  C:0B9DH         LINE#         155
-  C:0BA0H         LINE#         156
-  -------         ENDPROC       UARTINIT
-  -------         PROC          _UARTSEND
-  D:0007H         SYMBOL        number
-  C:0BB0H         LINE#         157
-  C:0BB0H         LINE#         158
-  C:0BB2H         LINE#         159
-  C:0BB5H         LINE#         160
-  C:0BB7H         LINE#         161
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-  C:0AEBH         LINE#         113
-  C:0AEBH         LINE#         114
-  C:0AEDH         LINE#         115
-  C:0AEFH         LINE#         116
-  -------         ENDPROC       LIMITSWITCH
-  -------         PROC          IRRECEIVER
-  -------         DO            
-  D:0004H         SYMBOL        counter
-  D:0006H         SYMBOL        i
-  -------         ENDDO         
-  C:099FH         LINE#         117
-  C:09B0H         LINE#         120
-  C:09BAH         LINE#         121
-  C:09C3H         LINE#         122
-  C:09C7H         LINE#         123
-  C:09D1H         LINE#         124
-  C:09DAH         LINE#         125
-  C:09DCH         LINE#         126
-  C:09E0H         LINE#         127
-  C:09EAH         LINE#         128
-  C:0A00H         LINE#         129
-  C:0A03H         LINE#         130
-  C:0A07H         LINE#         131
-  C:0A07H         LINE#         132
-  C:0A07H         LINE#         133
-  -------         ENDPROC       IRRECEIVER
-  -------         PROC          UARTINIT
-  C:0AC4H         LINE#         134
-  C:0AC4H         LINE#         135
-  C:0AC4H         LINE#         136
-  C:0AC7H         LINE#         137
-  C:0ACAH         LINE#         138
-  C:0ACDH         LINE#         139
-  C:0AD0H         LINE#         140
-  C:0AD3H         LINE#         141
-  C:0AD6H         LINE#         142
-  -------         ENDPROC       UARTINIT
-  -------         PROC          _UARTSEND
-  D:0007H         SYMBOL        number
-  C:0AE3H         LINE#         143
-  C:0AE3H         LINE#         144
-  C:0AE5H         LINE#         145
-  C:0AE8H         LINE#         146
-  C:0AEAH         LINE#         147
->>>>>>> parent of d4569ae... It is Lag And Wired
-  -------         ENDPROC       _UARTSEND
   -------         ENDMOD        IR_REMOTE_CAR
 
   -------         MODULE        ?C?SLDIV
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-  C:0B2CH         PUBLIC        ?C?SLDIV
-  -------         ENDMOD        ?C?SLDIV
-=======
-  C:0A67H         PUBLIC        ?C?SLDIV
-  -------         ENDMOD        ?C?SLDIV
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  16:30:14  PAGE 5
+  C:0BF6H         PUBLIC        ?C?SLDIV
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  10:44:16  PAGE 5
 
 
+  -------         ENDMOD        ?C?SLDIV
+
+  -------         MODULE        ?C?CCASE
+  C:08FDH         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
 
   -------         MODULE        ?C?ULDIV
-  C:090DH         PUBLIC        ?C?ULDIV
+  C:095FH         PUBLIC        ?C?ULDIV
   -------         ENDMOD        ?C?ULDIV
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_UARTSEND?IR_REMOTE_CAR
->>>>>>> parent of d4569ae... It is Lag And Wired
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  11:03:09  PAGE 5
-
-<<<<<<< HEAD
-=======
-  C:0A97H         PUBLIC        ?C?SLDIV
-  -------         ENDMOD        ?C?SLDIV
->>>>>>> parent of eb9d237... Debug IrData
-=======
-  C:0A97H         PUBLIC        ?C?SLDIV
-  -------         ENDMOD        ?C?SLDIV
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-
-  -------         MODULE        ?C?ULDIV
-  C:090DH         PUBLIC        ?C?ULDIV
-  -------         ENDMOD        ?C?ULDIV
+    SEGMENT: ?PR?DELAY100MS?IR_REMOTE_CAR
 
 ******************************************************************************
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0227H BYTE (26%) *
-******************************************************************************
-<<<<<<< HEAD
-
-Program Size: data=14.0 xdata=0 code=969
-<<<<<<< HEAD
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
->>>>>>> parent of 13af063... IR_Receiver Final OK
-=======
-=======
->>>>>>> parent of eb9d237... Debug IrData
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 020BH BYTE (25%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02ACH BYTE (33%) *
 ******************************************************************************
 
-Program Size: data=14.0 xdata=0 code=812
-<<<<<<< HEAD
->>>>>>> parent of eb9d237... Debug IrData
-=======
->>>>>>> parent of eb9d237... Debug IrData
-=======
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0227H BYTE (26%) *
-******************************************************************************
-
-Program Size: data=14.0 xdata=0 code=969
->>>>>>> parent of 13af063... IR_Receiver Final OK
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
-=======
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01DBH BYTE (23%) *
-******************************************************************************
-
-Program Size: data=12.0 xdata=0 code=764
+Program Size: data=19.1 xdata=0 code=1140
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
->>>>>>> parent of d4569ae... It is Lag And Wired

@@ -123,7 +123,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDP51</Key>
-          <Name>(98=984,352,1317,635,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=55,450,253,554,1)(99=-1,-1,-1,-1,0)(91=1113,499,1313,763,1)(92=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0)</Name>
+          <Name>(98=984,352,1317,635,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=1021,371,1219,475,1)(99=-1,-1,-1,-1,0)(91=1113,499,1313,763,1)(92=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
@@ -154,7 +154,7 @@
         <AscS3>0</AscS3>
         <aSer3>0</aSer3>
         <eProf>0</eProf>
-        <aLa>1</aLa>
+        <aLa>0</aLa>
         <aPa1>0</aPa1>
         <AscS4>0</AscS4>
         <aSer4>0</aSer4>
@@ -184,16 +184,16 @@
     <File>
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
-      <FileType>2</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>6</CurrentLine>
+      <TopLine>76</TopLine>
+      <CurrentLine>95</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\IR-Remote-Car.a51</PathWithFileName>
-      <FilenameWithoutPath>IR-Remote-Car.a51</FilenameWithoutPath>
+      <PathWithFileName>.\IR-Remote-Car.c</PathWithFileName>
+      <FilenameWithoutPath>IR-Remote-Car.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

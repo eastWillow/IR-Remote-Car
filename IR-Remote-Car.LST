@@ -1,48 +1,13 @@
-<<<<<<< HEAD
-A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 18:28:29 PAGE     1
-=======
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:30:14 PAGE 1   
->>>>>>> parent of d4569ae... It is Lag And Wired
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/16/2014 10:43:36 PAGE 1   
 
 
-MACRO ASSEMBLER A51 V8.02b
-NO OBJECT MODULE REQUESTED
-ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE IR-Remote-Car.a51 SET(SMALL) DEBUG EP
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_REMOTE_CAR
+OBJECT MODULE PLACED IN IR-Remote-Car.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE IR-Remote-Car.c OPTIMIZE(0,SPEED) BROWSE FLOATFUZZY(0) DEBUG OBJECTEXTEND T
+                    -ABS(2)
 
-LOC  OBJ            LINE     SOURCE
+line level    source
 
-<<<<<<< HEAD
-  0093                 1     SERVOMOTOR1 set P1.3
-  00B2                 2     LIMITSWITCH set P3.2 
-  00B3                 3     IR_RECEIVER set P3.3
-  0081                 4     IN1 set P0.1
-  0082                 5     IN2 set P0.2
-                       6     IRdirection DATA
-*** _________________________________________^
-*** ERROR #A15 IN 6 (IR-Remote-Car.a51, LINE 6): MISSING FACTOR
-0000                   7     org 0x00
-0000 804E              8     jmp 0x50
-0050                   9     org 0x50
-0050                  10     setup:
-0050 758180           11     mov sp,#0x80
-0053 D2AF             12     setb EA
-0055 D2A9             13     setb ET0
-0057 D2A8             14     setb EX0
-0059 D2AA             15     setb EX1
-005B D2B8             16     setb PX0
-005D D2BA             17     setb PX1
-005F C28C             18     clr TR0  
-0061 758901           19     mov TMOD,#0x01; ;0000 0001
-0064 C293             20     clr SERVOMOTOR1
-0066                  21     loop:
-                      22     
-                      23     end
-A51 MACRO ASSEMBLER  IR_REMOTE_CAR                                                        07/15/2014 18:28:29 PAGE     2
-
-SYMBOL TABLE LISTING
------- ----- -------
-
-=======
    1          /*
    2          TA7267
    3          IN1 IN2 OUT1 OUT2
@@ -84,51 +49,51 @@ SYMBOL TABLE LISTING
   39          sbit IR_RECEIVER=P3^3; // INT1
   40          sbit IN1=P0^1;
   41          sbit IN2=P0^2;
-  42          unsigned int servoMotorHighTime;
-  43          unsigned char IRdirection;
-  44          void setup();
-  45          void UartInit (void);
-  46          void uartSend (unsigned char number);
-  47          void main(){
-  48   1        setup();
-  49   1        UartInit();
-  50   1        while(1){
-  51   2          switch(IRdirection){
-  52   3            case 0x01:
-  53   3              IN1 = 1;
-  54   3              IN2 = 0;
-  55   3              break;
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:30:14 PAGE 2   
+  42          bit IrFlag;
+  43          volatile char data IRdirection=0x00;
+  44          volatile int data servoMotorHighTime = 1250;
+  45          void setup();
+  46          void Delay100ms();
+  47          //void UartInit (void);
+  48          //void uartSend (unsigned char number);
+  49          void main(){
+  50   1        setup();
+  51   1        //UartInit();
+  52   1        while(1){
+  53   2          if(IRdirection != 0){
+  54   3            switch(IRdirection){
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/16/2014 10:43:36 PAGE 2   
 
-  56   3            case 0x02:
-  57   3              IN1 = 0;
-  58   3              IN2 = 1;
-  59   3              break;
-  60   3            case 0x04:
-  61   3              TR0 = 0;
-  62   3              servoMotorHighTime = 1000;
-  63   3              break;
-  64   3            case 0x05:
-  65   3              break;
-  66   3            case 0x06:
-  67   3              break;
-  68   3            case 0x08:
-  69   3              TR0 = 0;
-  70   3              servoMotorHighTime = 1500;
-  71   3              break;
-  72   3            case 0x09:
-  73   3              break;
-  74   3            case 0x0A:
-  75   3              break;
-  76   3            default:
-  77   3              TR0 = 0;
-  78   3              servoMotorHighTime = 1250;
-  79   3              IN1 = 0;
-  80   3              IN2 = 0;
-  81   3              break;
-  82   3          }
-  83   2          TR0 = 1;
-  84   2          }
+  55   4            case 0x01:
+  56   4              IN1 = 1;
+  57   4              IN2 = 0;
+  58   4              break;
+  59   4            case 0x02:
+  60   4              IN2 = 1;
+  61   4              IN1 = 0;
+  62   4              break;
+  63   4            case 0x04:
+  64   4              servoMotorHighTime = 1050;
+  65   4              break;
+  66   4            case 0x05:
+  67   4              break;
+  68   4            case 0x06:
+  69   4              break;
+  70   4            case 0x08:
+  71   4              servoMotorHighTime = 1400;
+  72   4              break;
+  73   4            case 0x09:
+  74   4              break;
+  75   4            case 0x0A:
+  76   4              break;
+  77   4            case 0x03:
+  78   4              IN1 = 1;
+  79   4              IN2 = 1;
+  80   4              servoMotorHighTime = 1250;
+  81   4            break;
+  82   4          }
+  83   3          }
+  84   2        }
   85   1      }
   86          void setup(){
   87   1        EA = 1;
@@ -136,103 +101,98 @@ SYMBOL TABLE LISTING
   89   1        EX0 = 1;
   90   1        EX1 = 1;
   91   1        PX0 = 1;
-  92   1        PX1 = 1;
-  93   1        IPH = 0x30;
-  94   1        IT1 = 1;
-  95   1        TR0 = 0; //reset Timer0 Switch
-  96   1        TMOD = 0x01; //0010 0010
+  92   1        TR0 = 0; //reset Timer0 Switch
+  93   1        TR0 = 0; //reset Timer1 Switch
+  94   1        TMOD = 0x11; //0010 0010
+  95   1        TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+  96   1        TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
   97   1        SERVOMOTOR1 = 0;
-  98   1      }
-  99          void servoMotor ()interrupt 1 {
- 100   1        TR0 = 0;
- 101   1        if(SERVOMOTOR1){
- 102   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
- 103   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
- 104   2          SERVOMOTOR1 = 0;
- 105   2        }
- 106   1        else{
- 107   2          TL0 = (FULL - servoMotorHighTime) %256;
- 108   2          TH0 = (FULL - servoMotorHighTime) / 256;
- 109   2          SERVOMOTOR1 = 1;
- 110   2        }
- 111   1        TR0 = 1;
- 112   1      }
- 113          void limitSwitch ()interrupt 0{
- 114   1        IN1 =0;
- 115   1        IN2 =1;
- 116   1      }
- 117          void irReceiver()interrupt 2{
-C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/15/2014 16:30:14 PAGE 3   
+  98   1        TR0 = 1;
+  99   1      }
+ 100          void servoMotor ()interrupt 1 {
+ 101   1        TR0 = 0;
+ 102   1        if(SERVOMOTOR1){
+ 103   2          TL0 = (FULL - ALL_WIDTH - servoMotorHighTime) %256;
+ 104   2          TH0 = (FULL - ALL_WIDTH - servoMotorHighTime) / 256;
+ 105   2          SERVOMOTOR1 = 0;
+ 106   2        }
+ 107   1        else{
+ 108   2          TL0 = (FULL - servoMotorHighTime) %256;
+ 109   2          TH0 = (FULL - servoMotorHighTime) / 256;
+ 110   2          SERVOMOTOR1 = 1;
+ 111   2        }
+ 112   1        TR0 = 1;
+ 113   1      }
+ 114          void limitSwitch () interrupt 0{
+ 115   1        IN1 =1;
+ 116   1        IN2 =1;
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/16/2014 10:43:36 PAGE 3   
 
- 118   1        unsigned int counter;
- 119   1        unsigned char i;
- 120   1        while(IR_RECEIVER == 0) counter++;
- 121   1        if(counter >=15656){
- 122   2          counter =0;
- 123   2          while(IR_RECEIVER == 1)counter++;
- 124   2          if(counter >= 3000){
- 125   3            for(i=0;i<8;i++){
- 126   4              counter = 0;
- 127   4              while(IR_RECEIVER == 0)counter++;
- 128   4              if(counter >1844) IRdirection = IRdirection | _crol_(0x01,i);
- 129   4              while(IR_RECEIVER == 1);
- 130   4            }
- 131   3          }
- 132   2        }
- 133   1      }
- 134          void UartInit(void)   //9600bps@12.000MHz
- 135          {
- 136   1        PCON &= 0x7F;   //Baudrate no doubled
- 137   1        SCON = 0x50;    //8bit and variable baudrate
- 138   1        AUXR |= 0x04;   //BRT's clock is Fosc (1T)
- 139   1        BRT = 0xD9;   //Set BRT's reload value
- 140   1        AUXR |= 0x01;   //Use BRT as baudrate generator
- 141   1        AUXR |= 0x10;   //BRT running
- 142   1      }
- 143          void uartSend (unsigned char number){
- 144   1          SBUF = number;
- 145   1          while(!TI);
- 146   1          TI=0;
- 147   1      }
->>>>>>> parent of d4569ae... It is Lag And Wired
+ 117   1      }
+ 118          void irReceiver()interrupt 2{
+ 119   1        unsigned int i;
+ 120   1        unsigned int counter;
+ 121   1        while(IR_RECEIVER == 0) counter++;
+ 122   1        if(counter <15656) return;
+ 123   1        if(counter >=15656){
+ 124   2          counter =0;
+ 125   2          while(IR_RECEIVER == 1)counter++;
+ 126   2          if(counter >= 3000){
+ 127   3            IRdirection = 0;
+ 128   3            for(i=0;i<8;i++){
+ 129   4              counter = 0;
+ 130   4              while(IR_RECEIVER == 0)counter++;
+ 131   4              if(counter >1000) IRdirection = IRdirection | _crol_(0x01,i);
+ 132   4              while(IR_RECEIVER == 1);
+ 133   4            }
+ 134   3          }
+ 135   2        }
+ 136   1      }
+ 137          void Delay100ms()   //@12.000MHz
+ 138          {
+ 139   1        unsigned char i, j, k;
+ 140   1      
+ 141   1        _nop_();
+ 142   1        _nop_();
+ 143   1        i = 5;
+ 144   1        j = 144;
+ 145   1        k = 71;
+ 146   1        do
+ 147   1        {
+ 148   2          do
+ 149   2          {
+ 150   3            while (--k);
+ 151   3          } while (--j);
+ 152   2        } while (--i);
+ 153   1      }
+ 154          
+ 155          /*void UartInit(void)   //9600bps@12.000MHz
+ 156          {
+ 157            PCON &= 0x7F;   //Baudrate no doubled
+ 158            SCON = 0x50;    //8bit and variable baudrate
+ 159            AUXR |= 0x04;   //BRT's clock is Fosc (1T)
+ 160            BRT = 0xD9;   //Set BRT's reload value
+ 161            AUXR |= 0x01;   //Use BRT as baudrate generator
+ 162            AUXR |= 0x10;   //BRT running
+ 163          }
+ 164          void uartSend (unsigned char number){
+ 165              SBUF = number;
+ 166              while(!TI);
+ 167              TI=0;
+ 168          }*/
 
-N A M E             T Y P E  V A L U E   ATTRIBUTES
 
-<<<<<<< HEAD
-EA . . . . . . . .  B ADDR   00A8H.7 A   
-ET0. . . . . . . .  B ADDR   00A8H.1 A   
-EX0. . . . . . . .  B ADDR   00A8H.0 A   
-EX1. . . . . . . .  B ADDR   00A8H.2 A   
-IN1. . . . . . . .  B ADDR   0080H.1 A   
-IN2. . . . . . . .  B ADDR   0080H.2 A   
-IRDIRECTION. . . .    ----   -----       
-IR_RECEIVER. . . .  B ADDR   00B0H.3 A   
-LIMITSWITCH. . . .  B ADDR   00B0H.2 A   
-LOOP . . . . . . .  C ADDR   0066H   A   
-P0 . . . . . . . .  D ADDR   0080H   A   
-P1 . . . . . . . .  D ADDR   0090H   A   
-P3 . . . . . . . .  D ADDR   00B0H   A   
-PX0. . . . . . . .  B ADDR   00B8H.0 A   
-PX1. . . . . . . .  B ADDR   00B8H.2 A   
-SERVOMOTOR1. . . .  B ADDR   0090H.3 A   
-SETUP. . . . . . .  C ADDR   0050H   A   
-SP . . . . . . . .  D ADDR   0081H   A   
-TMOD . . . . . . .  D ADDR   0089H   A   
-TR0. . . . . . . .  B ADDR   0088H.4 A   
-=======
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    466    ----
+   CODE SIZE        =    668    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      3    ----
+   DATA SIZE        =     10    ----
    IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
+   BIT SIZE         =      1    ----
+C51 COMPILER V9.52.0.0   IR_REMOTE_CAR                                                     07/16/2014 10:43:36 PAGE 4   
+
 END OF MODULE INFORMATION.
->>>>>>> parent of d4569ae... It is Lag And Wired
 
 
-REGISTER BANK(S) USED: 0 
-
-
-ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
