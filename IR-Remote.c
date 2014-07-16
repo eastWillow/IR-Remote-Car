@@ -46,24 +46,24 @@ void main(){
 	if(UP == 0){
 		direction = 0x01;
 	}
-	delay(1000);
+	delay(10000);
 	if(DOWN == 0){
 		direction = direction | 0x02;
 	}
-	delay(1000);
+	delay(10000);
 	if(LEFT == 0){
 		direction = direction | 0x04;
 	}
-	delay(1000);
+	delay(10000);
 	if(RIGHT == 0){
 		direction = direction | 0x08;
 	}
-	delay(1000);
+	delay(10000);
 	if(!UP || !DOWN || !LEFT || !RIGHT){
 		IR_TR(direction);
 		direction = 0;
 		}
-		delay(1000);
+		delay(10000);
 	}
 }
 void IR_TR(unsigned char direction){

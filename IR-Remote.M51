@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/15/2014  13:31:30  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/16/2014  11:13:59  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -34,12 +34,12 @@ LINK MAP OF MODULE:  IR-Remote (IR_REMOTE)
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
             CODE    0800H     00CEH     UNIT         ?C?LIB_CODE
-            CODE    08CEH     006DH     UNIT         ?PR?_IR_TR?IR_REMOTE
-            CODE    093BH     005AH     UNIT         ?PR?_DELAY?IR_REMOTE
-            CODE    0995H     0044H     UNIT         ?C?LDIV
-            CODE    09D9H     003EH     UNIT         ?PR?MAIN?IR_REMOTE
-            CODE    0A17H     0019H     UNIT         ?PR?STEUP?IR_REMOTE
-            CODE    0A30H     000CH     UNIT         ?C_C51STARTUP
+            CODE    08CEH     0079H     UNIT         ?PR?_IR_TR?IR_REMOTE
+            CODE    0947H     0058H     UNIT         ?PR?_DELAY?IR_REMOTE
+            CODE    099FH     0046H     UNIT         ?PR?MAIN?IR_REMOTE
+            CODE    09E5H     0044H     UNIT         ?C?LDIV
+            CODE    0A29H     0019H     UNIT         ?PR?STEUP?IR_REMOTE
+            CODE    0A42H     000CH     UNIT         ?C_C51STARTUP
 
 
 
@@ -54,16 +54,16 @@ SEGMENT                           BIT_GROUP          DATA_GROUP
 
 ?PR?MAIN?IR_REMOTE             -----    -----      0008H    0001H
   +--> ?PR?STEUP?IR_REMOTE
-  +--> ?PR?_IR_TR?IR_REMOTE
   +--> ?PR?_DELAY?IR_REMOTE
+  +--> ?PR?_IR_TR?IR_REMOTE
+
+?PR?_DELAY?IR_REMOTE           -----    -----      000BH    0002H
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  11:13:59  PAGE 2
+
 
 ?PR?_IR_TR?IR_REMOTE           0020H.0  0000H.1    0009H    0002H
   +--> ?PR?_DELAY?IR_REMOTE
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  13:31:30  PAGE 2
-
-
-
-?PR?_DELAY?IR_REMOTE           -----    -----      000BH    0002H
 
 
 
@@ -80,7 +80,7 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
   D:00FAH         PUBLIC        CCAP0H
-  C:0941H         PUBLIC        _delay
+  C:094BH         PUBLIC        _delay
   D:00EAH         PUBLIC        CCAP0L
   B:00D8H.6       PUBLIC        CR
   D:00DAH         PUBLIC        CCAPM0
@@ -89,9 +89,9 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   D:00D9H         PUBLIC        CMOD
   D:00D8H         PUBLIC        CCON
   B:0090H.2       PUBLIC        UP
-  C:09D9H         PUBLIC        main
+  C:099FH         PUBLIC        main
   B:0080H.6       PUBLIC        LEFT
-  C:0A17H         PUBLIC        steup
+  C:0A29H         PUBLIC        steup
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
@@ -103,49 +103,53 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   D:000DH         PUBLIC        lastDirection
   D:00D0H         PUBLIC        PSW
   -------         PROC          STEUP
-  C:0A17H         LINE#         18
-  C:0A17H         LINE#         19
-  C:0A1AH         LINE#         20
-  C:0A1CH         LINE#         21
-  C:0A1FH         LINE#         22
-  C:0A21H         LINE#         23
-  C:0A24H         LINE#         24
-  C:0A27H         LINE#         25
-  C:0A29H         LINE#         26
-  C:0A2BH         LINE#         27
-  C:0A2DH         LINE#         28
-  C:0A2FH         LINE#         29
+  C:0A29H         LINE#         18
+  C:0A29H         LINE#         19
+  C:0A2CH         LINE#         20
+  C:0A2EH         LINE#         21
+  C:0A31H         LINE#         22
+  C:0A33H         LINE#         23
+  C:0A36H         LINE#         24
+  C:0A39H         LINE#         25
+  C:0A3BH         LINE#         26
+  C:0A3DH         LINE#         27
+  C:0A3FH         LINE#         28
+  C:0A41H         LINE#         29
   -------         ENDPROC       STEUP
   -------         PROC          MAIN
   -------         DO            
   D:0008H         SYMBOL        direction
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  13:31:30  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  11:13:59  PAGE 3
 
 
   -------         ENDDO         
-  C:09D9H         LINE#         30
-  C:09D9H         LINE#         31
-  C:09DCH         LINE#         32
-  C:09DFH         LINE#         33
-  C:09DFH         LINE#         45
-  C:09E2H         LINE#         46
-  C:09E5H         LINE#         47
-  C:09E8H         LINE#         48
-  C:09E8H         LINE#         49
-  C:09EBH         LINE#         50
-  C:09EEH         LINE#         51
-  C:09EEH         LINE#         52
-  C:09F1H         LINE#         53
-  C:09F4H         LINE#         54
-  C:09F4H         LINE#         55
-  C:09F7H         LINE#         56
-  C:09FAH         LINE#         57
-  C:09FAH         LINE#         58
-  C:0A06H         LINE#         59
-  C:0A0BH         LINE#         60
-  C:0A0EH         LINE#         61
-  C:0A0EH         LINE#         62
-  C:0A15H         LINE#         63
+  C:099FH         LINE#         30
+  C:099FH         LINE#         31
+  C:09A2H         LINE#         32
+  C:09A5H         LINE#         33
+  C:09A5H         LINE#         45
+  C:09A8H         LINE#         46
+  C:09ABH         LINE#         47
+  C:09AEH         LINE#         48
+  C:09AEH         LINE#         49
+  C:09B1H         LINE#         50
+  C:09B4H         LINE#         51
+  C:09B7H         LINE#         52
+  C:09B7H         LINE#         53
+  C:09BAH         LINE#         54
+  C:09BDH         LINE#         55
+  C:09C0H         LINE#         56
+  C:09C0H         LINE#         57
+  C:09C3H         LINE#         58
+  C:09C6H         LINE#         59
+  C:09C9H         LINE#         60
+  C:09C9H         LINE#         61
+  C:09CCH         LINE#         62
+  C:09D8H         LINE#         63
+  C:09DDH         LINE#         64
+  C:09E0H         LINE#         65
+  C:09E0H         LINE#         66
+  C:09E3H         LINE#         67
   -------         ENDPROC       MAIN
   -------         PROC          _IR_TR
   D:0009H         SYMBOL        direction
@@ -153,57 +157,59 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   D:000AH         SYMBOL        i
   B:0020H.0       SYMBOL        j
   -------         ENDDO         
-  C:08CEH         LINE#         65
-  C:08D0H         LINE#         66
-  C:08D3H         LINE#         68
-  C:08D6H         LINE#         69
-  C:08D9H         LINE#         70
-  C:08DBH         LINE#         71
-  C:08E2H         LINE#         72
-  C:08E4H         LINE#         73
-  C:08EBH         LINE#         74
-  C:08EEH         LINE#         75
-  C:08FCH         LINE#         76
-  C:08FFH         LINE#         77
-  C:0901H         LINE#         78
-  C:0908H         LINE#         79
-  C:0908H         LINE#         80
-  C:090BH         LINE#         81
-  C:090BH         LINE#         82
-  C:090EH         LINE#         83
-  C:0910H         LINE#         84
-  C:0917H         LINE#         85
-  C:0917H         LINE#         86
-  C:091AH         LINE#         87
-  C:091AH         LINE#         88
-  C:0923H         LINE#         89
-  C:0925H         LINE#         90
-  C:092CH         LINE#         91
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/15/2014  13:31:30  PAGE 4
+  C:08CEH         LINE#         69
+  C:08D0H         LINE#         70
+  C:08D3H         LINE#         72
+  C:08D6H         LINE#         73
+  C:08D9H         LINE#         74
+  C:08DBH         LINE#         75
+  C:08E2H         LINE#         76
+  C:08E4H         LINE#         77
+  C:08EBH         LINE#         78
+  C:08EEH         LINE#         79
+  C:08FCH         LINE#         80
+  C:08FFH         LINE#         81
+  C:0901H         LINE#         82
+  C:0908H         LINE#         83
+  C:090AH         LINE#         84
+  C:0911H         LINE#         85
+  C:0911H         LINE#         86
+  C:0914H         LINE#         87
+  C:0916H         LINE#         88
+  C:091DH         LINE#         89
+  C:091FH         LINE#         90
+  C:0926H         LINE#         91
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/16/2014  11:13:59  PAGE 4
 
 
-  C:092EH         LINE#         92
-  C:0935H         LINE#         93
-  C:0938H         LINE#         94
-  C:093AH         LINE#         95
+  C:0926H         LINE#         92
+  C:092FH         LINE#         93
+  C:0931H         LINE#         94
+  C:0938H         LINE#         95
+  C:093AH         LINE#         96
+  C:0941H         LINE#         97
+  C:0944H         LINE#         98
+  C:0946H         LINE#         99
   -------         ENDPROC       _IR_TR
+  C:0947H         SYMBOL        L?0023
   -------         PROC          L?0022
   -------         ENDPROC       L?0022
+  C:0947H         SYMBOL        L?0023
   -------         PROC          _DELAY
   D:000BH         SYMBOL        time
-  C:0941H         LINE#         96
-  C:0945H         LINE#         97
-  C:0967H         LINE#         98
-  C:098BH         LINE#         99
-  C:098DH         LINE#         100
-  C:0990H         LINE#         101
-  C:0992H         LINE#         102
-  C:0994H         LINE#         103
+  C:094BH         LINE#         100
+  C:094FH         LINE#         101
+  C:0971H         LINE#         102
+  C:0995H         LINE#         103
+  C:0997H         LINE#         104
+  C:099AH         LINE#         105
+  C:099CH         LINE#         106
+  C:099EH         LINE#         107
   -------         ENDPROC       _DELAY
   -------         ENDMOD        IR_REMOTE
 
   -------         MODULE        ?C?SLDIV
-  C:0995H         PUBLIC        ?C?SLDIV
+  C:09E5H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
   -------         MODULE        ?C?ULDIV
@@ -211,8 +217,8 @@ SYMBOL TABLE OF MODULE:  IR-Remote (IR_REMOTE)
   -------         ENDMOD        ?C?ULDIV
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 011EH BYTE (13%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0130H BYTE (14%) *
 ******************************************************************************
 
-Program Size: data=15.1 xdata=0 code=575
+Program Size: data=15.1 xdata=0 code=593
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
