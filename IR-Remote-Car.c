@@ -37,55 +37,54 @@ Wiring
 sbit SERVOMOTOR1=P1^3; //PWM I/O
 sbit LIMITSWITCH=P3^2; // INT0
 sbit IR_RECEIVER=P3^3; // INT1
-sbit IN1=P0^1;
-sbit IN2=P0^2;
+sbit IN1=P1^1;
+sbit IN2=P1^2;
 bit IrFlag;
 unsigned char data IRdirection=0x00;
 unsigned int data servoMotorHighTime = 1250;//volatile 
+unsigned char data lastDirection = 0x00;
 void setup();
-void UartInit (void);
-void uartSend (unsigned char number);
 void main(){
 	setup();
-	UartInit();
+	IN2 = 1;
+	IN1 = 1;
 	while(1){
-			uartSend(IRdirection);
 			switch(IRdirection){
 			case 0x01:
-				IN1 = 1;
-				IN2 = 0;
 				servoMotorHighTime = 1250;
+					IN1 = 0;
+					IN2 = 1;
 				break;
 			case 0x02:
-				IN1 = 0;
-				IN2 = 1;
 				servoMotorHighTime = 1250;
+					IN1 = 1;
+					IN2 = 0;
 				break;
 			case 0x04:
-				servoMotorHighTime = 1050;
+				servoMotorHighTime = 1600;
 				break;
 			case 0x05:
-				IN1 = 1;
-				IN2 = 0;
-				servoMotorHighTime = 1050;
+				IN1 = 0;
+				IN2 = 1;
+				servoMotorHighTime = 1600;
 				break;
 			case 0x06:
-				IN1 = 0;
-				IN2 = 1;
-				servoMotorHighTime = 1050;
-				break;
-			case 0x08:
-				servoMotorHighTime = 1400;
-				break;
-			case 0x09:
 				IN1 = 1;
 				IN2 = 0;
-				servoMotorHighTime = 1400;
+				servoMotorHighTime = 1600;
 				break;
-			case 0x0A:
+			case 0x08:
+				servoMotorHighTime = 850;
+				break;
+			case 0x09:
 				IN1 = 0;
 				IN2 = 1;
-				servoMotorHighTime = 1400;
+				servoMotorHighTime = 850;
+				break;
+			case 0x0A:
+				IN1 = 1;
+				IN2 = 0;
+				servoMotorHighTime = 850;
 				break;
 			case 0x00:
 			case 0x03:
@@ -145,18 +144,4 @@ void irReceiver()interrupt 2{
 			}
 		}
 	}
-}
-void UartInit(void)		//9600bps@12.000MHz
-{
-	PCON &= 0x7F;		//Baudrate no doubled
-	SCON = 0x50;		//8bit and variable baudrate
-	AUXR |= 0x04;		//BRT's clock is Fosc (1T)
-	BRT = 0xD9;		//Set BRT's reload value
-	AUXR |= 0x01;		//Use BRT as baudrate generator
-	AUXR |= 0x10;		//BRT running
-}
-void uartSend (unsigned char number){
-		SBUF = number;
-		while(!TI);
-		TI=0;
 }
